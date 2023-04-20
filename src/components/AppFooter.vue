@@ -17,7 +17,6 @@ export default {
 </script>
 
 <template>
-
   <footer>
     <div class="container d-flex justify-content-between border py-2">
       <div class="content-dx row">
@@ -48,12 +47,17 @@ export default {
             </li>
             <li>
               <a href="">
+                Felo
+              </a>
+            </li>
+            <li>
+              <a href="">
                 Ludovico Longhini
               </a>
             </li>
           </ul>
         </div>
-        
+
       </div>
 
       <div class="content-sx">
@@ -75,15 +79,14 @@ export default {
       </div>
     </div>
   </footer>
-  
 </template>
 
 <style lang="scss" scoped>
-li{
+li {
   list-style: none;
   margin-right: 10px;
 
-  a{
+  a {
     color: rgb(26, 26, 26);
     text-decoration: none;
   }
