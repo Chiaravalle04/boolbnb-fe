@@ -16,20 +16,28 @@ export default {
     },
 
     methods: {
-        getApartment() {
-            axios.get(http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}
-            )
-                .then(response => {
-                    if (response.data.success) {
-                        this.apartment = response.data.apartments;
 
-                        console.log(this.apartment);
-                    } else {
-                        this.$router.push({ name: 'error' });
-                    }
-                })
+        getApartment() {
+            axios
+            .get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
+            .then(response => {
+                if (response.data.success) {
+                    // this.project = response.data.projects;
+                    console.log(response);
+                } else {
+                    this.$router.push({ name: 'error' });
+                }
+                
+            })
         },
+
     },
+
+    created() {
+
+        this.getApartment();
+
+    }
   }
   </script>
   
