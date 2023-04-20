@@ -51,7 +51,7 @@ export default {
       <div class="content-sx">
         <ul class="d-flex p-0 m-0">
           <li>
-            &ClockwiseContourIntegral;Italiano (IT)
+            <i class="fa-solid fa-globe"></i> Italiano (IT)
           </li>
           <li>
             <a href="">
@@ -60,7 +60,7 @@ export default {
           </li>
           <li>
             <a href="">
-              Supporto e risorse &UpArrow;
+              Supporto e risorse <i class="fa-solid fa-angle-up"></i>
             </a>
           </li>
         </ul>
@@ -76,7 +76,7 @@ li{
   margin-right: 10px;
 
   a{
-    color: black;
+    color: rgb(26, 26, 26);
     text-decoration: none;
   }
 }
