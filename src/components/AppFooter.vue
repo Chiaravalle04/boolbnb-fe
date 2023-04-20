@@ -1,68 +1,67 @@
 <script>
 export default {
-  name: "AppFooter",
+    name: "AppFooter",
 
-  components: {
+    components: {
 
-  },
+    },
 
-  data() {
+    data() {
 
-    return {
+        return {
 
-    }
+        }
 
-  },
+    },
 };
 </script>
 
 <template>
 
   <footer class="border">
-    <div class="container-fluid d-flex justify-content-between py-2">
-      
-      <!-- contenuto sinistra -->
-      <div class="content-dx row">
-        <div class="col">
-          <ul class="d-flex p-0 m-0">
-            <li>
-              &copy; 2023 Boolbnb, inc.
-            </li>
-            <li>
-                Federico fùa
-            </li>
-            <li>
-                Francesco Benbevuti
-            </li>
-            <li>
-                Nicholahs Chiavalevalle
-            </li>
-            <li>
-                stephanya Avena
-            </li>
-            <li>
-                Ludovico peliunpoLonghini
-            </li>
-          </ul>
-        </div>
+      <div class="container-fluid d-flex justify-content-between py-2">
+        
+        <!-- contenuto sinistra -->
+          <div class="content-dx row">
+              <div class="col">
+                  <ul class="d-flex p-0 m-0">
+                      <li>
+                        &copy; 2023 Boolbnb, inc.
+                      </li>
+                      <li>
+                          Federico fùa
+                      </li>
+                      <li>
+                          Francesco Benbevuti
+                      </li>
+                      <li>
+                          Nicholahs Chiavalevalle
+                      </li>
+                      <li>
+                          stephanya Avena
+                      </li>
+                      <li>
+                          Ludovico peliunpoLonghini
+                      </li>
+                  </ul>
+              </div>
+          </div>
 
+          <!-- contenuto destra -->
+          <div class="content-sx">
+              <ul class="d-flex p-0 m-0">
+                  <li>
+                      <i class="fa-solid fa-globe"></i> Italiano (IT)
+                  </li>
+                  <li>
+                        &euro; EUR
+                  </li>
+                  <li>
+                        Supporto e risorse <i class="fa-solid fa-angle-up"></i>
+                  </li>
+              </ul>
+          </div>
       </div>
-
-      <!-- contenuto destra -->
-      <div class="content-sx">
-        <ul class="d-flex p-0 m-0">
-          <li>
-            <i class="fa-solid fa-globe"></i> Italiano (IT)
-          </li>
-          <li>
-              &euro; EUR
-          </li>
-          <li>
-              Supporto e risorse <i class="fa-solid fa-angle-up"></i>
-          </li>
-        </ul>
-      </div>
-    </div>
   </footer>
 </template>
 
