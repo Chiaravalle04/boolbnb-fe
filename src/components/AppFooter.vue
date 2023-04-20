@@ -19,7 +19,9 @@ export default {
 <template>
 
   <footer class="border">
-    <div class="container d-flex justify-content-between py-2">
+    <div class="container-fluid d-flex justify-content-between py-2">
+      
+      <!-- contenuto sinistra -->
       <div class="content-dx row">
         <div class="col">
           <ul class="d-flex p-0 m-0">
@@ -46,6 +48,7 @@ export default {
 
       </div>
 
+      <!-- contenuto destra -->
       <div class="content-sx">
         <ul class="d-flex p-0 m-0">
           <li>
