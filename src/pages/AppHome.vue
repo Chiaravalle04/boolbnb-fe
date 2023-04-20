@@ -10,7 +10,7 @@ export default {
 
     created() {
         axios 
-            .get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+            .get('http://127.0.0.1:8000/api/apartments')
             .then((response) => {
                 // this.store.results = response.data.data.slice(0, 100);
                 console.log(response)
