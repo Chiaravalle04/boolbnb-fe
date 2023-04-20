@@ -19,33 +19,41 @@ export default {
 <template>
 
   <footer>
-    <div class="container-fluid d-flex justify-content-between border py-2">
-      <div class="content-dx">
-        <ul class="d-flex p-0 m-0">
-          <li>
-            &copy; 2023 Boolbnb, inc.
-          </li>
-          <li>
-            <a href="">
-              Federico Fois
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Francesco Benvenuti
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Nicolas Chiaravalle
-            </a>
-          </li>
-          <li>
-            <a href="">
-              Fabiana Aveta
-            </a>
-          </li>
-        </ul>
+    <div class="container d-flex justify-content-between border py-2">
+      <div class="content-dx row">
+        <div class="col">
+          <ul class="d-flex p-0 m-0">
+            <li>
+              &copy; 2023 Boolbnb, inc.
+            </li>
+            <li>
+              <a href="">
+                Federico Fois
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Francesco Benvenuti
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Nicholahs Chiaravalle
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Fabiana Aveta
+              </a>
+            </li>
+            <li>
+              <a href="">
+                Ludovico Longhini
+              </a>
+            </li>
+          </ul>
+        </div>
+        
       </div>
 
       <div class="content-sx">
