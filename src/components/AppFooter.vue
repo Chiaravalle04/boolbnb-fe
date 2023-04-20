@@ -43,7 +43,7 @@ export default {
             </li>
           </ul>
         </div>
-        
+
       </div>
 
       <div class="content-sx">
@@ -61,15 +61,14 @@ export default {
       </div>
     </div>
   </footer>
-  
 </template>
 
 <style lang="scss" scoped>
-li{
+li {
   list-style: none;
   margin-right: 10px;
 
-  a{
+  a {
     color: rgb(26, 26, 26);
     text-decoration: none;
   }
