@@ -31,7 +31,13 @@ export default {
   
   <template>
   
-    <h1 class="text-danger">ciao AppHome</h1>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col">
+                    JUMBOTRON
+                </div>
+            </div>
+        </div>
     
   </template>
   
