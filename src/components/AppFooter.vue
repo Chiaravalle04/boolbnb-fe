@@ -18,8 +18,8 @@ export default {
 
 <template>
 
-  <footer>
-    <div class="container d-flex justify-content-between border py-2">
+  <footer class="border">
+    <div class="container d-flex justify-content-between py-2">
       <div class="content-dx row">
         <div class="col">
           <ul class="d-flex p-0 m-0">
@@ -27,29 +27,19 @@ export default {
               &copy; 2023 Boolbnb, inc.
             </li>
             <li>
-              <a href="">
-                Federico Fois
-              </a>
+                Federico fùa
             </li>
             <li>
-              <a href="">
-                Francesco Benvenuti
-              </a>
+                Francesco Benbevuti
             </li>
             <li>
-              <a href="">
-                Nicholahs Chiaravalle
-              </a>
+                Nicholahs Chiavalevalle
             </li>
             <li>
-              <a href="">
-                Fabiana Aveta
-              </a>
+                stephanya Avena
             </li>
             <li>
-              <a href="">
-                Ludovico Longhini
-              </a>
+                Ludovico peliunpoLonghini
             </li>
           </ul>
         </div>
@@ -62,14 +52,10 @@ export default {
             <i class="fa-solid fa-globe"></i> Italiano (IT)
           </li>
           <li>
-            <a href="">
               &euro; EUR
-            </a>
           </li>
           <li>
-            <a href="">
               Supporto e risorse <i class="fa-solid fa-angle-up"></i>
-            </a>
           </li>
         </ul>
       </div>
