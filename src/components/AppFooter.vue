@@ -18,7 +18,17 @@ export default {
 
 <template>
 
-  <h1 class="text-danger">ciao footer</h1>
+  <footer>
+    <div class="container-fluid d-flex justify-content-between border py-2">
+      <div class="content-dx">
+        ciao
+      </div>
+
+      <div class="content-sx">
+        ciao
+      </div>
+    </div>
+  </footer>
   
 </template>
 
