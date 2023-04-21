@@ -42,14 +42,14 @@ export default {
         
         <div class="jumbotron">
             <div class="container h-100">
-                <div class="row align-items-end h-100 pb-5">
-                    <div class="col-4 text-end">
-                        <input v-model="searchApartment" type="search" name="" id="">
-                    </div>
+                <div class="row align-items-end h-100 pb-5 d-flex justify-content-center">
+                    <div class="col d-flex justify-content-center">
+                        <input v-model="searchApartment" type="search" name="" id="" class="searchBar px-3 me-3" placeholder="Cerca destinazioni">
+                    <!-- </div> -->
                     
-                    <div class="col-4 text-start">
+                    <!-- <div class="col-4 text-start"> -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            filtri
+                            Ricerca avanzata
                         </button>
 
                         <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,10 +107,6 @@ export default {
                                             <input type="checkbox" name="room" id="room">5
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label class="d-block" for="square_meters">metri quadri:</label>
-                                            <input type="range" name="square_meters" id="square_meters">
-                                        </div>
                                     </div>
 
                                     <div class="modal-footer">
@@ -127,16 +123,41 @@ export default {
         </div>
         
 
-        <div class="container text-center">
-        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-            <div class="col" v-for="index in filtredApartment">
-                <div class="p-3 border">
-                    <h3>{{ index.title }}</h3>
-                    <p>{{ index.address }}</p>
+        <div class="container text-center mt-5">
+
+            <div class="row">
+                <h1 class="main-title">
+                    Sezione in primo piano
+                </h1>
+                <div class="col-3 mt-5" v-for="index in filtredApartment">
+                    <a href="http://" class="text-decoration-none">
+                        <div class="card h-100" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ index.title }}</h5>
+                                <p class="card-text">{{ index.address }}</p>
+                            </div>
+                        </div>  
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="main-title mt-5">
+                    Tutte le altre case
+                </h1>
+                <div class="col-3 mt-5" v-for="index in filtredApartment">
+                    <a href="http://" class="text-decoration-none">
+                        <div class="card h-100" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ index.title }}</h5>
+                                <p class="card-text">{{ index.address }}</p>
+                            </div>
+                        </div>  
+                    </a>
                 </div>
             </div>
         </div>
-</div>
     </main>
         
 </template>
@@ -145,9 +166,20 @@ export default {
 
     .jumbotron {
         height: 400px;
-        background-image: url(https://www.villeecasali.com/wp-content/uploads/2017/01/Una-villa-da-250-milioni-1-1024x576.jpg);
+        background-image: url(https://thumbs.dreamstime.com/b/paesaggio-scenico-della-natura-del-percorso-vicino-al-lago-114029813.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-    }    
+
+        .searchBar {
+            border-radius: 10px;
+            border-style: none;
+            line-height: 35px;
+            background-color: black;
+        }
+    }
+    
+    .main-title {
+        color: #ff385c;
+    }
 
 </style>
