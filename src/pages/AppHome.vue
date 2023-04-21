@@ -86,14 +86,16 @@ export default {
         </div>
         
 
-        <div class="container">
-            <div class="row row-cols-8 mt-5">
-                <div class="col border m-1" v-for="index in filtredApartment">
+        <div class="container text-center">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            <div class="col" v-for="index in filtredApartment">
+                <div class="p-3 border">
                     <h3>{{ index.title }}</h3>
                     <p>{{ index.address }}</p>
                 </div>
             </div>
         </div>
+</div>
     </main>
         
 </template>
