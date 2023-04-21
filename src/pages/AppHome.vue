@@ -12,8 +12,8 @@ export default {
         axios 
             .get('http://127.0.0.1:8000/api/apartments')
             .then((response) => {
-                // this.store.results = response.data.data.slice(0, 100);
-                console.log(response)
+                this.apartments = response.data.apartments;
+                console.log(this.apartments)
                 // this.store.loading = false;
             }
         )
@@ -22,10 +22,17 @@ export default {
     data() {
   
             return {
-    
+                apartments: [],
+                searchApartment: '',
             }
   
         },
+    
+    computed: {
+        filtredApartment(){
+            return this.apartments.filter(address => address.address.toLowerCase().includes(this.searchApartment.toLowerCase()));
+        }
+    }
 };
 </script>
   
@@ -37,10 +44,10 @@ export default {
             <div class="container h-100">
                 <div class="row align-items-end h-100 pb-5">
                     <div class="col-4 text-end">
-                        <input type="search" name="" id="">
+                        <input v-model="searchApartment" type="search" name="" id="">
                     </div>
                     <div class="col-4 text-center">
-                        <a href="http://">
+                        <a href="#">
                             <button>
                                 vai
                             </button>
@@ -59,9 +66,10 @@ export default {
         
 
         <div class="container">
-            <div class="row mt-5">
-                <div class="col">
-                    MAIN
+            <div class="row row-cols-8 mt-5">
+                <div class="col border m-1" v-for="index in filtredApartment">
+                    <h3>{{ index.title }}</h3>
+                    <p>{{ index.address }}</p>
                 </div>
             </div>
         </div>
