@@ -29,10 +29,10 @@
                     <h1 class="my-title text-center">BoolBnb <i class="fa-solid fa-house"></i></h1>
               </div>
               <div class="col-3 d-flex align-items-center justify-content-end">
-                    <a href="http://" class="text-decoration-none">
+                    <a href="http://127.0.0.1:8000/login" class="text-decoration-none">
                       Login
                     </a>
-                    <a href="http://" class="text-decoration-none ms-3">
+                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-3">
                       Registrati
                     </a>
               </div>
