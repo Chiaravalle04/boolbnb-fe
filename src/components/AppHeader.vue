@@ -17,6 +17,7 @@
 </script>
 
 <template>
+  <header>
     <div class="container">
         <div class="row">
           <div class="col-3">
@@ -30,6 +31,7 @@
           </div>
         </div>
     </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>
