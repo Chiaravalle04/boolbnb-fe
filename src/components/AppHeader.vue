@@ -17,22 +17,22 @@
 </script>
 
 <template>
-  <header class="sticky-top bg-light my-header">
+  <header class="sticky-top my-header">
       <div class="container">
           <div class="row">
-              <div class="col-3 text-center">
+              <div class="col-3">
                   <a href="#">
-                      <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2017/07/airbnb-newsroom-twitter-card-default.png?fit=2400%2C1260" class="my-img" alt="">
+                      <img src="https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-mobile.jpg" class="my-img" alt="">
                   </a>
               </div>
               <div class="col-6 d-flex align-items-center justify-content-center">
-                    <h1 class="my-title text-center">BoolBnb <i class="fa-solid fa-house"></i></h1>
+                    <h1 class="my-title text-center">BoolBnb</h1>
               </div>
               <div class="col-3 d-flex align-items-center justify-content-end">
-                    <a href="http://127.0.0.1:8000/login" class="text-decoration-none">
+                    <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
                       Login
                     </a>
-                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-3">
+                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-3 link-two">
                       Registrati
                     </a>
               </div>
@@ -45,6 +45,7 @@
 
 .my-header {
   height: 70px;
+  background-color: #fff;
 
   .my-img {
     height: 70px;
@@ -54,12 +55,28 @@
     color: #ff385c;
   }
 
-  a {
+  .link {
     color: black;
     font-weight: bold;
+    border: 2px solid black;
+    padding: 5px 10px;
 
       &:hover {
-        color:#ff385c;
+        background-color: black;
+        color: white;
+      }
+  }
+
+  .link-two {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid black;
+
+    &:hover {
+        background-color: white;
+        color: black;
       }
   }
 } 

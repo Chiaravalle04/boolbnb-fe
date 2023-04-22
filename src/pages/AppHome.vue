@@ -70,95 +70,114 @@ export default {
         
         <div class="jumbotron">
             <div class="container h-100">
-                <div class="row align-items-end h-100 pb-5 d-flex justify-content-center">
-                    <div class="col d-flex justify-content-center">
-                        <input v-model="searchApartment" type="search" name="" id="" class="searchBar px-3 me-3" placeholder="Cerca destinazioni">
-                    <!-- </div> -->
-                    
-                    <!-- <div class="col-4 text-start"> -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Ricerca avanzata
-                        </button>
+                <div class="row h-100">
+                    <div class="col-6 d-flex justify-content-center align-items-center">
+                        <div class="ms-4">
+                            <div class="myTextBox">
+                                PRENOTA SUBITO LA TUA <span>VACANZA</span> DEI SOGNI!
+                            </div>
+                            <div class="myParagraph">
+                                <p>
+                                    Con <span>BoolBnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 h-100 d-flex align-items-center justify-content-center">
+                        <div class="mySearchBox">
+                            <div class="mySecondParagraph">
+                                Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
 
-                        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="d-block" for="price">prezzo:</label>
-                                            <!-- <input type="range" placeholder="" aria-label="Username" aria-describedby="basic-addon1"> -->
-                                            <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                                        </div> 
+                                <input v-model="searchApartment" type="search" name="" id="" class="searchBar px-3 m-3" placeholder="Cerca destinazioni">
+                            </div>
+                            <div>
+                                Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
+                            </div>
+                            <div class="advancedSearch">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Ricerca avanzata
+                                </button>
+                            </div>
 
-                                        <div class="mb-3">
-                                            <label class="d-block" for="services">servizi:</label>
-                                            <input type="checkbox" v-model="services" name="services" value="Lavatrice" id="services">Lavatrice
-                                            <input type="checkbox" v-model="services" name="services" value="Vasca da bagno" id="services">Vasca da bagno
-                                        </div> 
+                            <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label class="d-block" for="price">prezzo:</label>
+                                                <!-- <input type="range" placeholder="" aria-label="Username" aria-describedby="basic-addon1"> -->
+                                                <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div> 
 
-                                        <!-- <div class="row ms-auto">
-                                            <div class="form-check col-6" v-for="service in this.store.servicesList" :key="service.id">
-                                                <input class="form-check-input" type="checkbox" :value="service.slug"
-                                                    v-model="store.filters.services" />
-                                                <label class="form-check-label text-capitalize">{{ service.name }}</label>
+                                            <div class="mb-3">
+                                                <label class="d-block" for="services">servizi:</label>
+                                                <input type="checkbox" v-model="services" name="services" value="Lavatrice" id="services">Lavatrice
+                                                <input type="checkbox" v-model="services" name="services" value="Vasca da bagno" id="services">Vasca da bagno
+                                            </div> 
+
+                                            <!-- <div class="row ms-auto">
+                                                <div class="form-check col-6" v-for="service in this.store.servicesList" :key="service.id">
+                                                    <input class="form-check-input" type="checkbox" :value="service.slug"
+                                                        v-model="store.filters.services" />
+                                                    <label class="form-check-label text-capitalize">{{ service.name }}</label>
+                                                </div>
+                                            </div> -->
+
+                                            <!-- <div class="mb-3">
+                                                <label class="d-block" for="type">tipo di struttura:</label>
+                                                <select name="type" id="type">
+                                                    <option value="appartamento">Appartamento</option>
+                                                    <option value="villa">Villa</option>
+                                                    <option value="hotel">Hotel</option>
+                                                </select>
+                                            </div> -->
+
+                                            <div class="mb-3">
+                                                <label class="d-block" for="bed">numero di letti:</label>
+                                                <!-- <input type="checkbox" v-model="bed" name="bed" id="bed">1
+                                                <input type="checkbox" v-model="bed" name="bed" id="bed">2
+                                                <input type="checkbox" v-model="bed" name="bed" id="bed">3
+                                                <input type="checkbox" v-model="bed" name="bed" id="bed">4
+                                                <input type="checkbox" v-model="bed" name="bed" id="bed">5 -->
+                                                <input type="number" v-model.number="bed" name="bed" id="bed">5
                                             </div>
-                                        </div> -->
 
-                                        <!-- <div class="mb-3">
-                                            <label class="d-block" for="type">tipo di struttura:</label>
-                                            <select name="type" id="type">
-                                                <option value="appartamento">Appartamento</option>
-                                                <option value="villa">Villa</option>
-                                                <option value="hotel">Hotel</option>
-                                            </select>
-                                        </div> -->
+                                            <div class="mb-3">
+                                                <label class="d-block" for="bathroom">numero di bagni:</label>
+                                                <!-- <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">1
+                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">2
+                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">3
+                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">4
+                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">5 -->
+                                                <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom">5
+                                            </div>
 
-                                        <div class="mb-3">
-                                            <label class="d-block" for="bed">numero di letti:</label>
-                                            <!-- <input type="checkbox" v-model="bed" name="bed" id="bed">1
-                                            <input type="checkbox" v-model="bed" name="bed" id="bed">2
-                                            <input type="checkbox" v-model="bed" name="bed" id="bed">3
-                                            <input type="checkbox" v-model="bed" name="bed" id="bed">4
-                                            <input type="checkbox" v-model="bed" name="bed" id="bed">5 -->
-                                            <input type="number" v-model.number="bed" name="bed" id="bed">5
+                                            <div class="mb-3">
+                                                <label class="d-block" for="room">numero di stanze:</label>
+                                                <!-- <input type="checkbox" name="room" id="room">1
+                                                <input type="checkbox" name="room" id="room">2
+                                                <input type="checkbox" name="room" id="room">3
+                                                <input type="checkbox" name="room" id="room">4
+                                                <input type="checkbox" name="room" id="room">5 -->
+                                                <input type="number" v-model.number="room" name="room" id="room">5
+                                            </div>
+
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label class="d-block" for="bathroom">numero di bagni:</label>
-                                            <!-- <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">1
-                                            <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">2
-                                            <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">3
-                                            <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">4
-                                            <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">5 -->
-                                            <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom">5
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                            <button type="button" @click="advancedSearchApartments" class="btn btn-primary" data-bs-dismiss="modal">Salva le modifiche</button>
                                         </div>
-
-                                        <div class="mb-3">
-                                            <label class="d-block" for="room">numero di stanze:</label>
-                                            <!-- <input type="checkbox" name="room" id="room">1
-                                            <input type="checkbox" name="room" id="room">2
-                                            <input type="checkbox" name="room" id="room">3
-                                            <input type="checkbox" name="room" id="room">4
-                                            <input type="checkbox" name="room" id="room">5 -->
-                                            <input type="number" v-model.number="room" name="room" id="room">5
-                                        </div>
-
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                        <button type="button" @click="advancedSearchApartments" class="btn btn-primary" data-bs-dismiss="modal">Salva le modifiche</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -176,6 +195,8 @@ export default {
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
                                 <p class="card-text">{{ index.address }}</p>
+                                <div>{{ index.price }} $/notte</div>
+
                             </div>
                         </div>  
                     </a>
@@ -196,6 +217,7 @@ export default {
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
                                 <p class="card-text">{{ index.address }}</p>
+                                <div>{{ index.price }} $/notte</div>
                             </div>
                         </div>  
                     </a>
@@ -212,6 +234,7 @@ export default {
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
                                 <p class="card-text">{{ index.address }}</p>
+                                <div>{{ index.price }} $/notte</div>
                             </div>
                         </div>  
                     </a>
@@ -225,10 +248,76 @@ export default {
 <style lang="scss" scoped>
 
     .jumbotron {
-        height: 400px;
-        background-image: url(https://thumbs.dreamstime.com/b/paesaggio-scenico-della-natura-del-percorso-vicino-al-lago-114029813.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
+        height: 500px;
+        background-color: rgb(240, 237, 237);
+
+        .mySearchBox {
+            background-color: #000;
+            color: white;
+            height: 70%;
+            border-radius: 10px;
+            width: 60%;
+            box-shadow: 10px 10px 20px 5px #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .mySecondParagraph {
+                padding: 20px;
+                // font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .searchBar {
+                background-color: white;
+                width: 70%;
+                text-align: center;
+            }
+
+            .advancedSearch {
+                background-color: white;
+                border: 2px solid black;
+                font-weight: bold;
+                margin-bottom: 10px;
+                width: 70%;
+
+                button {
+                    width: 100%
+                }
+
+                .btn {
+                    font-weight: bold;
+                    border-radius: 0px;
+
+                    &:hover {
+                        color: white;
+                        background-color: #ff385c;
+                    }
+                }
+            }
+        }
+
+        .myTextBox {
+            height: 70%;
+            width: 60%;
+            font-size: 3rem;
+            font-weight: bold;
+
+            span {
+                color: #ff385c;
+            }
+        }
+
+        .myParagraph {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2rem;
+
+            span {
+                color: #ff385c;
+            }
+        }
 
         .searchBar {
             border-radius: 10px;
