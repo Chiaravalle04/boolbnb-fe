@@ -19,21 +19,19 @@ export default {
             bathroom: null,
             price: null,
             services: [],
+            allServices: [],
             address: '',
             latitude: null,
             longitude: null,
+            distanceNumber: 20,
         }
   
     },
 
     created() {
-        axios 
-            .get('http://127.0.0.1:8000/api/apartments')
-            .then((response) => {
-                this.apartments = response.data.results.apartments;
-                console.log(this.apartments)
-            }
-        )
+        this.getAllApartments();
+
+        this.getAllServices();
     },
     
     computed: {
@@ -56,9 +54,104 @@ export default {
 
         },
 
+        distanceToCenter() {
+            const inputRange = document.getElementById('range');
+
+            const inputNumber = document.getElementById('number');
+
+            inputNumber.innerHTML = inputRange.value;
+
+            inputNumber.oninput = () => {
+
+                inputRange.value = inputNumber.value;
+
+            }
+
+            inputRange.oninput = () => {
+
+                inputNumber.value = inputRange.value;
+
+            }
+        },
+
+        searchAutocomplete() {
+
+            let autocompleteList = document.getElementById('autocomplete-list');
+
+            const input = document.getElementById('address');
+
+            input.addEventListener("keyup", function () {
+
+                let userInput = document.getElementById('address').value;
+
+                if (userInput.trim().length < 3) {
+                    return;
+                }
+
+                const apiUrl = 'https://api.tomtom.com/search/2/geocode/';
+
+                delete axios.defaults.headers.common['X-Requested-With'];
+
+                axios.get(apiUrl + userInput + '.json', {
+                    params: {
+                        key: 'c4P3eR2jCkOGFFaGzYk7vwGVrmG9wsHs',
+                        typeahead: true,
+                        countrySet: 'IT'
+                    }
+                }).then(function (response) {
+
+                    console.log(response.data.results);
+                    const results = response.data.results;
+
+                    // Svuota il container della lista
+                    autocompleteList.innerHTML = '';
+
+                    // Creo i nuovi elementi della lista
+                    for (let i = 0; i < results.length; i++) {
+                        const resultList = results[i].address.freeformAddress;
+                        const liElement = document.createElement('li');
+                        liElement.innerHTML = resultList;
+                        liElement.classList.add('list-group-item');
+                        liElement.classList.add('list-group-item-action');
+                        liElement.style = 'cursor: pointer';
+                        liElement.addEventListener('click', function () {
+                            input.value = resultList;
+                            autocompleteList.innerHTML = '';
+                        });
+                        autocompleteList.appendChild(liElement);
+                    }
+
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+            });
+
+        }
+
     },
 
     methods: {
+
+        getAllApartments() {
+            axios 
+            .get('http://127.0.0.1:8000/api/apartments')
+            .then((response) => {
+                this.apartments = response.data.results.apartments;
+                console.log(this.apartments)
+            })
+            
+        },
+
+        getAllServices() {
+            axios 
+            .get('http://127.0.0.1:8000/api/services')
+            .then((response) => {
+                this.allServices = response.data.services;
+                console.log('servizi', this.allServices)
+            })
+            
+        },
 
         advancedSearchApartments() {
 
@@ -156,79 +249,60 @@ export default {
 
                             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content bg-dark">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Ricerca Avanzata</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
                                         <!-- SALVATAGGIO COORDINATE -->
 
-                                        <div class="mySecondParagraph">
-                                            coordinate
-                                            <input v-model="address" @input="saveCoordinate" type="search" name="" id="" class="searchBar px-3 m-3" placeholder="Cerca destinazioni">
+                                        <div class="mb-3">
+                                            <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar px-3 m-3" id="address" placeholder="Inserisci indirizzo..." name="address">
+                                            <ul id="autocomplete-list" class="list-group"></ul>
+                                            <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
+                                            <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
                                         </div>
 
                                         <!-- FINE SALVATAGGIO COORDINATE -->
                                         
                                         <div class="modal-body">
                                             <div class="mb-3">
-                                                <label class="d-block" for="price">prezzo:</label>
-                                                <!-- <input type="range" placeholder="" aria-label="Username" aria-describedby="basic-addon1"> -->
-                                                <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <label class="d-block" for="price">Prezzo massimo:</label>
+                                                <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">€
                                             </div> 
 
                                             <div class="mb-3">
-                                                <label class="d-block" for="services">servizi:</label>
-                                                <input type="checkbox" v-model="services" name="services" value="Lavatrice" id="services">Lavatrice
-                                                <input type="checkbox" v-model="services" name="services" value="Vasca da bagno" id="services">Vasca da bagno
-                                            </div> 
-
-                                            <!-- <div class="row ms-auto">
-                                                <div class="form-check col-6" v-for="service in this.store.servicesList" :key="service.id">
-                                                    <input class="form-check-input" type="checkbox" :value="service.slug"
-                                                        v-model="store.filters.services" />
-                                                    <label class="form-check-label text-capitalize">{{ service.name }}</label>
+                                                <label class="d-block" for="services">Servizi:</label>
+                                                <div v-for="item in allServices">
+                                                    <input type="checkbox" v-model="services" name="services" :value="item.name" id="services"> {{ item.name }}
                                                 </div>
-                                            </div> -->
+                                            </div> 
 
-                                            <!-- <div class="mb-3">
-                                                <label class="d-block" for="type">tipo di struttura:</label>
+                                            <div class="mb-3">
+                                                <label class="d-block" for="type">Tipologia:</label>
                                                 <select name="type" id="type">
-                                                    <option value="appartamento">Appartamento</option>
-                                                    <option value="villa">Villa</option>
-                                                    <option value="hotel">Hotel</option>
+                                                    <option value="Villa">Villa</option>
+                                                    <option value="Hotel">Hotel</option>
+                                                    <option value="Appartamento">Appartamento</option>
+                                                    <option value="Chalet">Chalet</option>
+                                                    <option value="Stanza">Stanza</option>
                                                 </select>
-                                            </div> -->
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="bed">numero di letti:</label>
-                                                <!-- <input type="checkbox" v-model="bed" name="bed" id="bed">1
-                                                <input type="checkbox" v-model="bed" name="bed" id="bed">2
-                                                <input type="checkbox" v-model="bed" name="bed" id="bed">3
-                                                <input type="checkbox" v-model="bed" name="bed" id="bed">4
-                                                <input type="checkbox" v-model="bed" name="bed" id="bed">5 -->
-                                                <input type="number" v-model.number="bed" name="bed" id="bed">5
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="d-block" for="bathroom">numero di bagni:</label>
-                                                <!-- <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">1
-                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">2
-                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">3
-                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">4
-                                                <input type="checkbox" v-model="bathroom" name="bathroom" id="bathroom">5 -->
-                                                <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom">5
+                                                <label class="d-block" for="bed">Numero di letti:</label>
+                                                <input type="number" v-model.number="bed" name="bed" id="bed" min="1">
                                             </div>
 
                                             <div class="mb-3">
-                                                <label class="d-block" for="room">numero di stanze:</label>
-                                                <!-- <input type="checkbox" name="room" id="room">1
-                                                <input type="checkbox" name="room" id="room">2
-                                                <input type="checkbox" name="room" id="room">3
-                                                <input type="checkbox" name="room" id="room">4
-                                                <input type="checkbox" name="room" id="room">5 -->
-                                                <input type="number" v-model.number="room" name="room" id="room">5
+                                                <label class="d-block" for="bathroom">Numero di bagni:</label>
+                                                <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom" min="1">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="d-block" for="room">Numero di stanze:</label>
+                                                <input type="number" v-model.number="room" name="room" id="room" min="1">
                                             </div>
 
                                         </div>
@@ -253,7 +327,7 @@ export default {
                     Filtraggio avanzato
                 </h1>
                 <div class="col-3 mt-5" v-for="index in filterApartments">
-                    <div v-if="index.distance <= 20">
+                    <div v-if="index.distance <= distanceNumber">
                         <a href="http://" class="text-decoration-none">
                             <div class="card h-100" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
@@ -261,7 +335,6 @@ export default {
                                     <h5 class="card-title">{{ index.title }}</h5>
                                     <p class="card-text">{{ index.address }}</p>
                                     <div>{{ index.price }} $/notte</div>
-
                                 </div>
                             </div>  
                         </a>
