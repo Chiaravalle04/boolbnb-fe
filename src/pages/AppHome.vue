@@ -19,6 +19,9 @@ export default {
             bathroom: null,
             price: null,
             services: [],
+            address: '',
+            latitude: null,
+            longitude: null,
         }
   
     },
@@ -36,7 +39,23 @@ export default {
     computed: {
         filtredApartment(){
             return this.apartments.filter(address => address.address.toLowerCase().includes(this.searchApartment.toLowerCase()));
-        }
+        },
+
+        saveCoordinate() {
+
+            axios 
+                .get('https://api.tomtom.com/search/2/geocode/' + this.address + '.json?key=YqMdhFbqAodquBGAGfGAfSFvrkVm0sD5')
+                .then((response) => {
+                    this.latitude = response.data.results[0].position.lat
+                    this.longitude = response.data.results[0].position.lon
+
+                    console.log('coordinate:', response)
+                    console.log('latitudine:', this.latitude)
+                    console.log('longitudine:', this.longitude)
+                })
+
+        },
+
     },
 
     methods: {
@@ -55,10 +74,46 @@ export default {
                 })
                 .then((response) => {
                     this.filterApartments = response.data.results.apartments;
-                    console.log(this.filterApartments)
+                    console.log('Appartamenti filtrati', this.filterApartments)
+
+                    if (this.latitude !== null || this.longitude !== null) {
+                        this.filterApartments.forEach((apartment) => {
+                            const R = 6371; // raggio della Terra in km
+                            const lat1 = this.latitude; //latitudine ricerca
+                            const lon1 = this.longitude; //longitudine ricerca
+                            const lat2 = apartment.latitude; //latitudine appartamento
+                            const lon2 = apartment.longitude; // longitudine appartamento
+
+                            const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                            const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                            const a =
+                                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                                Math.cos((lat1 * Math.PI) / 180) *
+                                Math.cos((lat2 * Math.PI) / 180) *
+                                Math.sin(dLon / 2) *
+                                Math.sin(dLon / 2);
+                            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                            const distance = R * c; // distanza in km
+                            apartment.distance = distance.toFixed(1);
+
+                            console.log('distanza', apartment.distance);
+
+                            // if (apartment.distance <= 20) {
+                                
+                            //     this.filterApartments = response.data.results.apartments;
+
+                            //     console.log('filtraggio', this.filterApartments);
+
+                            // }
+
+                            // console.log("haversine lat: ", lat1)
+                            // console.log("haversine long: ", lon1)
+                            // console.log("haversine lon: ", lon1) // aggiungi la distanza all'oggetto appartamento
+                        });
+                    }
                 })
             
-        }
+        },
 
     }
 };
@@ -106,6 +161,15 @@ export default {
                                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
+
+                                        <!-- SALVATAGGIO COORDINATE -->
+
+                                        <div class="mySecondParagraph">
+                                            coordinate
+                                            <input v-model="address" @input="saveCoordinate" type="search" name="" id="" class="searchBar px-3 m-3" placeholder="Cerca destinazioni">
+                                        </div>
+
+                                        <!-- FINE SALVATAGGIO COORDINATE -->
                                         
                                         <div class="modal-body">
                                             <div class="mb-3">
@@ -189,17 +253,19 @@ export default {
                     Filtraggio avanzato
                 </h1>
                 <div class="col-3 mt-5" v-for="index in filterApartments">
-                    <a href="http://" class="text-decoration-none">
-                        <div class="card h-100" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ index.title }}</h5>
-                                <p class="card-text">{{ index.address }}</p>
-                                <div>{{ index.price }} $/notte</div>
+                    <div v-if="index.distance <= 20">
+                        <a href="http://" class="text-decoration-none">
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ index.title }}</h5>
+                                    <p class="card-text">{{ index.address }}</p>
+                                    <div>{{ index.price }} $/notte</div>
 
-                            </div>
-                        </div>  
-                    </a>
+                                </div>
+                            </div>  
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
