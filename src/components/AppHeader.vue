@@ -77,9 +77,11 @@
       a {
         text-decoration: none;
         color: black;
+        display: inline-block;
+        transition: 0.25s all;
 
         &:hover {
-          font-size: 1.1rem;
+          transform: scale(1.2);
         }
       }
     }
