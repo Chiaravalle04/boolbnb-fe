@@ -25,9 +25,22 @@
                       <img src="https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-mobile.jpg" class="my-img" alt="">
                   </a>
               </div>
-              <div class="col-6 d-flex align-items-center justify-content-center">
-                    <h1 class="my-title text-center">BoolBnb</h1>
-              </div>
+              <div class="col-6 d-flex align-items-center justify-content-center mt-2">
+                    <ul class="d-flex">
+                        <li>
+                            <a href="http://">in evidenza</a>
+                        </li>
+                        <li>
+                            <a href="http://">tutte le case</a>
+                        </li>
+                        <li>
+                            <a href="http://">chi siamo</a>
+                        </li>
+                        <li>
+                            <a href="http://">contatti</a>
+                        </li>
+                    </ul>
+                </div>
               <div class="col-3 d-flex align-items-center justify-content-end">
                     <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
                       Login
@@ -49,6 +62,27 @@
 
   .my-img {
     height: 70px;
+  }
+
+  ul {
+    list-style: none;
+    font-weight: bold;
+
+    li {
+      text-decoration: none;
+      margin-right: 25px;
+      border-right: 2px solid black;
+      padding-right: 25px;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          font-size: 1.1rem;
+        }
+      }
+    }
   }
 
   .my-title {
