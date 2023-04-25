@@ -388,7 +388,11 @@ export default {
 
     .jumbotron {
         height: 500px;
-        background-color: rgb(240, 237, 237);
+        // background-color: rgb(240, 237, 237);
+        background-image: url(../../public/paesaggio-1.jpeg);
+        background-size: cover;
+        background-position: center;
+        animation: change 15s infinite ease-in-out;
 
         .mySearchBox {
             background-color: #000;
@@ -469,5 +473,28 @@ export default {
     .main-title {
         color: #ff385c;
     }
+
+    // KEYFRAMES
+    @keyframes change {
+        0%{
+            background-image: url(../../public/paesaggio-1.jpg);
+        }
+        20%{
+            background-image: url(../../public/paesaggio-2.jpeg);
+        }
+        40%{
+            background-image: url(../../public/paesaggio-3.jpg);
+        }
+        60%{
+            background-image: url(../../public/paesaggio-4.jpg);
+        }
+        80%{
+            background-image: url(../../public/paesaggio-5.jpg);
+        }
+        100%{
+            background-image: url(../../public/paesaggio-6.jpg);
+        }
+    }
+
 
 </style>
