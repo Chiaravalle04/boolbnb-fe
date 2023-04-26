@@ -67,7 +67,7 @@
   }
 
   .myLogo {
-    height: 50px;
+    height: 40px;
   }
 
   ul {

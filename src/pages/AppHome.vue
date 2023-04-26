@@ -242,7 +242,8 @@ export default {
                                 Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
                                 <br>
                                 <div class="text-center">
-                                    <input v-model="searchApartment" type="search" class="searchBar px-3 my-3" placeholder="Cerca destinazioni">
+                                    <input v-model="searchApartment" type="search" class="searchBar px-3 my-3" placeholder="Cerca destinazioni...">
+                                    <!-- <span><i class="fa-solid fa-magnifying-glass"></i></span> -->
                                 </div>
                             </div>
                             <div>
@@ -434,13 +435,14 @@ export default {
             .searchBar {
                 background-color: white;
                 outline-color: #ff385c;
-                text-align: center;
+                width: 70%;
+                // text-align: center;
             }
 
             .advancedSearch {
 
                 button {
-                    width: 70%;
+                    // width: 70%;
                     background-color: white;
                 }
 
