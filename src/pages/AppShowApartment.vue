@@ -8,8 +8,9 @@ export default {
         return {
             apiUrlAllApartments: '',
             apartment: null,
-            projectImg: 'https://www.leadershipmanagementmagazine.com/wp-content/uploads/Project-Management-per-la-gestione-dei-progetti.jpg',
+            projectImg: 'https://images.pexels.com/photos/16424411/pexels-photo-16424411.jpeg?auto=compress&cs=tinysrgb&w=600',
             allServices: [],
+            singleServicesApartment: []
         }
     },
     methods: {
@@ -19,69 +20,73 @@ export default {
                 .then(response => {
                     if (response.data.success) {
                         this.apartment = response.data.apartments;
+                        this.singleServicesApartment = response.data.apartments.services;
+                        console.log('servizi determinato appartamento', this.singleServicesApartment);
                     } else {
                         this.$router.push({ name: 'error' });
                     }
                 })
         },
-        getAllServices() {
-            axios
-                .get('http://127.0.0.1:8000/api/services')
-                .then((response) => {
-                    this.allServices = response.data.services;
-                    console.log('servizi', this.allServices)
-                })
-        },
     },
     created() {
         this.getApartment();
-        this.getAllServices();
     }
 }
 </script>
 <template>
     <div class="card-details">
-        <h2>
+        <h2 class="text-center">
             <i class="fa-solid fa-location-dot"></i> {{ apartment.title }}
         </h2>
-        <p>
+        <p class="text-center">
             <i class="fa-solid fa-chevron-right"></i> {{ apartment.address }}
         </p>
+        <hr>
         <div class="img-details d-flex">
             <div class="img">
                 <img :src="projectImg">
             </div>
             <div class="details">
                 <i> {{ apartment.description }} </i>
+                <hr>
+                <div class="services">
+                    <h3 class="text-center mb-4">Cosa troverai</h3>
+                    <div class="d-flex justify-content-evenly">
+                        <div v-for="service in singleServicesApartment" class="icons-services">
+                            <div>
+                                <div class="text-center"><i class="fa-solid fa-bath fs-4 "></i></div>
+                                <div>{{ service.name }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mt-4 mb-4">
+
+                    <div class="number-services mt-4">
+                        <h2 class="text-center mb-4">Servizi</h2>
+                        <div class="d-flex justify-content-around fs-5">
+                            <div class="container-servizi">
+                                <div><i class="fa-solid fa-people-roof"></i></div>
+                                <div>Numero di stanze: {{ apartment.room }}</div>
+                            </div>
+                            <div class="container-servizi">
+                                <div><i class="fa-solid fa-toilet-paper"></i></div>
+                                <div>Numero di bagni: {{ apartment.bathroom }}</div>
+                            </div>
+                            <div class="container-servizi">
+                                <div><i class="fa-solid fa-bed"></i></div>
+                                <div>Numero di letti: {{ apartment.bed }}</div>
+                            </div>
+                            <div class="container-servizi">
+                                <div><i class="fa-solid fa-hotel"></i></div>
+                                <div>Pernottamento: {{ apartment.type }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr>
         </div>
     </div>
-    <!--
-                <div class="d-flex">
-                    <div class="servizi-numero">
-                        <div>
-                            <i class="fa-solid fa-toilet-paper"></i> Numero di bagni: <strong>{{ apartment.bathroom
-                            }}</strong>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-people-roof"></i> Numero di stanze: <strong>{{ apartment.room }}</strong>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-bed"></i> Numero di letti: <strong>{{ apartment.bed }}</strong>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-building-user"></i> Pernottamento: <strong>{{ apartment.type }}</strong>
-                        </div>
-                    </div>
-                    <div class="barra-separazione"></div>
-                    <div class="servizi-wifi">
-                        <h4>Cosa troverai</h4>
-                        <span v-for="service in allServices" :key="service.id">
-                            • {{ service.name }}  Esempio di stampa del nome del servizio
-                        </span>
-                    </div>
-                </div>-->
 </template>
 <style lang="scss" scoped>
 .card-details {
@@ -90,12 +95,42 @@ export default {
     min-height: 700px;
     padding: 30px;
     background-color: rgb(244, 244, 244);
+    border-radius: 20px;
 }
+
 img {
     width: 500px;
-    height: 600px;
+    height: 700px;
+    border-radius: 10px;
 }
+
 .details {
-    padding: 10px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+/* servizi */
+.services {
+    height: 300px;
+    width: 100%;
+}
+
+.container-servizi {
+    text-align: center;
+    border: 1px solid lightgray;
+}
+
+.icons-services {
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+
+    >:hover {
+        cursor: pointer;
+        transition: 2s;
+    }
 }
 </style>
