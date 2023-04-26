@@ -369,7 +369,7 @@ export default {
             </div>
             
             <h1 class="main-title mt-5">
-                Tutte le altre case
+                Tutte le altre strutture
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">

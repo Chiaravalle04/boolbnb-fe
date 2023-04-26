@@ -81,7 +81,8 @@
         transition: 0.25s all;
 
         &:hover {
-          transform: scale(1.2);
+          transform: scale(1.1);
+          color: #ff385c;
         }
       }
     }
