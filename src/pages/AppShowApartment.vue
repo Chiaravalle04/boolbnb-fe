@@ -1,8 +1,15 @@
 <script>
 import axios from 'axios';
+import Maps from '@tomtom-international/web-sdk-maps';
+import tt from '@tomtom-international/web-sdk-maps';
+import '@tomtom-international/web-sdk-maps/dist/maps.css';
+import '@tomtom-international/web-sdk-services/';
+
 export default {
     name: "AppShowApartment",
     components: {
+        Maps,
+        tt
     },
     data() {
         return {
@@ -12,8 +19,6 @@ export default {
             mountainImg: 'https://www.sportoutdoor24.it/app/uploads/2015/06/pexels-jaime-reimer-2662116-670x470.jpg',
             allServices: [],
             singleServicesApartment: [],
-
-
         }
     },
     methods: {
@@ -30,6 +35,18 @@ export default {
                     }
                 })
         }
+    },
+    mounted() {
+        let center = [this.apartment.longitude, this.apartment.latitude]
+        const map = tt.map({
+            key: "QHRRpmA2IkGIXyVVm2RGpJDOHxmvTAx2",
+            container: "map",
+            center: center,
+            zoom: 10,
+        });
+        map.on('load', () => {
+            new tt.Marker().setLngLat(center).addTo(map);
+        })
     },
     created() {
         this.getApartment();
@@ -107,7 +124,7 @@ export default {
 
                     <hr class="mt-4 mb-4">
 
-                    <ul class="mt-4 list-unstyled ">
+                    <ul class="mt-4 list-unstyled">
                         <li class="fs-4 mx-2">
                             <i class="fa-solid fa-sack-dollar fs-3 text-warning"></i>
                             <span class="fs-2 mx-1">{{
@@ -129,6 +146,11 @@ export default {
                 </div>
             </div>
         </div>
+        <hr class="mt-4 mb-4">
+        <div class="mt-4">
+            <h2 class="text-center mb-4">Dove ti troverai</h2>
+            <div class="mapview" id="map"></div>
+        </div> 
     </div>
 </template>
 <style lang="scss" scoped>
@@ -182,5 +204,12 @@ img {
         cursor: pointer;
         transition: 2s;
     }
+}
+
+.mapview {
+    width: 70%;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 </style>
