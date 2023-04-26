@@ -216,8 +216,11 @@ export default {
         
     <main>
         
-        <div class="jumbotron">
+        <div class="jumbotron position-relative">
             <div class="container h-100">
+                <video class="myVideo" autoplay loop muted plays-inline>
+                    <source src="../../public/RPReplay_Final1682511374.mp4" type="video/mp4">
+                </video>
                 <div class="row h-100">
                     <div class="col-6 d-flex justify-content-center align-items-center">
                         <div class="ms-4 myTitle">
@@ -394,12 +397,24 @@ export default {
 
     .jumbotron {
         height: 500px;
-        background-color: rgb(240, 237, 237);
+        // background-color: rgb(240, 237, 237);
         // background-image: url(../../public/paesaggio-1.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         animation: change 50s infinite;
+
+        .myVideo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .myTitle{
             background-color: rgba(255, 255, 255, 0.5);
