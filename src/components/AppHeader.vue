@@ -66,8 +66,8 @@
     color: #ff385c;
   }
 
-  .my-img {
-    height: 50px;
+  .myLogo {
+    height: 60px;
   }
 
   ul {
