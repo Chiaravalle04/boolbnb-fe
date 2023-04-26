@@ -361,14 +361,14 @@ export default {
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
-                        <div class="card h-100" style="width: 18rem;">
-                            <img :src="index.cover" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ index.title }}</h5>
-                                <!-- <p class="card-text">{{ index.address }}</p>
-                                <div>{{ index.price }} $/notte</div> -->
+                        <div class="myCard h-100">
+                            <div class="cardCover">
+                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
                             </div>
-                        </div>  
+                            <div class="cardInfo">
+                                <h5>{{ index.title }}</h5>
+                            </div>
+                        </div>
                     </router-link>
                 </div>
             </div>
@@ -379,14 +379,14 @@ export default {
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
-                        <div class="card h-100" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ index.title }}</h5>
-                                <!-- <p class="card-text">{{ index.address }}</p>
-                                <div>{{ index.price }} $/notte</div> -->
+                        <div class="myCard h-100">
+                            <div class="cardCover">
+                                <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
                             </div>
-                        </div>  
+                            <div class="cardInfo">
+                                <h5>{{ index.title }}</h5>
+                            </div>
+                        </div>
                     </router-link>
                 </div>
             </div>
@@ -490,8 +490,20 @@ export default {
         color: #ff385c;
     }
 
-    .card{
+    .myCard{
         box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
+        color: black !important;
+
+        .cardCover{
+            height: 200px;
+            
+            img{
+                object-fit: cover;
+            }
+        }
+        .cardInfo{
+            padding: 10px;
+        }
 
         &:hover{
         transform: scale(1.035);
