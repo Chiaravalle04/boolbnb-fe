@@ -434,6 +434,7 @@ export default {
 
             .searchBar {
                 background-color: white;
+                outline-color: #ff385c;
                 text-align: center;
             }
 
@@ -496,28 +497,6 @@ export default {
         transform: scale(1.035);
     }
     }
-
-    // KEYFRAMES
-    // @keyframes change {
-    //     0%{
-    //         background-image: url(../../public/paesaggio-1.jpg);
-    //     }
-    //     20%{
-    //         background-image: url(../../public/paesaggio-2.jpeg);
-    //     }
-    //     40%{
-    //         background-image: url(../../public/paesaggio-3.jpg);
-    //     }
-    //     60%{
-    //         background-image: url(../../public/paesaggio-4.jpg);
-    //     }
-    //     80%{
-    //         background-image: url(../../public/paesaggio-5.jpg);
-    //     }
-    //     100%{
-    //         background-image: url(../../public/paesaggio-6.jpg);
-    //     }
-    // }
 
 
 </style>

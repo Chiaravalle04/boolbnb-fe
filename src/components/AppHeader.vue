@@ -22,8 +22,8 @@
           <div class="row align-items-center h-100">
               <div class="col-3">
                   <a href="#" class="d-flex align-items-center">
-                      <img src="https://companieslogo.com/img/orig/ABNB-4aaade0f.png?t=1633511992" class="my-img" alt="">
-                      <span class="fs-4 ms-2"> <b>Boolbnb</b> </span>
+                      <img src="../../public/logoBool.png" class="my-img" alt="">
+                      <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
               </div>
               <div class="col-6 d-flex align-items-center justify-content-center mt-2">
@@ -67,7 +67,7 @@
   }
 
   .my-img {
-    height: 40px;
+    height: 50px;
   }
 
   ul {
@@ -101,12 +101,11 @@
   .link {
     color: black;
     font-weight: bold;
-    // border: 2px solid black;
     padding: 5px 10px;
 
       &:hover {
-        background-color: black;
-        color: white;
+        box-shadow: inset 0px 0px 0px 2px #ff385c;
+        color: #ff385c;
       }
   }
 
@@ -115,12 +114,10 @@
     color: white;
     font-weight: bold;
     padding: 5px 10px;
-    // border: 2px solid black;
 
     &:hover {
         color: white;
         background-color: #ff385c;
-        // border: 2px solid white;
       }
   }
 } 
