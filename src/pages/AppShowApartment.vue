@@ -11,7 +11,9 @@ export default {
             projectImg: 'https://images.pexels.com/photos/16424411/pexels-photo-16424411.jpeg?auto=compress&cs=tinysrgb&w=600',
             mountainImg: 'https://www.sportoutdoor24.it/app/uploads/2015/06/pexels-jaime-reimer-2662116-670x470.jpg',
             allServices: [],
-            singleServicesApartment: []
+            singleServicesApartment: [],
+
+
         }
     },
     methods: {
@@ -28,6 +30,21 @@ export default {
                     }
                 })
         },
+        getIconaServizio(services) {
+            switch (services) {
+                case 'Wi-Fi':
+                    return 'fa-wifi';
+                case 'Parcheggio':
+                    return 'fa-car';
+                case 'vasca_da_bagno':
+                    return 'fa-bath';
+                case 'iscina':
+                    return 'fa-swimming-pool';
+                // aggiungi altri servizi e icone
+                default:
+                    return 'fa-question'; // icona di default se il servizio non è associato a un'icona
+            }
+        }
     },
     created() {
         this.getApartment();
@@ -53,11 +70,28 @@ export default {
                 <hr>
                 <div class="services">
                     <h3 class="text-center mb-4">Cosa troverai</h3>
-                    <div class="d-flex justify-content-evenly">
+                    <div class="d-flex justify-content-evenly ">
                         <div v-for="service in singleServicesApartment" class="icons-services">
                             <div>
-                                <div class="text-center"><i class="fa-solid fa-bath fs-4 "></i></div>
-                                <div>{{ service.name }}</div>
+                                <div class="text-center">
+                                    <i v-if="service.name === 'Wi-Fi'" class="fa-solid fa-wifi fs-4"></i>
+                                    <i v-else-if="service.name === 'Parcheggio'"
+                                        class="fa-solid fa-square-parking fs-4"></i>
+                                    <i v-else-if="service.name === 'Piscina'" class="fa-solid fa-person-swimming fs-4"></i>
+                                    <i v-else-if="service.name === 'Cucina'" class=" fa-solid fa-fire-burner fs-4"></i>
+                                    <i v-else-if="service.name === 'Aria condizionata'"
+                                        class="fa-solid fa-temperature-arrow-down fs-4"></i>
+                                    <i v-else-if="service.name === 'Vasca da bagno'" class="fa-solid fa-bath fs-4"></i>
+                                    <i v-else-if="service.name === 'Riscaldamento'"
+                                        class="fa-solid fa-dumpster-fire fs-4"></i>
+                                    <i v-else-if="service.name === 'Letto matrimoniale'" class="fa-solid fa-bed fs-4"><i
+                                            class="fa-solid fa-heart fs-4"></i></i>
+                                    <i v-else-if="service.name === 'Letto singolo'" class="fa-solid fa-bed fs-4"></i>
+                                    <i v-else-if="service.name === 'Lavatrice'" class="fa-solid fa-soap fs-4"></i>
+                                    <i v-else-if="service.name === 'Ascensore'" class="fa-solid fa-elevator fs-4"></i>
+                                    <i v-else-if="service.name === 'Tv'" class="fa-solid fa-tv fs-4"></i>
+                                </div>
+                                <div class="fs-5">{{ service.name }}</div>
                             </div>
                         </div>
                     </div>
@@ -108,10 +142,10 @@ export default {
 </template>
 <style lang="scss" scoped>
 .card-details {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     min-height: 700px;
-    padding: 30px;
+    padding: 20px;
     background-color: rgb(244, 244, 244);
     border-radius: 20px;
 }
