@@ -21,7 +21,7 @@
       <div class="container h-100">
           <div class="row align-items-center h-100">
               <div class="col-3">
-                  <a href="#" class="d-flex align-items-center">
+                  <a href="/" class="d-flex align-items-center">
                       <img src="../../public/logoBool.png" class="my-img" alt="">
                       <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
