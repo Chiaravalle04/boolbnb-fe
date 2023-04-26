@@ -216,8 +216,13 @@ export default {
         
     <main>
         
-        <div class="jumbotron">
+        <div class="jumbotron position-relative">
             <div class="container h-100">
+                
+                <video class="myVideo" autoplay loop muted plays-inline>
+                    <source src="../../public/video-jumbo.mp4" type="video/mp4">
+                </video>
+                
                 <div class="row h-100">
                     <div class="col-6 d-flex justify-content-center align-items-center">
                         <div class="ms-4 myTitle">
@@ -226,25 +231,25 @@ export default {
                             </div>
                             <div class="myParagraph">
                                 <p>
-                                    Con <span>BoolBnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
+                                    Con <span>Boolbnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 h-100 d-flex align-items-center justify-content-center">
                         <div class="mySearchBox">
-                            <div class="mySecondParagraph">
+                            <div>
                                 Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
                                 <br>
                                 <div class="text-center">
                                     <input v-model="searchApartment" type="search" class="searchBar px-3 my-3" placeholder="Cerca destinazioni">
                                 </div>
                             </div>
-                            <div class="mySecondParagraph">
+                            <div>
                                 Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
                             </div>
-                            <div class="advancedSearch">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div class="advancedSearch text-center">
+                                <button type="button" class="btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Ricerca avanzata
                                 </button>
                             </div>
@@ -350,7 +355,7 @@ export default {
 
         <div class="container text-center my-5" v-else>
 
-            <h1 class="main-title">
+            <h1 class="main-title" id="primoPiano">
                 Sezione in primo piano
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
@@ -368,7 +373,7 @@ export default {
                 </div>
             </div>
             
-            <h1 class="main-title mt-5">
+            <h1 class="main-title mt-5" id="tutteStrutture">
                 Tutte le altre strutture
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
@@ -393,13 +398,25 @@ export default {
 <style lang="scss" scoped>
 
     .jumbotron {
-        height: 500px;
-        background-color: rgb(240, 237, 237);
+        height: 600px;
+        // background-color: rgb(240, 237, 237);
         // background-image: url(../../public/paesaggio-1.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         animation: change 50s infinite;
+
+        .myVideo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .myTitle{
             background-color: rgba(255, 255, 255, 0.5);
@@ -408,43 +425,29 @@ export default {
 
         .mySearchBox {
             background-color: #000;
+            padding: 20px;
             color: white;
-            height: 70%;
             border-radius: 10px;
             width: 60%;
-            // box-shadow: 10px 10px 20px 5px #000000;
+            font-size: 1.1rem;
             box-shadow: 1px 3px 15px -4px rgb(0,0,0);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-
-            .mySecondParagraph {
-                padding: 20px;
-                // font-weight: bold;
-                font-size: 1.1rem;
-            }
 
             .searchBar {
                 background-color: white;
-                width: 70%;
+                outline-color: #ff385c;
                 text-align: center;
             }
 
             .advancedSearch {
-                background-color: white;
-                border: 2px solid black;
-                font-weight: bold;
-                margin-bottom: 10px;
-                width: 70%;
 
                 button {
-                    width: 100%
+                    width: 70%;
+                    background-color: white;
                 }
 
                 .btn {
                     font-weight: bold;
-                    border-radius: 0px;
+                    border-radius: 5px;
 
                     &:hover {
                         color: white;
@@ -494,28 +497,6 @@ export default {
         transform: scale(1.035);
     }
     }
-
-    // KEYFRAMES
-    // @keyframes change {
-    //     0%{
-    //         background-image: url(../../public/paesaggio-1.jpg);
-    //     }
-    //     20%{
-    //         background-image: url(../../public/paesaggio-2.jpeg);
-    //     }
-    //     40%{
-    //         background-image: url(../../public/paesaggio-3.jpg);
-    //     }
-    //     60%{
-    //         background-image: url(../../public/paesaggio-4.jpg);
-    //     }
-    //     80%{
-    //         background-image: url(../../public/paesaggio-5.jpg);
-    //     }
-    //     100%{
-    //         background-image: url(../../public/paesaggio-6.jpg);
-    //     }
-    // }
 
 
 </style>

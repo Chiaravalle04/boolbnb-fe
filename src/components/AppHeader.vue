@@ -18,20 +18,21 @@
 
 <template>
   <header class="sticky-top my-header">
-      <div class="container">
-          <div class="row">
+      <div class="container h-100">
+          <div class="row align-items-center h-100">
               <div class="col-3">
-                  <a href="#">
-                      <img src="https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-mobile.jpg" class="my-img" alt="">
+                  <a href="#" class="d-flex align-items-center">
+                      <img src="../../public/logoBool.png" class="my-img" alt="">
+                      <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
               </div>
               <div class="col-6 d-flex align-items-center justify-content-center mt-2">
                     <ul class="d-flex">
                         <li>
-                            <a href="http://">in evidenza</a>
+                            <a href="#primoPiano">in evidenza</a>
                         </li>
                         <li>
-                            <a href="http://">tutte le case</a>
+                            <a href="#tutteStrutture">tutte le case</a>
                         </li>
                         <li>
                             <a href="http://">chi siamo</a>
@@ -60,8 +61,13 @@
   height: 70px;
   background-color: #fff;
 
+  a{
+    text-decoration: none;
+    color: #ff385c;
+  }
+
   .my-img {
-    height: 70px;
+    height: 50px;
   }
 
   ul {
@@ -95,12 +101,11 @@
   .link {
     color: black;
     font-weight: bold;
-    // border: 2px solid black;
     padding: 5px 10px;
 
       &:hover {
-        background-color: black;
-        color: white;
+        box-shadow: inset 0px 0px 0px 2px #ff385c;
+        color: #ff385c;
       }
   }
 
@@ -109,12 +114,10 @@
     color: white;
     font-weight: bold;
     padding: 5px 10px;
-    // border: 2px solid black;
 
     &:hover {
         color: white;
         background-color: #ff385c;
-        // border: 2px solid white;
       }
   }
 } 

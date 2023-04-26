@@ -1,7 +1,9 @@
 // Bootstrap
     @import 'node_modules/bootstrap/scss/bootstrap';
 
+// GENERAL
 * {
     font-family: 'Roboto', sans-serif;
-    transition: 0.25s all
+    transition: 0.25s all;
+    scroll-margin: 100px;
 }
