@@ -23,16 +23,16 @@
               <div class="col-3">
                   <a href="#" class="d-flex align-items-center">
                       <img src="https://companieslogo.com/img/orig/ABNB-4aaade0f.png?t=1633511992" class="my-img" alt="">
-                      <span class="fs-4 ms-2"> <b>Boolbnb</b></span>
+                      <span class="fs-4 ms-2"> <b>Boolbnb</b> </span>
                   </a>
               </div>
               <div class="col-6 d-flex align-items-center justify-content-center mt-2">
                     <ul class="d-flex">
                         <li>
-                            <a href="http://">in evidenza</a>
+                            <a href="#primoPiano">in evidenza</a>
                         </li>
                         <li>
-                            <a href="http://">tutte le case</a>
+                            <a href="#tutteStrutture">tutte le case</a>
                         </li>
                         <li>
                             <a href="http://">chi siamo</a>
