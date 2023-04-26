@@ -29,21 +29,6 @@ export default {
                         this.$router.push({ name: 'error' });
                     }
                 })
-        },
-        getIconaServizio(services) {
-            switch (services) {
-                case 'Wi-Fi':
-                    return 'fa-wifi';
-                case 'Parcheggio':
-                    return 'fa-car';
-                case 'vasca_da_bagno':
-                    return 'fa-bath';
-                case 'iscina':
-                    return 'fa-swimming-pool';
-                // aggiungi altri servizi e icone
-                default:
-                    return 'fa-question'; // icona di default se il servizio non è associato a un'icona
-            }
         }
     },
     created() {
@@ -173,9 +158,9 @@ img {
 
 .container-servizi {
     text-align: center;
-    border: 1px solid lightgray;
     border-radius: 6px;
     padding: 5px;
+    background-color: rgb(239, 236, 236);
 }
 
 .icons-services {
