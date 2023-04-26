@@ -87,19 +87,19 @@ export default {
                         <h2 class="text-center mb-4">Servizi</h2>
                         <div class="d-flex justify-content-around fs-5">
                             <div class="container-servizi">
-                                <div><i class="fa-solid fa-people-roof"></i></div>
+                                <div><i class="fa-solid fa-people-roof text-success-emphasis"></i></div>
                                 <div>Numero di stanze: {{ apartment.room }}</div>
                             </div>
                             <div class="container-servizi">
-                                <div><i class="fa-solid fa-toilet-paper"></i></div>
+                                <div><i class="fa-solid fa-toilet-paper text-success-emphasis"></i></div>
                                 <div>Numero di bagni: {{ apartment.bathroom }}</div>
                             </div>
                             <div class="container-servizi">
-                                <div><i class="fa-solid fa-bed"></i></div>
+                                <div><i class="fa-solid fa-bed text-success-emphasis"></i></div>
                                 <div>Numero di letti: {{ apartment.bed }}</div>
                             </div>
                             <div class="container-servizi">
-                                <div><i class="fa-solid fa-hotel"></i></div>
+                                <div><i class="fa-solid fa-hotel text-success-emphasis"></i></div>
                                 <div>Pernottamento: {{ apartment.type }}</div>
                             </div>
                         </div>
@@ -109,16 +109,22 @@ export default {
 
                     <ul class="mt-4 list-unstyled ">
                         <li class="fs-4 mx-2">
-                            <i class="fa-solid fa-sack-dollar fs-3"></i>
+                            <i class="fa-solid fa-sack-dollar fs-3 text-warning"></i>
                             <span class="fs-2 mx-1">{{
                                 apartment.price
                             }}€</span> a notte!
                         </li>
                         <li class="fs-4 mx-2 mt-4">
-                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-phone text-danger"></i>
                             Soddisfatti o rimborsati!
                         </li>
 
+                        <li class="fs-4 mx-2 mt-4">
+                            <p v-if="apartment.availability"><i class="fa-solid fa-check text-success"></i> L'appartamento è
+                                disponibile
+                            </p>
+                            <p v-else><i class="fa-solid fa-xmark"></i> L'appartamento non è disponibile</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -137,7 +143,7 @@ export default {
 
 img {
     width: 500px;
-    height: 400px;
+    height: 420px;
     border-radius: 10px;
 }
 
@@ -169,14 +175,12 @@ img {
     padding: 5px;
     width: 200px;
     text-align: center;
+    background-color: rgb(239, 236, 236);
+    padding: 10px;
 
     >:hover {
         cursor: pointer;
         transition: 2s;
     }
-}
-
-span {
-    color: red;
 }
 </style>
