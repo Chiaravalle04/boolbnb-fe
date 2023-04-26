@@ -9,6 +9,7 @@ export default {
             apiUrlAllApartments: '',
             apartment: null,
             projectImg: 'https://images.pexels.com/photos/16424411/pexels-photo-16424411.jpeg?auto=compress&cs=tinysrgb&w=600',
+            mountainImg: 'https://www.sportoutdoor24.it/app/uploads/2015/06/pexels-jaime-reimer-2662116-670x470.jpg',
             allServices: [],
             singleServicesApartment: []
         }
@@ -45,9 +46,10 @@ export default {
         <div class="img-details d-flex">
             <div class="img">
                 <img :src="projectImg">
+                <img :src="mountainImg" class="mt-3">
             </div>
             <div class="details">
-                <i> {{ apartment.description }} </i>
+                <i class="description"> {{ apartment.description }} </i>
                 <hr>
                 <div class="services">
                     <h3 class="text-center mb-4">Cosa troverai</h3>
@@ -83,6 +85,22 @@ export default {
                             </div>
                         </div>
                     </div>
+
+                    <hr class="mt-4 mb-4">
+
+                    <ul class="mt-4 list-unstyled ">
+                        <li class="fs-4 mx-2">
+                            <i class="fa-solid fa-sack-dollar fs-3"></i>
+                            <span class="fs-2 mx-1">{{
+                                apartment.price
+                            }}€</span> a notte!
+                        </li>
+                        <li class="fs-4 mx-2 mt-4">
+                            <i class="fa-solid fa-phone"></i>
+                            Soddisfatti o rimborsati!
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
@@ -100,13 +118,17 @@ export default {
 
 img {
     width: 500px;
-    height: 700px;
+    height: 400px;
     border-radius: 10px;
 }
 
 .details {
     line-height: 30px;
     padding-left: 10px;
+}
+
+.description {
+    font-size: 15px;
 }
 
 /* servizi */
@@ -118,12 +140,13 @@ img {
 .container-servizi {
     text-align: center;
     border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 5px;
 }
 
 .icons-services {
     font-size: 18px;
     border-radius: 6px;
-    border: 1px solid lightgray;
     padding: 5px;
     width: 200px;
     text-align: center;
@@ -132,5 +155,9 @@ img {
         cursor: pointer;
         transition: 2s;
     }
+}
+
+span {
+    color: red;
 }
 </style>

@@ -17,11 +17,11 @@ export default {
 </script>
 
 <template>
-
+    <!--
   <footer class="border">
       <div class="container-fluid d-flex justify-content-between py-2">
         
-        <!-- contenuto sinistra -->
+        contenuto sinistra
           <div class="content-dx row">
               <div class="col">
                   <ul class="d-flex p-0 m-0">
@@ -47,7 +47,7 @@ export default {
               </div>
           </div>
 
-          <!-- contenuto destra -->
+           contenuto destra 
           <div class="content-sx">
               <ul class="d-flex p-0 m-0">
                   <li>
@@ -63,16 +63,18 @@ export default {
           </div>
       </div>
   </footer>
+
+-->
 </template>
 
 <style lang="scss" scoped>
 li {
-  list-style: none;
-  margin-right: 10px;
+    list-style: none;
+    margin-right: 10px;
 
-  a {
-    color: rgb(26, 26, 26);
-    text-decoration: none;
-  }
+    a {
+        color: rgb(26, 26, 26);
+        text-decoration: none;
+    }
 }
 </style>
