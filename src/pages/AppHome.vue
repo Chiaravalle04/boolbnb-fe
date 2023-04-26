@@ -218,9 +218,9 @@ export default {
         
         <div class="jumbotron position-relative">
             <div class="container h-100">
-                <!-- <video class="myVideo" autoplay loop muted plays-inline>
-                    <source src="../../public/RPReplay_Final1682511374.mp4" type="video/mp4">
-                </video> -->
+                <video class="myVideo" autoplay loop muted plays-inline>
+                    <source src="../../public/video-jumbo.mp4" type="video/mp4">
+                </video>
                 <div class="row h-100">
                     <div class="col-6 d-flex justify-content-center align-items-center">
                         <div class="ms-4 myTitle">
