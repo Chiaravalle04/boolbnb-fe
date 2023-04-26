@@ -220,7 +220,7 @@ export default {
             <div class="container h-100">
                 <div class="row h-100">
                     <div class="col-6 d-flex justify-content-center align-items-center">
-                        <div class="ms-4">
+                        <div class="ms-4 myTitle">
                             <div class="myTextBox">
                                 PRENOTA SUBITO LA TUA <span>VACANZA</span> DEI SOGNI!
                             </div>
@@ -235,8 +235,10 @@ export default {
                         <div class="mySearchBox">
                             <div class="mySecondParagraph">
                                 Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
-
-                                <input v-model="searchApartment" type="search" name="" id="" class="searchBar px-3 m-3" placeholder="Cerca destinazioni">
+                                <br>
+                                <div class="text-center">
+                                    <input v-model="searchApartment" type="search" class="searchBar px-3 my-3" placeholder="Cerca destinazioni">
+                                </div>
                             </div>
                             <div class="mySecondParagraph">
                                 Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
@@ -345,11 +347,11 @@ export default {
 
         <div class="container text-center my-5" v-else>
 
-            <div class="row">
-                <h1 class="main-title">
-                    Sezione in primo piano
-                </h1>
-                <div class="col-3 mt-5" v-for="index in filtredApartment">
+            <h1 class="main-title">
+                Sezione in primo piano
+            </h1>
+            <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+                <div class="col mt-5" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                         <div class="card h-100" style="width: 18rem;">
                             <img :src="index.image" class="card-img-top" alt="...">
@@ -362,11 +364,12 @@ export default {
                     </router-link>
                 </div>
             </div>
-            <div class="row">
-                <h1 class="main-title mt-5">
-                    Tutte le altre case
-                </h1>
-                <div class="col-3 mt-5" v-for="index in filtredApartment">
+            
+            <h1 class="main-title mt-5">
+                Tutte le altre case
+            </h1>
+            <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+                <div class="col mt-5" v-for="index in filtredApartment">
                     <a href="http://" class="text-decoration-none">
                         <div class="card h-100" style="width: 18rem;">
                             <img src="..." class="card-img-top" alt="...">
@@ -393,7 +396,12 @@ export default {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        animation: change 15s ease-in-out infinite;
+        animation: change 50s infinite;
+
+        .myTitle{
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+        }
 
         .mySearchBox {
             background-color: #000;
