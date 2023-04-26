@@ -494,9 +494,12 @@ export default {
     .myCard{
         box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
         color: black !important;
+        border-radius: 10px;
+        overflow: hidden;
 
         .cardCover{
             height: 200px;
+            overflow: hidden;
             
             img{
                 object-fit: cover;
@@ -508,6 +511,10 @@ export default {
 
         &:hover{
         transform: scale(1.035);
+
+        img{
+            transform: scale(1.1);
+        }
     }
     }
 
