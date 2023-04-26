@@ -238,7 +238,7 @@ export default {
 
                                 <input v-model="searchApartment" type="search" name="" id="" class="searchBar px-3 m-3" placeholder="Cerca destinazioni">
                             </div>
-                            <div>
+                            <div class="mySecondParagraph">
                                 Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
                             </div>
                             <div class="advancedSearch">
@@ -320,7 +320,7 @@ export default {
             </div>
         </div>
 
-        <div class="container text-center mt-5" v-if="filterApartments.length > 0">
+        <div class="container text-center my-5" v-if="filterApartments.length > 0">
 
             <div class="row">
                 <h1 class="main-title">
@@ -328,7 +328,7 @@ export default {
                 </h1>
                 <div class="col-3 mt-5" v-for="index in filterApartments">
                     <div v-if="index.distance <= distanceNumber">
-                        <a href="http://" class="text-decoration-none">
+                        <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                             <div class="card h-100" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -337,29 +337,29 @@ export default {
                                     <div>{{ index.price }} $/notte</div>
                                 </div>
                             </div>  
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container text-center mt-5" v-else>
+        <div class="container text-center my-5" v-else>
 
             <div class="row">
                 <h1 class="main-title">
                     Sezione in primo piano
                 </h1>
                 <div class="col-3 mt-5" v-for="index in filtredApartment">
-                    <a href="http://" class="text-decoration-none">
+                    <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                         <div class="card h-100" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img :src="index.image" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
-                                <p class="card-text">{{ index.address }}</p>
-                                <div>{{ index.price }} $/notte</div>
+                                <!-- <p class="card-text">{{ index.address }}</p>
+                                <div>{{ index.price }} $/notte</div> -->
                             </div>
                         </div>  
-                    </a>
+                    </router-link>
                 </div>
             </div>
             <div class="row">
@@ -372,8 +372,8 @@ export default {
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
-                                <p class="card-text">{{ index.address }}</p>
-                                <div>{{ index.price }} $/notte</div>
+                                <!-- <p class="card-text">{{ index.address }}</p>
+                                <div>{{ index.price }} $/notte</div> -->
                             </div>
                         </div>  
                     </a>
@@ -391,8 +391,9 @@ export default {
         // background-color: rgb(240, 237, 237);
         background-image: url(../../public/paesaggio-1.jpeg);
         background-size: cover;
+        background-repeat: no-repeat;
         background-position: center;
-        animation: change 15s infinite ease-in-out;
+        animation: change 15s ease-in-out infinite;
 
         .mySearchBox {
             background-color: #000;
