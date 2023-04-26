@@ -45,7 +45,7 @@
                     <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
                       Login
                     </a>
-                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-3 link-two">
+                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-2 link-two">
                       Registrati
                     </a>
               </div>
@@ -94,7 +94,7 @@
   .link {
     color: black;
     font-weight: bold;
-    border: 2px solid black;
+    // border: 2px solid black;
     padding: 5px 10px;
 
       &:hover {
@@ -108,11 +108,12 @@
     color: white;
     font-weight: bold;
     padding: 5px 10px;
-    border: 2px solid black;
+    // border: 2px solid black;
 
     &:hover {
-        background-color: white;
-        color: black;
+        color: white;
+        background-color: #ff385c;
+        // border: 2px solid white;
       }
   }
 } 

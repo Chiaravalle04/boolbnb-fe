@@ -250,25 +250,28 @@ export default {
                             </div>
 
                             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-dialog-scrollable">
                                     <div class="modal-content bg-dark">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Ricerca Avanzata</h5>
+                                            <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Ricerca Avanzata</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
-                                        <!-- SALVATAGGIO COORDINATE -->
-
-                                        <div class="mb-3">
-                                            <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar px-3 m-3" id="address" placeholder="Inserisci indirizzo..." name="address">
-                                            <ul id="autocomplete-list" class="list-group"></ul>
-                                            <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
-                                            <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
-                                        </div>
-
-                                        <!-- FINE SALVATAGGIO COORDINATE -->
+                                        
                                         
                                         <div class="modal-body">
+                                            
+                                            <!-- SALVATAGGIO COORDINATE -->
+
+                                            <div class="mb-3">
+                                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar px-3 m-3" id="address" placeholder="Inserisci indirizzo..." name="address">
+                                                <ul id="autocomplete-list" class="list-group"></ul>
+                                                <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
+                                                <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
+                                            </div>
+
+                                        <!-- FINE SALVATAGGIO COORDINATE -->
+                                            
                                             <div class="mb-3">
                                                 <label class="d-block" for="price">Prezzo massimo:</label>
                                                 <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">€
@@ -332,7 +335,7 @@ export default {
                     <div v-if="index.distance <= distanceNumber">
                         <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                             <div class="card h-100" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
+                                <img :src="index.image" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ index.title }}</h5>
                                     <p class="card-text">{{ index.address }}</p>
@@ -354,7 +357,7 @@ export default {
                 <div class="col mt-5" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                         <div class="card h-100" style="width: 18rem;">
-                            <img :src="index.image" class="card-img-top" alt="...">
+                            <img :src="index.cover" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ index.title }}</h5>
                                 <!-- <p class="card-text">{{ index.address }}</p>
@@ -370,7 +373,7 @@ export default {
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
-                    <a href="http://" class="text-decoration-none">
+                    <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                         <div class="card h-100" style="width: 18rem;">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
@@ -379,7 +382,7 @@ export default {
                                 <div>{{ index.price }} $/notte</div> -->
                             </div>
                         </div>  
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -391,8 +394,8 @@ export default {
 
     .jumbotron {
         height: 500px;
-        // background-color: rgb(240, 237, 237);
-        background-image: url(../../public/paesaggio-1.jpeg);
+        background-color: rgb(240, 237, 237);
+        // background-image: url(../../public/paesaggio-1.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -409,7 +412,8 @@ export default {
             height: 70%;
             border-radius: 10px;
             width: 60%;
-            box-shadow: 10px 10px 20px 5px #000000;
+            // box-shadow: 10px 10px 20px 5px #000000;
+            box-shadow: 1px 3px 15px -4px rgb(0,0,0);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -483,27 +487,35 @@ export default {
         color: #ff385c;
     }
 
-    // KEYFRAMES
-    @keyframes change {
-        0%{
-            background-image: url(../../public/paesaggio-1.jpg);
-        }
-        20%{
-            background-image: url(../../public/paesaggio-2.jpeg);
-        }
-        40%{
-            background-image: url(../../public/paesaggio-3.jpg);
-        }
-        60%{
-            background-image: url(../../public/paesaggio-4.jpg);
-        }
-        80%{
-            background-image: url(../../public/paesaggio-5.jpg);
-        }
-        100%{
-            background-image: url(../../public/paesaggio-6.jpg);
-        }
+    .card{
+        box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
+
+        &:hover{
+        transform: scale(1.035);
     }
+    }
+
+    // KEYFRAMES
+    // @keyframes change {
+    //     0%{
+    //         background-image: url(../../public/paesaggio-1.jpg);
+    //     }
+    //     20%{
+    //         background-image: url(../../public/paesaggio-2.jpeg);
+    //     }
+    //     40%{
+    //         background-image: url(../../public/paesaggio-3.jpg);
+    //     }
+    //     60%{
+    //         background-image: url(../../public/paesaggio-4.jpg);
+    //     }
+    //     80%{
+    //         background-image: url(../../public/paesaggio-5.jpg);
+    //     }
+    //     100%{
+    //         background-image: url(../../public/paesaggio-6.jpg);
+    //     }
+    // }
 
 
 </style>
