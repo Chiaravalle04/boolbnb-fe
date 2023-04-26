@@ -22,7 +22,7 @@
           <div class="row align-items-center h-100">
               <div class="col-3">
                   <a href="/" class="d-flex align-items-center">
-                      <img src="../../public/logoBool.png" class="myLogo" alt="">
+                      <img src="../../public/logo.png" class="myLogo" alt="">
                       <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
               </div>
@@ -67,7 +67,7 @@
   }
 
   .myLogo {
-    height: 60px;
+    height: 40px;
   }
 
   ul {
