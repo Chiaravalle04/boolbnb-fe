@@ -2,33 +2,36 @@
 import axios from 'axios';
 export default {
     name: "AppShowApartment",
-  
+
     components: {
-  
+
     },
-  
+
     data() {
-  
-      return {
-  
-      }
-  
+
+        return {
+            apiUrlAllApartments: '',
+
+            apartment: null,
+
+        }
+
     },
 
     methods: {
 
         getApartment() {
             axios
-            .get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
-            .then(response => {
-                if (response.data.success) {
-                    // this.project = response.data.projects;
-                    console.log(response);
-                } else {
-                    this.$router.push({ name: 'error' });
-                }
-                
-            })
+                .get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
+                .then(response => {
+                    if (response.data.success) {
+                        this.apartment = response.data.apartments;
+                        console.log(this.apartment);
+                    } else {
+                        this.$router.push({ name: 'error' });
+                    }
+
+                })
         },
 
     },
@@ -38,15 +41,15 @@ export default {
         this.getApartment();
 
     }
-  }
-  </script>
+}
+</script>
   
-  <template>
+<template>
+    <div class="card">
+
+        <h1>ciao</h1>
+
+    </div>
+</template>
   
-    <h1 class="text-danger">ciao AppShow</h1>
-    
-  </template>
-  
-  <style lang="scss" scoped>
-  
-  </style>
+<style lang="scss" scoped></style>
