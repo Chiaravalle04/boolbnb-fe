@@ -226,7 +226,7 @@ export default {
                             </div>
                             <div class="myParagraph">
                                 <p>
-                                    Con <span>BoolBnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
+                                    Con <span>Boolbnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
                                 </p>
                             </div>
                         </div>

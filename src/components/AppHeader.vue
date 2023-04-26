@@ -18,11 +18,12 @@
 
 <template>
   <header class="sticky-top my-header">
-      <div class="container">
-          <div class="row">
+      <div class="container h-100">
+          <div class="row align-items-center h-100">
               <div class="col-3">
-                  <a href="#">
-                      <img src="https://media.designrush.com/inspiration_images/135187/conversions/_1511452487_364_Airbnb-mobile.jpg" class="my-img" alt="">
+                  <a href="#" class="d-flex align-items-center">
+                      <img src="https://companieslogo.com/img/orig/ABNB-4aaade0f.png?t=1633511992" class="my-img" alt="">
+                      <span class="fs-4 ms-2"> <b>Boolbnb</b></span>
                   </a>
               </div>
               <div class="col-6 d-flex align-items-center justify-content-center mt-2">
@@ -60,8 +61,13 @@
   height: 70px;
   background-color: #fff;
 
+  a{
+    text-decoration: none;
+    color: #ff385c;
+  }
+
   .my-img {
-    height: 70px;
+    height: 40px;
   }
 
   ul {
