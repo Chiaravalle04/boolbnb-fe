@@ -22,7 +22,7 @@
           <div class="row align-items-center h-100">
               <div class="col-3">
                   <a href="#" class="d-flex align-items-center">
-                      <img src="../../public/logoBool.png" class="my-img" alt="">
+                      <img src="../../public/logoBool.png" class="myLogo" alt="">
                       <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
               </div>
@@ -66,8 +66,8 @@
     color: #ff385c;
   }
 
-  .my-img {
-    height: 50px;
+  .myLogo {
+    height: 60px;
   }
 
   ul {

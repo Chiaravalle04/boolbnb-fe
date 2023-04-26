@@ -262,14 +262,12 @@ export default {
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
 
-                                        
-                                        
                                         <div class="modal-body">
                                             
                                             <!-- SALVATAGGIO COORDINATE -->
 
                                             <div class="mb-3">
-                                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar px-3 m-3" id="address" placeholder="Inserisci indirizzo..." name="address">
+                                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar my-3" id="address" placeholder="Inserisci indirizzo..." name="address">
                                                 <ul id="autocomplete-list" class="list-group"></ul>
                                                 <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
                                                 <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
@@ -336,6 +334,7 @@ export default {
                 <h1 class="main-title">
                     Filtraggio avanzato
                 </h1>
+                
                 <div class="col-3 mt-5" v-for="index in filterApartments">
                     <div v-if="index.distance <= distanceNumber">
                         <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
