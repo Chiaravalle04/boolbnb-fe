@@ -208,6 +208,14 @@ export default {
             
         },
 
+    },
+
+    mounted(){
+        $('.slider').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
     }
 };
 </script>
@@ -215,7 +223,6 @@ export default {
 <template>
         
     <main>
-        
         <div class="jumbotron position-relative">
             <div class="container h-100">
                 
@@ -373,6 +380,13 @@ export default {
                         </div>
                     </router-link>
                 </div>
+            </div>
+
+            <div class="slider">
+                <div>ciao</div>
+                <div>ciao</div>
+                <div>ciao</div>
+                <div>ciao</div>
             </div>
             
             <h1 class="main-title mt-5" id="tutteStrutture">
