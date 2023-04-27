@@ -241,9 +241,11 @@ export default {
                             <div>
                                 <!-- Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
                                 <br> -->
-                                <div class="">
-                                    <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3" placeholder="Cerca destinazioni...">
-                                    <!-- <span><i class="fa-solid fa-magnifying-glass"></i></span> -->
+                                <div class="searchBox bg-white position-relative border rounded-5">
+                                    <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
+                                    <span class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
                                 </div>
                             </div>
                             <!-- <div>
@@ -436,6 +438,10 @@ export default {
                 background-color: white;
                 outline-color: #ff385c;
                 // text-align: center;
+            }
+
+            .iconSearch{
+                background-color: #ff385c;
             }
 
             .advancedSearch {
