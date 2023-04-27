@@ -164,12 +164,21 @@ export default {
 }
 
 img {
-    width: 500px;
+    width: 100%;
     height: 420px;
     border-radius: 10px;
 }
 
+.img {
+    width: 50%;
+}
+
+.img-details {
+    width: 100%;
+}
+
 .details {
+    width: 50%;
     line-height: 30px;
     padding-left: 10px;
 }
@@ -180,7 +189,7 @@ img {
 
 /* servizi */
 .services {
-    height: 300px;
+    // height: 300px;
     width: 100%;
 }
 
