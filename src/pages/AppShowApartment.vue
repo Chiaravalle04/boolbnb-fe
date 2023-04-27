@@ -1,15 +1,11 @@
 <script>
 import axios from 'axios';
-import Maps from '@tomtom-international/web-sdk-maps';
 import tt from '@tomtom-international/web-sdk-maps';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
-import '@tomtom-international/web-sdk-services/';
 
 export default {
     name: "AppShowApartment",
     components: {
-        Maps,
-        tt
     },
     data() {
         return {
@@ -42,7 +38,7 @@ export default {
             key: "QHRRpmA2IkGIXyVVm2RGpJDOHxmvTAx2",
             container: "map",
             center: center,
-            zoom: 10,
+            zoom: 13,
         });
         map.on('load', () => {
             new tt.Marker().setLngLat(center).addTo(map);
