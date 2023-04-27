@@ -237,25 +237,25 @@ export default {
                         </div>
                     <!-- </div> -->
                     <!-- <div class=""> -->
-                        <div class="searchDestination mt-5">
+                        <div class="searchDestination">
                             <div>
                                 <!-- Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
                                 <br> -->
                                 <div class="searchBox bg-white position-relative border rounded-5">
                                     <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
-                                    <span class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                                    <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
                                         <i class="fa-solid fa-magnifying-glass"></i>
-                                    </span>
+                                    </a>
                                 </div>
                             </div>
                             <!-- <div>
                                 Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
                             </div> -->
-                            <div class="advancedSearch text-center">
+                            <!-- <div class="advancedSearch text-center">
                                 <button type="button" class="btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Ricerca avanzata
                                 </button>
-                            </div>
+                            </div> -->
 
                             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable">
@@ -434,14 +434,17 @@ export default {
         //     font-size: 1.1rem;
         //     box-shadow: 1px 3px 15px -4px rgb(0,0,0);
 
+        .searchDestination{
+            margin-top: 7rem;
             .searchBar {
                 background-color: white;
-                outline-color: #ff385c;
-                // text-align: center;
+                // outline-color: #ff385c;
+                outline: none;
             }
 
             .iconSearch{
                 background-color: #ff385c;
+                text-decoration: none;
             }
 
             .advancedSearch {
@@ -462,6 +465,7 @@ export default {
                 }
             }
         }
+    }
 
         .myTextBox {
             height: 70%;
@@ -521,7 +525,7 @@ export default {
             transform: scale(1.1);
         }
     }
-    }
+}
 
 
 </style>
