@@ -223,11 +223,11 @@ export default {
                     <source src="../../public/video-jumbo.mp4" type="video/mp4">
                 </video>
                 
-                <div class="row h-100">
-                    <div class="col-6 d-flex justify-content-center align-items-center">
-                        <div class="ms-4 myTitle">
-                            <div class="myTextBox">
-                                PRENOTA SUBITO LA TUA <span>VACANZA</span> DEI SOGNI!
+                <div class="containerJumbo p-5 position-relative h-100">
+                    <!-- <div class=""> -->
+                        <div class="myTitle">
+                            <div class="myTextBox text-center w-100">
+                                PRENOTA SUBITO LA TUA <span>VACANZA</span> <br> DEI SOGNI!
                             </div>
                             <div class="myParagraph">
                                 <p>
@@ -235,25 +235,27 @@ export default {
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 h-100 d-flex align-items-center justify-content-center">
-                        <div class="mySearchBox">
+                    <!-- </div> -->
+                    <!-- <div class=""> -->
+                        <div class="searchDestination">
                             <div>
-                                Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
-                                <br>
-                                <div class="text-center">
-                                    <input v-model="searchApartment" type="search" class="searchBar px-3 my-3" placeholder="Cerca destinazioni...">
-                                    <!-- <span><i class="fa-solid fa-magnifying-glass"></i></span> -->
+                                <!-- Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
+                                <br> -->
+                                <div class="searchBox bg-white position-relative border rounded-5">
+                                    <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
+                                    <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
-                            </div>
-                            <div class="advancedSearch text-center">
+                            </div> -->
+                            <!-- <div class="advancedSearch text-center">
                                 <button type="button" class="btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Ricerca avanzata
                                 </button>
-                            </div>
+                            </div> -->
 
                             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable">
@@ -324,7 +326,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -419,24 +421,30 @@ export default {
         }
 
         .myTitle{
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
         }
 
-        .mySearchBox {
-            background-color: #000;
-            padding: 20px;
-            color: white;
-            border-radius: 10px;
-            width: 60%;
-            font-size: 1.1rem;
-            box-shadow: 1px 3px 15px -4px rgb(0,0,0);
+        // .mySearchBox {
+        //     background-color: #000;
+        //     padding: 20px;
+        //     color: white;
+        //     border-radius: 10px;
+        //     width: 60%;
+        //     font-size: 1.1rem;
+        //     box-shadow: 1px 3px 15px -4px rgb(0,0,0);
 
+        .searchDestination{
+            margin-top: 7rem;
             .searchBar {
                 background-color: white;
-                outline-color: #ff385c;
-                width: 70%;
-                // text-align: center;
+                // outline-color: #ff385c;
+                outline: none;
+            }
+
+            .iconSearch{
+                background-color: #ff385c;
+                text-decoration: none;
             }
 
             .advancedSearch {
@@ -457,6 +465,7 @@ export default {
                 }
             }
         }
+    }
 
         .myTextBox {
             height: 70%;
@@ -485,7 +494,7 @@ export default {
             line-height: 35px;
             background-color: black;
         }
-    }
+    // }
     
     .main-title {
         color: #ff385c;
@@ -516,7 +525,7 @@ export default {
             transform: scale(1.1);
         }
     }
-    }
+}
 
 
 </style>
