@@ -1,11 +1,26 @@
 <script>
 import axios from 'axios';
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { Autoplay, Pagination, Navigation } from 'swiper';
 
 export default {
     name: "AppHome",
   
     components: {
-  
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [Autoplay, Pagination, Navigation],
+      };
     },
         
     data() {
@@ -208,6 +223,10 @@ export default {
             
         },
 
+    },
+
+    mounted(){
+        
     }
 };
 </script>
@@ -215,7 +234,6 @@ export default {
 <template>
         
     <main>
-        
         <div class="jumbotron position-relative">
             <div class="container h-100">
                 
@@ -330,6 +348,32 @@ export default {
                 </div>
             </div>
         </div>
+
+        <swiper
+            :slidesPerView="4"
+            :spaceBetween="20"
+            :centeredSlides="false"
+            :autoplay="{
+                delay: 2500,
+                disableOnInteraction: false,
+            }"
+            :navigation="true"
+            :modules="modules"
+            class="mySwiper mt-4"
+        >
+            <swiper-slide v-for="index in filtredApartment">
+                <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
+                        <div class="myCard h-100">
+                            <div class="cardCover">
+                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="cardInfo">
+                                <h5>{{ index.title }}</h5>
+                            </div>
+                        </div>
+                </router-link>
+            </swiper-slide>
+        </swiper>
 
         <div class="container text-center my-5" v-if="filterApartments.length > 0">
 
