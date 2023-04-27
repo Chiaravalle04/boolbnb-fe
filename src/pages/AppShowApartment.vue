@@ -153,7 +153,7 @@ export default {
                             <textarea id="message" name="message" placeholder="Inserisci un messaggio.."
                                 required></textarea><br>
 
-                            <input type="submit" value="Invia" class="text-center">
+                            <input type="submit" value="Invia">
                         </form>
                     </div>
 
@@ -231,10 +231,16 @@ img {
 
 form {
     margin-left: 100px;
-    padding: 14px;
-    background-color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    background-color: rgb(222, 222, 222);
     border-radius: 12px;
-    color: white;
+
+    input,
+    textarea {
+        border: none;
+        border-radius: 4px;
+        padding: 6px;
+    }
 }
 
 .mapview {
