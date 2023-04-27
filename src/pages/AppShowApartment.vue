@@ -67,27 +67,27 @@ export default {
                 <i class="description"> {{ apartment.description }} </i>
                 <hr>
                 <div class="services">
-                    <h3 class="text-center mb-4">Cosa troverai</h3>
+                    <h3 class="text-center mb-4 fs-3">Cosa troverai</h3>
                     <div class="d-flex justify-content-evenly ">
                         <div v-for="service in singleServicesApartment" class="icons-services">
                             <div>
                                 <div class="text-center">
-                                    <i v-if="service.name === 'Wi-Fi'" class="fa-solid fa-wifi fs-4"></i>
+                                    <i v-if="service.name === 'Wi-Fi'" class="fa-solid fa-wifi fs-5"></i>
                                     <i v-else-if="service.name === 'Parcheggio'"
-                                        class="fa-solid fa-square-parking fs-4"></i>
-                                    <i v-else-if="service.name === 'Piscina'" class="fa-solid fa-person-swimming fs-4"></i>
-                                    <i v-else-if="service.name === 'Cucina'" class=" fa-solid fa-fire-burner fs-4"></i>
+                                        class="fa-solid fa-square-parking fs-5"></i>
+                                    <i v-else-if="service.name === 'Piscina'" class="fa-solid fa-person-swimming fs-5"></i>
+                                    <i v-else-if="service.name === 'Cucina'" class=" fa-solid fa-fire-burner fs-5"></i>
                                     <i v-else-if="service.name === 'Aria condizionata'"
-                                        class="fa-solid fa-temperature-arrow-down fs-4"></i>
-                                    <i v-else-if="service.name === 'Vasca da bagno'" class="fa-solid fa-bath fs-4"></i>
+                                        class="fa-solid fa-temperature-arrow-down fs-5"></i>
+                                    <i v-else-if="service.name === 'Vasca da bagno'" class="fa-solid fa-bath fs-5"></i>
                                     <i v-else-if="service.name === 'Riscaldamento'"
-                                        class="fa-solid fa-dumpster-fire fs-4"></i>
-                                    <i v-else-if="service.name === 'Letto matrimoniale'" class="fa-solid fa-bed fs-4"><i
-                                            class="fa-solid fa-heart fs-4"></i></i>
-                                    <i v-else-if="service.name === 'Letto singolo'" class="fa-solid fa-bed fs-4"></i>
-                                    <i v-else-if="service.name === 'Lavatrice'" class="fa-solid fa-soap fs-4"></i>
-                                    <i v-else-if="service.name === 'Ascensore'" class="fa-solid fa-elevator fs-4"></i>
-                                    <i v-else-if="service.name === 'Tv'" class="fa-solid fa-tv fs-4"></i>
+                                        class="fa-solid fa-dumpster-fire fs-5"></i>
+                                    <i v-else-if="service.name === 'Letto matrimoniale'" class="fa-solid fa-bed fs-5"><i
+                                            class="fa-solid fa-heart fs-5"></i></i>
+                                    <i v-else-if="service.name === 'Letto singolo'" class="fa-solid fa-bed fs-5"></i>
+                                    <i v-else-if="service.name === 'Lavatrice'" class="fa-solid fa-soap fs-5"></i>
+                                    <i v-else-if="service.name === 'Ascensore'" class="fa-solid fa-elevator fs-5"></i>
+                                    <i v-else-if="service.name === 'Tv'" class="fa-solid fa-tv fs-5"></i>
                                 </div>
                                 <div class="fs-5">{{ service.name }}</div>
                             </div>
@@ -97,11 +97,12 @@ export default {
                     <hr class="mt-4 mb-4">
 
                     <div class="number-services mt-4">
-                        <h2 class="text-center mb-4">Servizi</h2>
-                        <div class="d-flex justify-content-around fs-5">
+                        <h2 class="text-center mb-4 fs-3">Servizi</h2>
+                        <div class="d-flex justify-content-around">
                             <div class="container-servizi">
                                 <div><i class="fa-solid fa-people-roof text-success-emphasis"></i></div>
-                                <div>Numero di stanze: {{ apartment.room }}</div>
+                                <div>Numero di stanze: {{ apartment.room }}
+                                </div>
                             </div>
                             <div class="container-servizi">
                                 <div><i class="fa-solid fa-toilet-paper text-success-emphasis"></i></div>
@@ -230,9 +231,10 @@ img {
 
 form {
     margin-left: 100px;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 7px;
+    padding: 14px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    color: white;
 }
 
 .mapview {
