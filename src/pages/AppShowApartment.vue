@@ -120,25 +120,42 @@ export default {
 
                     <hr class="mt-4 mb-4">
 
-                    <ul class="mt-4 list-unstyled">
-                        <li class="fs-4 mx-2">
-                            <i class="fa-solid fa-sack-dollar fs-3 text-warning"></i>
-                            <span class="fs-2 mx-1">{{
-                                apartment.price
-                            }}€</span> a notte!
-                        </li>
-                        <li class="fs-4 mx-2 mt-4">
-                            <i class="fa-solid fa-phone text-danger"></i>
-                            Soddisfatti o rimborsati!
-                        </li>
+                    <div class="list-form d-flex">
+                        <ul class="mt-4 list-unstyled">
+                            <li class="fs-5 mx-2">
+                                <i class="fa-solid fa-sack-dollar fs-3 text-warning"></i>
+                                <span class="fs-4 mx-1">{{
+                                    apartment.price
+                                }}€</span> a notte!
+                            </li>
+                            <li class="fs-5 mx-2 mt-4">
+                                <i class="fa-solid fa-phone text-danger"></i>
+                                Soddisfatti o rimborsati!
+                            </li>
 
-                        <li class="fs-4 mx-2 mt-4">
-                            <p v-if="apartment.availability"><i class="fa-solid fa-check text-success"></i> L'appartamento è
-                                disponibile
-                            </p>
-                            <p v-else><i class="fa-solid fa-xmark"></i> L'appartamento non è disponibile</p>
-                        </li>
-                    </ul>
+                            <li class="fs-5 mx-2 mt-4">
+                                <p v-if="apartment.availability"><i class="fa-solid fa-check text-success"></i>
+                                    L'appartamento è
+                                    disponibile
+                                </p>
+                                <p v-else><i class="fa-solid fa-xmark"></i> L'appartamento non è disponibile</p>
+                            </li>
+                        </ul>
+                        <form action="" method="POST">
+                            <label for="name">Nome:</label><br>
+                            <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome.." required><br>
+
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="email" name="email" placeholder="Inserisci la tua email.." required><br>
+
+                            <label for="message">Messaggio:</label><br>
+                            <textarea id="message" name="message" placeholder="Inserisci un messaggio.."
+                                required></textarea><br>
+
+                            <input type="submit" value="Invia" class="text-center">
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -146,7 +163,7 @@ export default {
         <div class="mt-4">
             <h2 class="text-center mb-4">Dove ti troverai</h2>
             <div class="mapview" id="map"></div>
-        </div> 
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -191,8 +208,8 @@ img {
 
 .container-servizi {
     text-align: center;
-    border-radius: 6px;
     padding: 5px;
+    border-radius: 10px;
     background-color: rgb(239, 236, 236);
 }
 
@@ -209,6 +226,13 @@ img {
         cursor: pointer;
         transition: 2s;
     }
+}
+
+form {
+    margin-left: 100px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 7px;
 }
 
 .mapview {
