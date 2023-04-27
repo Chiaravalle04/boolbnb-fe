@@ -376,7 +376,7 @@ export default {
         <div class="container text-center my-5" v-else>
 
             <h1 class="main-title" id="primoPiano">
-                Sezione in primo piano
+                in primo piano
             </h1>
             <!-- <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
