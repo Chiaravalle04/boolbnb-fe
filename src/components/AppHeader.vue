@@ -21,7 +21,7 @@
       <div class="container h-100">
           <div class="row align-items-center h-100">
               <div class="col-3">
-                  <a href="/" class="d-flex align-items-center">
+                  <a href="http://localhost:5174/" class="d-flex align-items-center">
                       <img src="../../public/logo.png" class="myLogo" alt="">
                       <span class="fs-4"> <b>Boolbnb</b> </span>
                   </a>
@@ -29,10 +29,10 @@
               <div class="col-6 d-flex align-items-center justify-content-center mt-2">
                     <ul class="d-flex">
                         <li>
-                            <a href="#primoPiano">in evidenza</a>
+                            <a href="#">in evidenza</a>
                         </li>
                         <li>
-                            <a href="#tutteStrutture">tutte le case</a>
+                            <a href="#">tutte le case</a>
                         </li>
                         <li>
                             <a href="http://">chi siamo</a>
