@@ -15,6 +15,9 @@ export default {
             mountainImg: 'https://www.sportoutdoor24.it/app/uploads/2015/06/pexels-jaime-reimer-2662116-670x470.jpg',
             allServices: [],
             singleServicesApartment: [],
+            nameValue: '',
+            emailValue: '',
+            messageValue: '',
         }
     },
     methods: {
@@ -30,6 +33,21 @@ export default {
                         this.$router.push({ name: 'error' });
                     }
                 })
+        },
+
+        sendMessage(idApartment) {
+
+            axios({
+                method: 'post',
+                url: 'http://127.0.0.1:8000/api/messages',
+                data: {
+                    apartment_id: idApartment,
+                    name: this.nameValue,
+                    email: this.emailValue,
+                    message: this.messageValue,
+                }
+            });
+
         }
     },
     mounted() {
@@ -141,19 +159,22 @@ export default {
                                 <p v-else><i class="fa-solid fa-xmark"></i> L'appartamento non è disponibile</p>
                             </li>
                         </ul>
-                        <form action="" method="POST">
-                            <label for="name">Nome:</label><br>
-                            <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome.." required><br>
+                        <!-- INVIO MESSAGGIO -->
+                            <div>
+                                <label for="name">Nome:</label><br>
+                                <input type="text" v-model="nameValue" id="name" name="name" placeholder="Inserisci il tuo nome.." required><br>
 
-                            <label for="email">Email:</label><br>
-                            <input type="email" id="email" name="email" placeholder="Inserisci la tua email.." required><br>
+                                <label for="email">Email:</label><br>
+                                <input type="email" v-model="emailValue" id="email" name="email" placeholder="Inserisci la tua email.." required><br>
 
-                            <label for="message">Messaggio:</label><br>
-                            <textarea id="message" name="message" placeholder="Inserisci un messaggio.."
-                                required></textarea><br>
+                                <label for="message">Messaggio:</label><br>
 
-                            <input type="submit" value="Invia" class="text-center">
-                        </form>
+                                <textarea class="form-control mb-2" id="message" rows="3" name="message" v-model="messageValue"
+                                    placeholder="Insert your message here..."></textarea>
+
+                                <button @click="sendMessage(apartment.id)" type="submit" value="Invia" class="text-center">INVIA</button>
+                            </div>
+                        <!-- FINE INVIO MESSAGGIO -->
                     </div>
 
                 </div>
