@@ -349,32 +349,6 @@ export default {
             </div>
         </div>
 
-        <swiper
-            :slidesPerView="4"
-            :spaceBetween="20"
-            :centeredSlides="false"
-            :autoplay="{
-                delay: 2500,
-                disableOnInteraction: false,
-            }"
-            :navigation="true"
-            :modules="modules"
-            class="mySwiper mt-4"
-        >
-            <swiper-slide v-for="index in filtredApartment">
-                <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
-                        <div class="myCard h-100">
-                            <div class="cardCover">
-                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
-                            </div>
-                            <div class="cardInfo">
-                                <h5>{{ index.title }}</h5>
-                            </div>
-                        </div>
-                </router-link>
-            </swiper-slide>
-        </swiper>
-
         <div class="container text-center my-5" v-if="filterApartments.length > 0">
 
             <div class="row">
@@ -404,7 +378,7 @@ export default {
             <h1 class="main-title" id="primoPiano">
                 Sezione in primo piano
             </h1>
-            <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+            <!-- <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
                         <div class="myCard h-100">
@@ -417,7 +391,34 @@ export default {
                         </div>
                     </router-link>
                 </div>
-            </div>
+            </div> -->
+
+            <swiper
+            :slidesPerView="4"
+            :spaceBetween="20"
+            :centeredSlides="false"
+            :autoplay="{
+                delay: 2500,
+                disableOnInteraction: false,
+            }"
+            :navigation="true"
+            :modules="modules"
+            class="mySwiper p-4"
+        >
+            <swiper-slide v-for="index in filtredApartment">
+                <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none h-100">
+                        <div class="myCard h-100">
+                            <div class="cardCover">
+                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="cardInfo">
+                                <h5>{{ index.title }}</h5>
+                            </div>
+                        </div>
+                </router-link>
+            </swiper-slide>
+        </swiper>
+
             
             <h1 class="main-title mt-5" id="tutteStrutture">
                 Tutte le altre strutture
@@ -444,9 +445,6 @@ export default {
 <style lang="scss" scoped>
 
     .jumbotron {
-        height: 600px;
-        // background-color: rgb(240, 237, 237);
-        // background-image: url(../../public/paesaggio-1.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -469,20 +467,10 @@ export default {
             padding: 20px;
         }
 
-        // .mySearchBox {
-        //     background-color: #000;
-        //     padding: 20px;
-        //     color: white;
-        //     border-radius: 10px;
-        //     width: 60%;
-        //     font-size: 1.1rem;
-        //     box-shadow: 1px 3px 15px -4px rgb(0,0,0);
-
         .searchDestination{
             margin-top: 7rem;
             .searchBar {
                 background-color: white;
-                // outline-color: #ff385c;
                 outline: none;
             }
 
@@ -511,16 +499,16 @@ export default {
         }
     }
 
-        .myTextBox {
-            height: 70%;
-            width: 60%;
-            font-size: 3rem;
-            font-weight: bold;
+    .myTextBox {
+        height: 70%;
+        width: 60%;
+        font-size: 3rem;
+        font-weight: bold;
 
-            span {
-                color: #ff385c;
-            }
+        span {
+            color: #ff385c;
         }
+    }
 
         .myParagraph {
             font-weight: bold;
@@ -538,12 +526,14 @@ export default {
             line-height: 35px;
             background-color: black;
         }
-    // }
     
     .main-title {
         color: #ff385c;
     }
 
+    .mySwiper{
+        border: 1px solid lightgray ;
+    }
     .myCard{
         box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
         color: black !important;
