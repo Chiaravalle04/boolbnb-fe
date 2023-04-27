@@ -17,6 +17,11 @@ const router = createRouter({
             name: 'app-show-apartments',
             component: AppShowApartment
         },
+        // {
+        //     path: '/SearchedApartments',
+        //     name: 'searched-apartments',
+        //     component: AppSearchedApartments
+        // },
     ]
 });
 
