@@ -22,8 +22,8 @@ export default {
       <div class="row align-items-center h-100">
         <div class="col-3">
           <a href="http://localhost:5174" class="d-flex align-items-center">
-            <img src="../../public/logo.png" class="myLogo" alt="">
-            <span class="fs-4"> <b>Boolbnb</b> </span>
+            <img src="../../public/logoBnb.png" class="myLogo" alt="">
+            <!-- <span class="fs-4"> <b>Boolbnb</b> </span> -->
           </a>
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center mt-2">
@@ -66,7 +66,8 @@ export default {
   }
 
   .myLogo {
-    height: 40px;
+    height: 60px;
+    width: 130px;
   }
 
   ul {
