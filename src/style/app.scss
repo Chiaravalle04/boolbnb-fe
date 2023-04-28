@@ -8,16 +8,17 @@
     scroll-margin: 100px;
 }
 
-// SWIPER
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff385c !important;
-  background-color: white !important;
-}
-  // ALL COLORS
-:root {
+ // ALL COLORS
+ :root {
   --title-color: #4F5559;
   --link-color: #A62626;
   --description-color: #81878C;
   --bg-color: #F2F2F2;
+}
+
+// SWIPER
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--link-color) !important;
+  background-color: white !important;
 }
