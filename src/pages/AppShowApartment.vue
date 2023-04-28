@@ -24,6 +24,9 @@ export default {
             nameValue: '',
             emailValue: '',
             messageValue: '',
+            textVisible: false,
+            isDark: false,
+            isDisabled: false
         }
     },
     methods: {
@@ -55,7 +58,22 @@ export default {
                     message: this.messageValue,
                 }
             });
+            if (this.isValid) {
+                this.textVisible = true;
 
+            }
+            this.isDark = !this.isDark;
+            this.isDisabled = !this.isDisabled;
+            this.nameValue = '';
+            this.emailValue = '';
+            this.messageValue = '';
+
+
+        },
+        closeModal() {
+            this.textVisible = false;
+            this.isDark = false;
+            this.isDisabled = false;
         }
     },
     mounted() {
@@ -72,6 +90,11 @@ export default {
     },
     created() {
         this.getApartment();
+    },
+    computed: {
+        isValid() {
+            return this.nameValue && this.emailValue && this.messageValue.length > 0;
+        }
     }
 }
 </script>
@@ -121,10 +144,11 @@ export default {
                         <span>{{ apartment.room }} stanze</span> •
                         <span>{{ apartment.bed }} letti</span> •
                         <span>{{ apartment.bathroom }} bagni</span>
+                        <span class="price-moon">{{ apartment.price }} a notte <i class="fa-regular fa-moon"></i></span>
                     </div>
                     <hr>
                     <div class="description">
-                        <h4><i class="fa-solid fa-circle-info"></i> Informazioni:</h4>
+                        <h4 class="info"><i class="fa-solid fa-circle-info"></i> Informazioni:</h4>
                         {{ apartment.description }}
                     </div>
                     <hr>
@@ -151,9 +175,10 @@ export default {
                                 service.name }}</span></i>
                             <i v-else-if="service.name === 'Letto matrimoniale'" class="fa-solid fa-bed fs-5"><span>{{
                                 service.name }}</span></i>
-                            <i v-else-if="service.name === 'Letto singolo'" class="fa-solid fa-bed fs-5"><span>{{
-                                service.name
-                            }}</span></i>
+                            <i v-else-if="service.name === 'Letto singolo'" class="fa-solid fa-bed fs-5"><span
+                                    class="letto-singolo">{{
+                                        service.name
+                                    }}</span></i>
                             <i v-else-if="service.name === 'Lavatrice'" class="fa-solid fa-soap fs-5"><span>{{ service.name
                             }}</span></i>
                             <i v-else-if="service.name === 'Ascensore'" class="fa-solid fa-elevator fs-5"><span>{{
@@ -165,28 +190,32 @@ export default {
                         </div>
                     </div>
                 </div>
-                <div class="messages">
-                    <div class="price">
-                        <span>{{ apartment.price }}€</span> notte <i class="fa-regular fa-moon"></i>
-                    </div>
-                    <hr class="hr-price">
+                <div class="messages" :class="{ 'dark': isDark }">
 
                     <div class="input-invio-mex">
-                        <label for="name">Nome:</label><br>
+                        <h4 class="mb-4 mt-2 fs-3"><i class="fa-solid fa-arrow-down"></i> Invia un messaggio all'host</h4>
+                        <label for="name" class="fs-5"><strong>Nome:</strong></label><br>
                         <input type="text" v-model="nameValue" id="name" name="name" placeholder="Inserisci il tuo nome.."
-                            required><br>
+                            required :disabled="isDisabled"><br>
 
-                        <label for="email">Email:</label><br>
+                        <label for="email" class="fs-5"><strong>Email:</strong></label><br>
                         <input type="email" v-model="emailValue" id="email" name="email"
-                            placeholder="Inserisci la tua email.." required><br>
+                            placeholder="Inserisci la tua email.." required :disabled="isDisabled"><br>
 
-                        <label for="message">Messaggio:</label><br>
+                        <label for="message" class="fs-5"><strong>Messaggio:</strong></label><br>
 
                         <textarea class="form-control mb-2" id="message" rows="3" name="message" v-model="messageValue"
-                            placeholder="Insert your message here..."></textarea>
+                            placeholder="Insert your message here..." :disabled="isDisabled"></textarea>
 
-                        <button @click="sendMessage(apartment.id)" type="submit" value="Invia"
-                            class="text-center">INVIA</button>
+                        <div v-if="textVisible" class="textInviato">
+                            <span><i class="fa-solid fa-xmark" @click="closeModal"></i></span>
+                            <div class="mex">
+                                Messaggio inviato con successo! <i class="fa-solid fa-check"></i>
+                            </div>
+                        </div>
+
+                        <button @click="sendMessage(apartment.id)" :disabled="!isValid" type="submit" value="Invia"
+                            class="text-center mt-3">INVIA</button>
                     </div>
                 </div>
 
@@ -201,16 +230,30 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+// colori 
+/*
+titoli: #4F5559;
+link: #A62626;
+descrizioni: #81878C;
+sfondo pages: #F2F2F2;
+$title-color: #4F5559;
+$link-color: #A62626;
+$description-color: #81878C;
+$bg-color: #F2F2F2;
+*/
+
 // titolo + indirizzo 
 .title {
     width: 97%;
     height: 90px;
     margin: 0 auto;
     padding-top: 10px;
+    color: #4F5559;
 
     h2 {
         font-size: 25px;
-        font-family: 'Nunito Sans', sans-serif;
+        color: #4F5559;
+
     }
 
     i {
@@ -283,7 +326,7 @@ export default {
 }
 
 hr {
-    width: 80%;
+    width: 82%;
     margin-top: 20px;
 }
 
@@ -304,24 +347,35 @@ hr {
                 .type {
                     text-decoration: underline;
                     font-size: 25px;
+
                 }
             }
 
             span {
                 font-size: 19px;
+                color: #4F5559;
             }
 
-            i {
-                color: red;
+            .price-moon {
+                margin-left: 43%;
+
+                i {
+                    color: #4F5559;
+                }
             }
         }
     }
+}
+
+.info {
+    color: #43484b;
 }
 
 .description {
     width: 690px;
     margin-top: 20px;
     line-height: 30px;
+    color: #81878C;
 
 }
 
@@ -332,7 +386,8 @@ hr {
     height: 500px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: rgb(243, 234, 234);
+    background-color: #aeacac;
+
 
     .price {
         font-size: 20px;
@@ -350,12 +405,54 @@ hr {
 }
 
 .hr-divisorio {
-    width: 97%;
-    margin: 20px auto;
+    width: 53%;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .input-invio-mex {
     padding: 16px;
+    position: relative;
+
+    i:first-child {
+        color: #A62626;
+    }
+
+    h4 {
+        color: #3c3e40;
+    }
+
+    .textInviato {
+        width: 70%;
+        height: 220px;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        border-radius: 20px;
+        background-color: lightgray;
+        padding: 10px;
+        transition: 3s;
+
+        span {
+            margin-left: 90%;
+            color: red;
+
+            >i:first-child {
+                cursor: pointer;
+            }
+        }
+
+        .mex {
+            margin-top: 14px;
+
+            i {
+                color: green;
+            }
+        }
+    }
 
     input {
         padding: 5px;
@@ -364,12 +461,13 @@ hr {
         width: 290px;
         border: 1px solid lightgray;
         margin-bottom: 20px;
+        font-weight: bold;
     }
 
     textarea {
         border-radius: 10px;
         border: 1px solid lightgray;
-        padding: 5px;
+        padding: 8px;
         height: 150px;
     }
 
@@ -382,6 +480,16 @@ hr {
     }
 }
 
+.dark {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    input,
+    textarea {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+
 .pallino {
     margin-left: 6px;
     margin-right: 8px;
@@ -393,6 +501,7 @@ hr {
 
     span {
         margin-left: 20px;
+        color: #4F5559;
     }
 }
 
@@ -403,6 +512,7 @@ hr {
     min-height: 700px;
     padding: 20px;
     border-radius: 20px;
+    background-color: #F2F2F2;
 }
 
 
@@ -428,6 +538,12 @@ hr {
     flex-direction: column;
     flex-wrap: wrap;
     height: calc(100% / 4);
+    gap: 10px;
+
+    i>span {
+        font-weight: normal;
+        padding-left: 4px;
+    }
 }
 
 .mapview {
