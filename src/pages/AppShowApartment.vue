@@ -72,7 +72,6 @@ export default {
                 this.textVisible = true;
                 this.isDark = false;
                 this.isDark = true;
-                this.isDisabled = false;
             }
         },
 
@@ -382,12 +381,12 @@ hr {
 
 // messaggi
 .messages {
-    border: 1px solid rgb(171, 169, 169);
+    border: 4px solid rgb(171, 169, 169);
     width: 50%;
-    height: 500px;
+    height: 550px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: #c7c3c3;
+    background-color: #e4e3e3;
 
 
     .price {
@@ -412,7 +411,7 @@ hr {
 }
 
 .input-invio-mex {
-    padding: 16px;
+    padding: 30px;
     position: relative;
 
     i:first-child {
@@ -475,6 +474,8 @@ hr {
         border-radius: 6px;
         width: 100px;
         margin-left: 37%;
+        border: 3px solid gray;
+
     }
 }
 
