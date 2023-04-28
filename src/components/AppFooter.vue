@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <!--
+    
   <footer class="border">
       <div class="container-fluid d-flex justify-content-between py-2">
         
@@ -64,7 +64,7 @@ export default {
       </div>
   </footer>
 
--->
+
 </template>
 
 <style lang="scss" scoped>
