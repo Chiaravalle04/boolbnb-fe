@@ -65,7 +65,7 @@ export default {
 <style lang="scss" scoped>
 footer {
     padding: 13px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 li {
