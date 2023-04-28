@@ -475,7 +475,7 @@ hr {
         width: 100px;
         margin-left: 37%;
         border: 3px solid gray;
-
+        background-color: rgb(205, 204, 204);
     }
 }
 
@@ -511,7 +511,6 @@ hr {
     min-height: 700px;
     padding: 20px;
     border-radius: 20px;
-    background-color: #F2F2F2;
 }
 
 
