@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import LoaderVue from '../components/Loader.vue';
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -16,6 +17,7 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
+        LoaderVue
     },
     setup() {
       return {
@@ -39,6 +41,7 @@ export default {
             latitude: null,
             longitude: null,
             distanceNumber: 20,
+            loading: true,
         }
   
     },
@@ -153,7 +156,8 @@ export default {
             .get('http://127.0.0.1:8000/api/apartments')
             .then((response) => {
                 this.apartments = response.data.results.apartments;
-                console.log(this.apartments)
+                console.log(this.apartments);
+                this.loading = false;
             })
             
         },
@@ -228,8 +232,10 @@ export default {
 </script>
   
 <template>
+
+    <LoaderVue v-if="loading"/>
         
-    <main>
+    <main v-else>
         <div class="jumbotron position-relative">
             <div class="container h-100">
                 
