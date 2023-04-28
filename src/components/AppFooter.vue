@@ -17,54 +17,49 @@ export default {
 </script>
 
 <template>
-    
-  <footer class="border">
-      <div class="container-fluid d-flex justify-content-between py-2">
-        
-        contenuto sinistra
-          <div class="content-dx row">
-              <div class="col">
-                  <ul class="d-flex p-0 m-0">
-                      <li>
-                        &copy; 2023 Boolbnb, inc.
-                      </li>
-                      <li>
-                          Federico fùa
-                      </li>
-                      <li>
-                          Francesco Benbevuti
-                      </li>
-                      <li>
-                          Nicholahs Chiavalevalle
-                      </li>
-                      <li>
-                          stephanya Avena
-                      </li>
-                      <li>
-                          Ludovico peliunpoLonghini
-                      </li>
-                  </ul>
-              </div>
-          </div>
+    <footer class="border">
+        <div class="container-fluid d-flex justify-content-between py-2">
 
-           contenuto destra 
-          <div class="content-sx">
-              <ul class="d-flex p-0 m-0">
-                  <li>
-                      <i class="fa-solid fa-globe"></i> Italiano (IT)
-                  </li>
-                  <li>
+            <div class="content-dx row">
+                <div class="col">
+                    <ul class="d-flex p-0 m-0">
+                        <li>
+                            &copy; 2023 Boolbnb, inc.
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-angle-right"></i> Federico Fois •
+                        </li>
+                        <li>
+                            Francesco Benvenuti •
+                        </li>
+                        <li>
+                            Nicholas Chiaravalle •
+                        </li>
+                        <li>
+                            Stefania Aveta •
+                        </li>
+                        <li>
+                            Ludovico Longhini <i class="fa-solid fa-angle-left"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-sx">
+                <ul class="d-flex p-0 m-0">
+                    <li>
+                        <i class="fa-solid fa-globe"></i> Italiano (IT)
+                    </li>
+                    <li>
                         &euro; EUR
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                         Supporto e risorse <i class="fa-solid fa-angle-up"></i>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </footer>
-
-
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <style lang="scss" scoped>
