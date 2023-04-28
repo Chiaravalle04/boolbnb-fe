@@ -236,105 +236,84 @@ export default {
         
     <main v-else>
         <div class="jumbotron position-relative">
-            <div class="container h-100">
-                
-                <video class="myVideo" autoplay loop muted plays-inline>
-                    <source src="../../public/video-jumbo.mp4" type="video/mp4">
-                </video>
-                
-                <div class="containerJumbo p-5 position-relative h-100">
+            <div class="container h-100 d-flex align-items-end pb-5">
+                <div class="searchDestination">
 
-                        <div class="myTitle">
-                            <div class="myTextBox text-center w-100">
-                                PRENOTA SUBITO LA TUA <span>VACANZA</span> <br> DEI SOGNI!
-                            </div>
-                            <div class="myParagraph">
-                                <p>
-                                    Con <span>Boolbnb</span> puoi andare dove vuoi, quando vuoi. Puoi trovare stanze, appartamenti, alberghi in cui trascorrere il tuo soggiorno in pieno relax.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="searchBox bg-white position-relative border">
+                        <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3" placeholder="Cerca destinazioni...">
+                        <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
 
-                        <div class="searchDestination">
-                            <div>
-                                <div class="searchBox bg-white position-relative border rounded-5">
-                                    <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
-                                    <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </a>
+                    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Ricerca Avanzata</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                            </div>
 
-                            <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable">
-                                    <div class="modal-content bg-dark">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Ricerca Avanzata</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                <div class="modal-body">
+                                    
+                                    <!-- SALVATAGGIO COORDINATE -->
 
-                                        <div class="modal-body">
-                                            
-                                            <!-- SALVATAGGIO COORDINATE -->
-
-                                            <div class="mb-3">
-                                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar my-3" id="address" placeholder="Inserisci indirizzo..." name="address">
-                                                <ul id="autocomplete-list" class="list-group"></ul>
-                                                <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
-                                                <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
-                                            </div>
-
-                                        <!-- FINE SALVATAGGIO COORDINATE -->
-                                            
-                                            <div class="mb-3">
-                                                <label class="d-block" for="price">Prezzo massimo:</label>
-                                                <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">€
-                                            </div> 
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="services">Servizi:</label>
-                                                <div v-for="item in allServices">
-                                                    <input type="checkbox" v-model="services" name="services" :value="item.name" id="services"> {{ item.name }}
-                                                </div>
-                                            </div> 
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="type">Tipologia:</label>
-                                                <select name="type" id="type">
-                                                    <option value="Villa">Villa</option>
-                                                    <option value="Hotel">Hotel</option>
-                                                    <option value="Appartamento">Appartamento</option>
-                                                    <option value="Chalet">Chalet</option>
-                                                    <option value="Stanza">Stanza</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="bed">Numero di letti:</label>
-                                                <input type="number" v-model.number="bed" name="bed" id="bed" min="1">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="bathroom">Numero di bagni:</label>
-                                                <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom" min="1">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="d-block" for="room">Numero di stanze:</label>
-                                                <input type="number" v-model.number="room" name="room" id="room" min="1">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                            <button type="button" @click="advancedSearchApartments" class="btn btn-primary" data-bs-dismiss="modal">Salva le modifiche</button>
-                                        </div>
+                                    <div class="mb-3">
+                                        <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar my-3" id="address" placeholder="Inserisci indirizzo..." name="address">
+                                        <ul id="autocomplete-list" class="list-group"></ul>
+                                        <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
+                                        <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
                                     </div>
+
+                                <!-- FINE SALVATAGGIO COORDINATE -->
+                                    
+                                    <div class="mb-3">
+                                        <label class="d-block" for="price">Prezzo massimo:</label>
+                                        <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">€
+                                    </div> 
+
+                                    <div class="mb-3">
+                                        <label class="d-block" for="services">Servizi:</label>
+                                        <div v-for="item in allServices">
+                                            <input type="checkbox" v-model="services" name="services" :value="item.name" id="services"> {{ item.name }}
+                                        </div>
+                                    </div> 
+
+                                    <div class="mb-3">
+                                        <label class="d-block" for="type">Tipologia:</label>
+                                        <select name="type" id="type">
+                                            <option value="Villa">Villa</option>
+                                            <option value="Hotel">Hotel</option>
+                                            <option value="Appartamento">Appartamento</option>
+                                            <option value="Chalet">Chalet</option>
+                                            <option value="Stanza">Stanza</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="d-block" for="bed">Numero di letti:</label>
+                                        <input type="number" v-model.number="bed" name="bed" id="bed" min="1">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="d-block" for="bathroom">Numero di bagni:</label>
+                                        <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom" min="1">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="d-block" for="room">Numero di stanze:</label>
+                                        <input type="number" v-model.number="room" name="room" id="room" min="1">
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                    <button type="button" @click="advancedSearchApartments" class="btn btn-primary" data-bs-dismiss="modal">Salva le modifiche</button>
                                 </div>
                             </div>
                         </div>
-                    <!-- </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -385,7 +364,7 @@ export default {
                 <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none h-100">
                         <div class="myCard h-100">
                             <div class="cardCover">
-                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
+                                <img :src= index.cover class="w-100 h-100" alt="">
                             </div>
                             <div class="cardInfo">
                                 <h5>{{ index.title }}</h5>
@@ -422,54 +401,58 @@ export default {
     .jumbotron {
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-        animation: change 50s infinite;
+        background-position: top;
+        // animation: change 50s infinite;
+        background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
+        height: 500px;
 
-        .myVideo{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        // .myVideo{
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     right: 0;
+        //     bottom: 0;
+        //     z-index: -1;
+        //     width: 100%;
+        //     height: 100%;
+        //     object-fit: cover;
+        // }
 
-        .myTitle{
-            background-color: rgba(255, 255, 255, 0.7);
-            color: var(--title-color);
-            padding: 20px;
+        // .myTitle{
+        //     background-color: rgba(255, 255, 255, 0.7);
+        //     color: var(--title-color);
+        //     padding: 20px;
 
-            .myTextBox {
-                height: 70%;
-                width: 60%;
-                font-size: 3rem;
-                font-weight: bold;
+        //     .myTextBox {
+        //         height: 70%;
+        //         width: 60%;
+        //         font-size: 3rem;
+        //         font-weight: bold;
 
-                span {
-                    color: var(--link-color);
-                }
-            }
-            .myParagraph {
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 1.2rem;
+        //         span {
+        //             color: var(--link-color);
+        //         }
+        //     }
+        //     .myParagraph {
+        //     font-weight: bold;
+        //     margin-top: 20px;
+        //     font-size: 1.2rem;
 
-            span {
-                color: var(--link-color);
-            }
-        }
-        }
+        //     span {
+        //         color: var(--link-color);
+        //     }
+        // }
+        // }
 
-        .searchDestination{
-            margin-top: 7rem;
+        .searchDestination {
+
+            width: 45%;
             .searchBar {
                 background-color: white;
                 outline: none;
                 line-height: 35px;
                 border-style: none;
+                border-radius: 0px;
             }
 
             .iconSearch{
