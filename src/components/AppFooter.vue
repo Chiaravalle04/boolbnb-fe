@@ -63,6 +63,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+footer {
+    padding: 13px;
+    font-size: 20px;
+}
+
 li {
     list-style: none;
     margin-right: 10px;

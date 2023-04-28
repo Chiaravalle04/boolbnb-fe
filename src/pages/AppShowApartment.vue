@@ -144,7 +144,8 @@ export default {
                         <span>{{ apartment.room }} stanze</span> •
                         <span>{{ apartment.bed }} letti</span> •
                         <span>{{ apartment.bathroom }} bagni</span>
-                        <span class="price-moon">{{ apartment.price }} a notte <i class="fa-regular fa-moon"></i></span>
+                        <span class="price-moon text-end">{{ apartment.price }} a notte <i
+                                class="fa-regular fa-moon"></i></span>
                     </div>
                     <hr>
                     <div class="description">
@@ -357,7 +358,8 @@ hr {
             }
 
             .price-moon {
-                margin-left: 43%;
+                //margin-left: 43%;
+                margin-left: 47%;
 
                 i {
                     color: #4F5559;
