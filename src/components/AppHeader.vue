@@ -62,7 +62,7 @@ export default {
 
   a {
     text-decoration: none;
-    color: #ff385c;
+    color: var(--link-color);
   }
 
   .myLogo {
@@ -71,17 +71,17 @@ export default {
 
   ul {
     list-style: none;
-    font-weight: bold;
+    // font-weight: bold;
 
     li {
       text-decoration: none;
       margin-right: 25px;
-      border-right: 2px solid black;
+      border-right: 1px solid var(--title-color);
       padding-right: 25px;
 
       a {
         text-decoration: none;
-        color: black;
+        color: var(--title-color);
         display: inline-block;
         transition: 0.25s all;
 
@@ -98,8 +98,8 @@ export default {
   }
 
   .link {
-    color: black;
-    font-weight: bold;
+    color: var(--title-color);
+    // font-weight: bold;
     padding: 5px 10px;
 
     &:hover {
@@ -109,9 +109,9 @@ export default {
   }
 
   .link-two {
-    background-color: black;
+    background-color: var(--title-color);
     color: white;
-    font-weight: bold;
+    // font-weight: bold;
     padding: 5px 10px;
 
     &:hover {
