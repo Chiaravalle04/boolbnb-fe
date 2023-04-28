@@ -454,16 +454,15 @@ hr {
     input {
         padding: 5px;
         border-radius: 10px;
-        border: none;
         width: 290px;
-        border: 1px solid lightgray;
+        border: 3px solid rgb(101, 99, 99);
         margin-bottom: 20px;
         font-weight: bold;
     }
 
     textarea {
         border-radius: 10px;
-        border: 1px solid lightgray;
+        border: 3px solid rgb(101, 99, 99);
         padding: 8px;
         height: 150px;
     }
