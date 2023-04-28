@@ -21,7 +21,7 @@ export default {
     <div class="container h-100">
       <div class="row align-items-center h-100">
         <div class="col-3">
-          <a href="http://localhost:5173" class="d-flex align-items-center">
+          <a href="http://localhost:5174" class="d-flex align-items-center">
             <img src="../../public/logo.png" class="myLogo" alt="">
             <span class="fs-4"> <b>Boolbnb</b> </span>
           </a>
@@ -62,7 +62,7 @@ export default {
 
   a {
     text-decoration: none;
-    color: #ff385c;
+    color: var(--link-color);
   }
 
   .myLogo {
@@ -71,23 +71,23 @@ export default {
 
   ul {
     list-style: none;
-    font-weight: bold;
+    // font-weight: bold;
 
     li {
       text-decoration: none;
       margin-right: 25px;
-      border-right: 2px solid black;
+      border-right: 1px solid var(--title-color);
       padding-right: 25px;
 
       a {
         text-decoration: none;
-        color: black;
+        color: var(--title-color);
         display: inline-block;
         transition: 0.25s all;
 
         &:hover {
           transform: scale(1.1);
-          color: #ff385c;
+          color: var(--link-color);
         }
       }
     }
@@ -98,25 +98,25 @@ export default {
   }
 
   .link {
-    color: black;
-    font-weight: bold;
+    color: var(--title-color);
+    // font-weight: bold;
     padding: 5px 10px;
 
     &:hover {
-      box-shadow: inset 0px 0px 0px 2px #ff385c;
-      color: #ff385c;
+      box-shadow: inset 0px 0px 0px 2px var(--link-color);
+      color: var(--link-color);
     }
   }
 
   .link-two {
-    background-color: black;
+    background-color: var(--title-color);
     color: white;
-    font-weight: bold;
+    // font-weight: bold;
     padding: 5px 10px;
 
     &:hover {
       color: white;
-      background-color: #ff385c;
+      background-color: var(--link-color);
     }
   }
 }

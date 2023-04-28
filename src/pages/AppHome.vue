@@ -244,7 +244,7 @@ export default {
                 </video>
                 
                 <div class="containerJumbo p-5 position-relative h-100">
-                    <!-- <div class=""> -->
+
                         <div class="myTitle">
                             <div class="myTextBox text-center w-100">
                                 PRENOTA SUBITO LA TUA <span>VACANZA</span> <br> DEI SOGNI!
@@ -255,12 +255,9 @@ export default {
                                 </p>
                             </div>
                         </div>
-                    <!-- </div> -->
-                    <!-- <div class=""> -->
+
                         <div class="searchDestination">
                             <div>
-                                <!-- Affrettati! Cerca adesso una località e scopri tutte le case che ti stanno aspettando
-                                <br> -->
                                 <div class="searchBox bg-white position-relative border rounded-5">
                                     <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
                                     <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
@@ -268,14 +265,6 @@ export default {
                                     </a>
                                 </div>
                             </div>
-                            <!-- <div>
-                                Hai richieste particolari? Inseriscile qui e vedi le case su misura per te
-                            </div> -->
-                            <!-- <div class="advancedSearch text-center">
-                                <button type="button" class="btn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Ricerca avanzata
-                                </button>
-                            </div> -->
 
                             <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable">
@@ -380,20 +369,6 @@ export default {
             <h1 class="main-title" id="primoPiano">
                 in primo piano
             </h1>
-            <!-- <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
-                <div class="col mt-5" v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
-                        <div class="myCard h-100">
-                            <div class="cardCover">
-                                <img src="../../public/paesaggio-1.jpg" class="w-100 h-100" alt="">
-                            </div>
-                            <div class="cardInfo">
-                                <h5>{{ index.title }}</h5>
-                            </div>
-                        </div>
-                    </router-link>
-                </div>
-            </div> -->
 
             <swiper
             :slidesPerView="4"
@@ -466,7 +441,28 @@ export default {
 
         .myTitle{
             background-color: rgba(255, 255, 255, 0.7);
+            color: var(--title-color);
             padding: 20px;
+
+            .myTextBox {
+                height: 70%;
+                width: 60%;
+                font-size: 3rem;
+                font-weight: bold;
+
+                span {
+                    color: var(--link-color);
+                }
+            }
+            .myParagraph {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2rem;
+
+            span {
+                color: var(--link-color);
+            }
+        }
         }
 
         .searchDestination{
@@ -474,10 +470,12 @@ export default {
             .searchBar {
                 background-color: white;
                 outline: none;
+                line-height: 35px;
+                border-style: none;
             }
 
             .iconSearch{
-                background-color: #ff385c;
+                background-color: var(--link-color);
                 text-decoration: none;
             }
 
@@ -500,41 +498,14 @@ export default {
             }
         }
     }
-
-    .myTextBox {
-        height: 70%;
-        width: 60%;
-        font-size: 3rem;
-        font-weight: bold;
-
-        span {
-            color: #ff385c;
-        }
-    }
-
-        .myParagraph {
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 1.2rem;
-
-            span {
-                color: #ff385c;
-            }
-        }
-
-        .searchBar {
-            border-radius: 10px;
-            border-style: none;
-            line-height: 35px;
-            background-color: black;
-        }
     
     .main-title {
-        color: #ff385c;
+        color: var(--link-color);
     }
 
     .mySwiper{
         border: 1px solid lightgray ;
+        background-color: var(--bg-color);
     }
     .myCard{
         box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
