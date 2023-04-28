@@ -33,7 +33,7 @@ export default {
                             Francesco Benvenuti •
                         </li>
                         <li>
-                            Nicholas Chiaravalle •
+                            Nicolas Chiaravalle •
                         </li>
                         <li>
                             Stefania Aveta •
@@ -53,9 +53,9 @@ export default {
                     <li>
                         &euro; EUR
                     </li>
-                    <li>
+                    <!-- <li>
                         Supporto e risorse <i class="fa-solid fa-angle-up"></i>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -63,6 +63,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+footer {
+    padding: 13px;
+    font-size: 15px;
+}
+
 li {
     list-style: none;
     margin-right: 10px;

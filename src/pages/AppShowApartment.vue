@@ -59,22 +59,22 @@ export default {
                 }
             });
             if (this.isValid) {
+                this.textVisible = false;
+                setTimeout(() => {
+                    this.textVisible = false;
+                    this.isDark = false;
+                }, 2000)
+                /*this.isDark = !this.isDark;
+                this.isDisabled = !this.isDisabled;*/
+                this.nameValue = '';
+                this.emailValue = '';
+                this.messageValue = '';
                 this.textVisible = true;
-
+                this.isDark = false;
+                this.isDark = true;
             }
-            this.isDark = !this.isDark;
-            this.isDisabled = !this.isDisabled;
-            this.nameValue = '';
-            this.emailValue = '';
-            this.messageValue = '';
-
-
         },
-        closeModal() {
-            this.textVisible = false;
-            this.isDark = false;
-            this.isDisabled = false;
-        }
+
     },
     mounted() {
         let center = [this.apartment.longitude, this.apartment.latitude]
@@ -144,7 +144,8 @@ export default {
                         <span>{{ apartment.room }} stanze</span> •
                         <span>{{ apartment.bed }} letti</span> •
                         <span>{{ apartment.bathroom }} bagni</span>
-                        <span class="price-moon">{{ apartment.price }} a notte <i class="fa-regular fa-moon"></i></span>
+                        <span class="price-moon text-end">{{ apartment.price }} a notte <i
+                                class="fa-regular fa-moon"></i></span>
                     </div>
                     <hr>
                     <div class="description">
@@ -193,7 +194,7 @@ export default {
                 <div class="messages" :class="{ 'dark': isDark }">
 
                     <div class="input-invio-mex">
-                        <h4 class="mb-4 mt-2 fs-3"><i class="fa-solid fa-arrow-down"></i> Invia un messaggio all'host</h4>
+                        <h4 class="mb-4 mt-2 fs-3">Invia un messaggio all'host</h4>
                         <label for="name" class="fs-5"><strong>Nome:</strong></label><br>
                         <input type="text" v-model="nameValue" id="name" name="name" placeholder="Inserisci il tuo nome.."
                             required :disabled="isDisabled"><br>
@@ -208,9 +209,9 @@ export default {
                             placeholder="Insert your message here..." :disabled="isDisabled"></textarea>
 
                         <div v-if="textVisible" class="textInviato">
-                            <span><i class="fa-solid fa-xmark" @click="closeModal"></i></span>
+                            <span></span>
                             <div class="mex">
-                                Messaggio inviato con successo! <i class="fa-solid fa-check"></i>
+                                Messaggio inviato con successo!<br> <i class="fa-solid fa-check"></i>
                             </div>
                         </div>
 
@@ -357,7 +358,8 @@ hr {
             }
 
             .price-moon {
-                margin-left: 43%;
+                //margin-left: 43%;
+                margin-left: 47%;
 
                 i {
                     color: #4F5559;
@@ -381,12 +383,12 @@ hr {
 
 // messaggi
 .messages {
-    border: 1px solid rgb(171, 169, 169);
+    border: 4px solid rgb(171, 169, 169);
     width: 50%;
-    height: 500px;
+    height: 550px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: #aeacac;
+    background-color: #e4e3e3;
 
 
     .price {
@@ -411,7 +413,7 @@ hr {
 }
 
 .input-invio-mex {
-    padding: 16px;
+    padding: 30px;
     position: relative;
 
     i:first-child {
@@ -423,33 +425,30 @@ hr {
     }
 
     .textInviato {
-        width: 70%;
-        height: 220px;
-        margin: 0 auto;
+        width: 80%;
         position: absolute;
-        top: 50%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 30px;
+        font-size: 18px;
         border-radius: 20px;
         background-color: lightgray;
-        padding: 10px;
-        transition: 3s;
+        border: 4px solid green;
 
         span {
             margin-left: 90%;
             color: red;
 
-            >i:first-child {
-                cursor: pointer;
-            }
         }
 
         .mex {
-            margin-top: 14px;
+            padding-bottom: 27px;
+            padding-top: 10px;
+            text-align: center;
 
             i {
                 color: green;
+                font-size: 33px;
             }
         }
     }
@@ -457,16 +456,15 @@ hr {
     input {
         padding: 5px;
         border-radius: 10px;
-        border: none;
         width: 290px;
-        border: 1px solid lightgray;
+        border: 3px solid rgb(101, 99, 99);
         margin-bottom: 20px;
         font-weight: bold;
     }
 
     textarea {
         border-radius: 10px;
-        border: 1px solid lightgray;
+        border: 3px solid rgb(101, 99, 99);
         padding: 8px;
         height: 150px;
     }
@@ -477,6 +475,8 @@ hr {
         border-radius: 6px;
         width: 100px;
         margin-left: 37%;
+        border: 3px solid gray;
+        background-color: rgb(205, 204, 204);
     }
 }
 
@@ -512,7 +512,6 @@ hr {
     min-height: 700px;
     padding: 20px;
     border-radius: 20px;
-    background-color: #F2F2F2;
 }
 
 

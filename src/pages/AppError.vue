@@ -27,7 +27,7 @@
         align-items: center;
         height: calc(100vh - 100px);
         h1 {
-            color: #3B5998;
+            color: var(--title-color);
         }
     }
 </style>
