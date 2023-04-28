@@ -232,7 +232,6 @@ export default {
 </script>
   
 <template>
-
     <LoaderVue v-if="loading"/>
         
     <main v-else>
@@ -420,7 +419,6 @@ export default {
 </template>
   
 <style lang="scss" scoped>
-
     .jumbotron {
         background-size: cover;
         background-repeat: no-repeat;

@@ -35,4 +35,8 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
+.myVideo{
+    filter: grayscale(46%) hue-rotate(30deg);
+}
 </style>
