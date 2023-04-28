@@ -21,7 +21,7 @@ export default {
     <div class="container h-100">
       <div class="row align-items-center h-100">
         <div class="col-3">
-          <a href="http://localhost:5173" class="d-flex align-items-center">
+          <a href="http://localhost:5174" class="d-flex align-items-center">
             <img src="../../public/logo.png" class="myLogo" alt="">
             <span class="fs-4"> <b>Boolbnb</b> </span>
           </a>
