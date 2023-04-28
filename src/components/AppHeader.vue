@@ -87,7 +87,7 @@ export default {
 
         &:hover {
           transform: scale(1.1);
-          color: #ff385c;
+          color: var(--link-color);
         }
       }
     }
@@ -103,8 +103,8 @@ export default {
     padding: 5px 10px;
 
     &:hover {
-      box-shadow: inset 0px 0px 0px 2px #ff385c;
-      color: #ff385c;
+      box-shadow: inset 0px 0px 0px 2px var(--link-color);
+      color: var(--link-color);
     }
   }
 
@@ -116,7 +116,7 @@ export default {
 
     &:hover {
       color: white;
-      background-color: #ff385c;
+      background-color: var(--link-color);
     }
   }
 }
