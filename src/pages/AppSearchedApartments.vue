@@ -79,6 +79,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+main {
+    height: 79vh;
+}
+
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
     width: 87%;

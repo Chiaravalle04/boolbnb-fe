@@ -412,7 +412,7 @@ hr {
 }
 
 .input-invio-mex {
-    padding: 30px;
+    padding: 22px;
     position: relative;
 
     i:first-child {
@@ -504,6 +504,9 @@ hr {
     }
 }
 
+i span {
+    font-family: arial;
+}
 
 .card-details {
     width: 90%;
