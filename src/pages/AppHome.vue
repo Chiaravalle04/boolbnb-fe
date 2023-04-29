@@ -330,6 +330,8 @@ export default {
             </div>
         </div>
 
+        <router-link :to="{ name: 'searched-apartments' }">Bottone cerca</router-link>
+
         <div class="container text-center my-5" v-if="filterApartments.length > 0">
 
             <div class="row">
