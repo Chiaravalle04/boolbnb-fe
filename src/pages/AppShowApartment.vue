@@ -64,8 +64,7 @@ export default {
                     this.textVisible = false;
                     this.isDark = false;
                 }, 2000)
-                /*this.isDark = !this.isDark;
-                this.isDisabled = !this.isDisabled;*/
+                /*this.isDark = !this.isDark;*/
                 this.nameValue = '';
                 this.emailValue = '';
                 this.messageValue = '';
@@ -144,7 +143,7 @@ export default {
                         <span>{{ apartment.room }} stanze</span> •
                         <span>{{ apartment.bed }} letti</span> •
                         <span>{{ apartment.bathroom }} bagni</span>
-                        <span class="price-moon text-end">{{ apartment.price }} a notte <i
+                        <span class="price-moon text-end">{{ apartment.price }}€ a notte <i
                                 class="fa-regular fa-moon"></i></span>
                     </div>
                     <hr>
@@ -195,15 +194,15 @@ export default {
 
                     <div class="input-invio-mex">
                         <h4 class="mb-4 mt-2 fs-3">Invia un messaggio all'host</h4>
-                        <label for="name" class="fs-5"><strong>Nome:</strong></label><br>
+                        <label for="name" class="fs-5"><strong>Nome*</strong></label><br>
                         <input type="text" v-model="nameValue" id="name" name="name" placeholder="Inserisci il tuo nome.."
                             required :disabled="isDisabled"><br>
 
-                        <label for="email" class="fs-5"><strong>Email:</strong></label><br>
+                        <label for="email" class="fs-5"><strong>Email*</strong></label><br>
                         <input type="email" v-model="emailValue" id="email" name="email"
                             placeholder="Inserisci la tua email.." required :disabled="isDisabled"><br>
 
-                        <label for="message" class="fs-5"><strong>Messaggio:</strong></label><br>
+                        <label for="message" class="fs-5"><strong>Messaggio*</strong></label><br>
 
                         <textarea class="form-control mb-2" id="message" rows="3" name="message" v-model="messageValue"
                             placeholder="Insert your message here..." :disabled="isDisabled"></textarea>

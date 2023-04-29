@@ -13,20 +13,20 @@ import { Autoplay, Pagination, Navigation } from 'swiper';
 
 export default {
     name: "AppHome",
-  
+
     components: {
         Swiper,
         SwiperSlide,
         LoaderVue
     },
     setup() {
-      return {
-        modules: [Autoplay, Pagination, Navigation],
-      };
+        return {
+            modules: [Autoplay, Pagination, Navigation],
+        };
     },
-        
+
     data() {
-  
+
         return {
             apartments: [],
             filterApartments: [],
@@ -43,7 +43,7 @@ export default {
             distanceNumber: 20,
             loading: true,
         }
-  
+
     },
 
     created() {
@@ -51,15 +51,15 @@ export default {
 
         this.getAllServices();
     },
-    
+
     computed: {
-        filtredApartment(){
+        filtredApartment() {
             return this.apartments.filter(address => address.address.toLowerCase().includes(this.searchApartment.toLowerCase()));
         },
 
         saveCoordinate() {
 
-            axios 
+            axios
                 .get('https://api.tomtom.com/search/2/geocode/' + this.address + '.json?key=YqMdhFbqAodquBGAGfGAfSFvrkVm0sD5')
                 .then((response) => {
                     this.latitude = response.data.results[0].position.lat
@@ -152,29 +152,29 @@ export default {
     methods: {
 
         getAllApartments() {
-            axios 
-            .get('http://127.0.0.1:8000/api/apartments')
-            .then((response) => {
-                this.apartments = response.data.results.apartments;
-                console.log(this.apartments);
-                this.loading = false;
-            })
-            
+            axios
+                .get('http://127.0.0.1:8000/api/apartments')
+                .then((response) => {
+                    this.apartments = response.data.results.apartments;
+                    console.log(this.apartments);
+                    this.loading = false;
+                })
+
         },
 
         getAllServices() {
-            axios 
-            .get('http://127.0.0.1:8000/api/services')
-            .then((response) => {
-                this.allServices = response.data.services;
-                console.log('servizi', this.allServices)
-            })
-            
+            axios
+                .get('http://127.0.0.1:8000/api/services')
+                .then((response) => {
+                    this.allServices = response.data.services;
+                    console.log('servizi', this.allServices)
+                })
+
         },
 
         advancedSearchApartments() {
 
-            axios 
+            axios
                 .get('http://127.0.0.1:8000/api/apartments', {
                     params: {
                         bed: this.bed,
@@ -211,7 +211,7 @@ export default {
                             console.log('distanza', apartment.distance);
 
                             // if (apartment.distance <= 20) {
-                                
+
                             //     this.filterApartments = response.data.results.apartments;
 
                             //     console.log('filtraggio', this.filterApartments);
@@ -224,7 +224,7 @@ export default {
                         });
                     }
                 })
-            
+
         },
 
     },
@@ -254,38 +254,46 @@ export default {
                         </div>
                     </div>
 
-                    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content bg-dark">
                                 <div class="modal-header">
                                     <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Ricerca Avanzata</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
 
                                 <div class="modal-body">
-                                    
+
                                     <!-- SALVATAGGIO COORDINATE -->
 
                                     <div class="mb-3">
-                                        <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="searchBar my-3" id="address" placeholder="Inserisci indirizzo..." name="address">
+                                        <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete"
+                                            type="search" class="searchBar my-3" id="address"
+                                            placeholder="Inserisci indirizzo..." name="address">
                                         <ul id="autocomplete-list" class="list-group"></ul>
-                                        <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" id="number" name="number-value" min="1" max="40">
-                                        <input type="range" v-model.number="distanceNumber" @input="distanceToCenter" id="range" name="number-value" min="1" max="40">
+                                        <input type="number" v-model.number="distanceNumber" @input="distanceToCenter"
+                                            id="number" name="number-value" min="1" max="40">
+                                        <input type="range" v-model.number="distanceNumber" @input="distanceToCenter"
+                                            id="range" name="number-value" min="1" max="40">
                                     </div>
 
-                                <!-- FINE SALVATAGGIO COORDINATE -->
-                                    
+                                    <!-- FINE SALVATAGGIO COORDINATE -->
+
                                     <div class="mb-3">
                                         <label class="d-block" for="price">Prezzo massimo:</label>
-                                        <input type="number" v-model.number="price" placeholder="" aria-label="Username" aria-describedby="basic-addon1">€
-                                    </div> 
+                                        <input type="number" v-model.number="price" placeholder="" aria-label="Username"
+                                            aria-describedby="basic-addon1">€
+                                    </div>
 
                                     <div class="mb-3">
                                         <label class="d-block" for="services">Servizi:</label>
                                         <div v-for="item in allServices">
-                                            <input type="checkbox" v-model="services" name="services" :value="item.name" id="services"> {{ item.name }}
+                                            <input type="checkbox" v-model="services" name="services" :value="item.name"
+                                                id="services"> {{ item.name }}
                                         </div>
-                                    </div> 
+                                    </div>
 
                                     <div class="mb-3">
                                         <label class="d-block" for="type">Tipologia:</label>
@@ -305,7 +313,8 @@ export default {
 
                                     <div class="mb-3">
                                         <label class="d-block" for="bathroom">Numero di bagni:</label>
-                                        <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom" min="1">
+                                        <input type="number" v-model.number="bathroom" name="bathroom" id="bathroom"
+                                            min="1">
                                     </div>
 
                                     <div class="mb-3">
@@ -317,7 +326,8 @@ export default {
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                    <button type="button" @click="advancedSearchApartments" class="btn btn-primary" data-bs-dismiss="modal">Salva le modifiche</button>
+                                    <button type="button" @click="advancedSearchApartments" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Salva le modifiche</button>
                                 </div>
                             </div>
                         </div>
@@ -326,16 +336,19 @@ export default {
             </div>
         </div>
 
+        <router-link :to="{ name: 'searched-apartments' }">Bottone cerca</router-link>
+
         <div class="container text-center my-5" v-if="filterApartments.length > 0">
 
             <div class="row">
                 <h1 class="main-title">
                     Filtraggio avanzato
                 </h1>
-                
+
                 <div class="col-3 mt-5" v-for="index in filterApartments">
                     <div v-if="index.distance <= distanceNumber">
-                        <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                            class="text-decoration-none">
                             <div class="card h-100" style="width: 18rem;">
                                 <img :src="index.image" class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -343,7 +356,7 @@ export default {
                                     <p class="card-text">{{ index.address }}</p>
                                     <div>{{ index.price }} $/notte</div>
                                 </div>
-                            </div>  
+                            </div>
                         </router-link>
                     </div>
                 </div>
@@ -394,7 +407,8 @@ export default {
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
                 <div class="col mt-5" v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none">
+                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                        class="text-decoration-none">
                         <div class="myCard h-100">
                             <div class="cardCover">
                                 <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
@@ -408,7 +422,6 @@ export default {
             </div>
         </div>
     </main>
-        
 </template>
   
 <style lang="scss" scoped>
@@ -516,5 +529,40 @@ export default {
     }
 }
 
+.main-title {
+    color: var(--link-color);
+}
 
+.mySwiper {
+    border: 1px solid lightgray;
+    background-color: var(--bg-color);
+}
+
+.myCard {
+    box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
+    color: black !important;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .cardCover {
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .cardInfo {
+        padding: 10px;
+    }
+
+    &:hover {
+        transform: scale(1.035);
+
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
 </style>
