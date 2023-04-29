@@ -20,13 +20,12 @@ export default {
   <header class="sticky-top my-header">
     <div class="container h-100">
       <div class="row align-items-center h-100">
-        <div class="col-3">
+        <div class="col-3 logo">
           <a href="http://localhost:5174" class="d-flex align-items-center">
-            <img src="../../public/logoBnb.png" class="myLogo" alt="">
-            <!-- <span class="fs-4"> <b>Boolbnb</b> </span> -->
+            BoolBnB
           </a>
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-center mt-2">
+        <div class="col-6 d-flex align-items-center justify-content-center mt-2 links">
           <ul class="d-flex">
             <li>
               <a href="#">in evidenza</a>
@@ -42,7 +41,7 @@ export default {
             </li>
           </ul>
         </div>
-        <div class="col-3 d-flex align-items-center justify-content-end">
+        <div class="col-3 d-flex align-items-center justify-content-end login">
           <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
             Login
           </a>
@@ -58,8 +57,8 @@ export default {
 <style lang="scss" scoped>
 .my-header {
   height: 70px;
-  background-color: #ffffff;
-  // background-color: #a79b8e;
+  background-color: var(--bg-color);
+  color: #fff;
 
   a {
     text-decoration: none;
@@ -83,7 +82,7 @@ export default {
 
       a {
         text-decoration: none;
-        color: var(--title-color);
+        color: #fff;
         display: inline-block;
         transition: 0.25s all;
 
@@ -94,13 +93,8 @@ export default {
       }
     }
   }
-
-  .my-title {
-    color: #ff385c;
-  }
-
   .link {
-    color: var(--title-color);
+    color: #fff;
     // font-weight: bold;
     padding: 5px 10px;
 
@@ -111,13 +105,13 @@ export default {
   }
 
   .link-two {
-    background-color: var(--title-color);
-    color: white;
+    background-color: #fff;
+    color: #000;
     // font-weight: bold;
     padding: 5px 10px;
 
     &:hover {
-      color: white;
+      color: #fff;
       background-color: var(--link-color);
     }
   }

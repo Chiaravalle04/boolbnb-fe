@@ -33,7 +33,7 @@ export default {
                             Francesco Benvenuti •
                         </li>
                         <li>
-                            Nicolas Chiaravalle •
+                            Nicholas Chiaravalle •
                         </li>
                         <li>
                             Stefania Aveta •
@@ -65,7 +65,10 @@ export default {
 <style lang="scss" scoped>
 footer {
     padding: 13px;
-    font-size: 15px;
+    font-size: 13px;
+    background-color: var(--bg-color);
+    color: #fff;
+    margin-top: 10px;
 }
 
 li {

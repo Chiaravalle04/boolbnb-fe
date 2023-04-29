@@ -232,20 +232,26 @@ export default {
 </script>
   
 <template>
-    <LoaderVue v-if="loading" />
-
-    <main v-else>
-        <div class="jumbotron position-relative">
-            <div class="container h-100 d-flex align-items-end pb-5">
-                <div class="searchDestination">
-
-                    <div class="searchBox position-relative ">
-                        <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3"
-                            placeholder="Cerca destinazioni...">
-                        <a href="#"
-                            class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
+    <LoaderVue v-if="loading"/>
+        
+    <main v-else class="overflow-x-hidden">
+        <div class="jumbotron">
+            <div class="container h-100">
+                <div class="row h-50">
+                    <div class="col-4 d-flex align-items-end">
+                        <h1 class="mainTitle">
+                            Sblocca nuove avventure
+                        </h1>
+                    </div>
+                </div>
+                <div class="row h-50 test pb-5">
+                    <div class="col-6">
+                        <div class="searchBox position-relative rounded-5">
+                            <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
+                            <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -357,33 +363,46 @@ export default {
             </div>
         </div>
 
-        <div class="container text-center my-5" v-else>
+        <div v-else class="sponsored">
+            <div class="container-fluid text-center ms-3 me-3">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="main-title-1 mt-3" id="primoPiano">
+                            Appartamenti in evidenza
+                        </h1>
+                    </div>
+                </div>
 
-            <h1 class="main-title" id="primoPiano">
-                in primo piano
-            </h1>
-
-            <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
+                <swiper
+                :slidesPerView="4"
+                :spaceBetween="20"
+                :centeredSlides="false"
+                :autoplay="{
                     delay: 2500,
                     disableOnInteraction: false,
-                }" :navigation="true" :modules="modules" class="mySwiper p-4">
-                <swiper-slide v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
-                        class="text-decoration-none h-100">
-                        <div class="myCard h-100">
-                            <div class="cardCover">
-                                <img :src=index.cover class="w-100 h-100" alt="">
-                            </div>
-                            <div class="cardInfo">
-                                <h5>{{ index.title }}</h5>
-                            </div>
-                        </div>
-                    </router-link>
-                </swiper-slide>
-            </swiper>
+                }"
+                :navigation="true"
+                :modules="modules"
+                class="mySwiper p-4"
+            >
+                    <swiper-slide v-for="index in filtredApartment">
+                        <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none h-100">
+                                <div class="myCard">
+                                    <div class="cardCover">
+                                        <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
+                                    </div>
+                                    <div class="cardInfo">
+                                        <h5>{{ index.title }}</h5>
+                                    </div>
+                                </div>
+                        </router-link>
+                    </swiper-slide>
+                </swiper>
+            </div>
+        </div>
 
-
-            <h1 class="main-title mt-5" id="tutteStrutture">
+        <div class="container-fluid">
+            <h1 class="main-title-2 mt-5" id="tutteStrutture">
                 Tutte le altre strutture
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
@@ -406,85 +425,106 @@ export default {
 </template>
   
 <style lang="scss" scoped>
-.jumbotron {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    // animation: change 50s infinite;
-    background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
-    height: 500px;
+    .jumbotron {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
+        height: 450px;
 
-    // .myVideo{
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     z-index: -1;
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: cover;
-    // }
+        .mainTitle {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--bg-color);
+        }
 
-    // .myTitle{
-    //     background-color: rgba(255, 255, 255, 0.7);
-    //     color: var(--title-color);
-    //     padding: 20px;
-
-    //     .myTextBox {
-    //         height: 70%;
-    //         width: 60%;
-    //         font-size: 3rem;
-    //         font-weight: bold;
-
-    //         span {
-    //             color: var(--link-color);
-    //         }
-    //     }
-    //     .myParagraph {
-    //     font-weight: bold;
-    //     margin-top: 20px;
-    //     font-size: 1.2rem;
-
-    //     span {
-    //         color: var(--link-color);
-    //     }
-    // }
-    // }
-
-    .searchDestination {
-
-        width: 45%;
-
+        .test {
+            display: flex;
+            align-items: end;
+        }
         .searchBar {
-            background-color: white;
-            outline: none;
+            background-color: var(--bg-color);
             line-height: 35px;
-            border-radius: 20px;
-            border: none;
-        }
-
-        .iconSearch {
-            background-color: var(--link-color);
-            text-decoration: none;
-        }
-
-        .advancedSearch {
-
-            button {
-                // width: 70%;
-                background-color: white;
+            border-style: none;
+            color: #fff;
+            outline: none;
             }
 
-            .btn {
-                font-weight: bold;
-                border-radius: 5px;
+            .iconSearch{
+                background-color: var(--link-color);
+                text-decoration: none;
 
                 &:hover {
-                    color: white;
-                    background-color: #ff385c;
+                    background-color: #fff;
+
+                    i {
+                    background-color: #fff;
+                    color: var(--link-color);
+                    }
                 }
             }
+
+            .advancedSearch {
+
+                button {
+                    background-color: white;
+                }
+
+                .btn {
+                    font-weight: bold;
+                    border-radius: 5px;
+
+                    &:hover {
+                        color: white;
+                        background-color: #ff385c;
+                    }
+                }
+            }
+        }
+    
+    .sponsored {
+        background-color: var(--bg-color);
+    }
+
+    .main-title-1 {
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+    }
+    .main-title-2 {
+        color: var(--bg-color);
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .mySwiper{
+        background-color: var(--bg-color);
+    }
+    .myCard{
+        box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
+        color: black !important;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        height: 280px;
+
+        .cardCover{
+            height: 200px;
+            overflow: hidden;
+            
+            img{
+                object-fit: cover;
+            }
+        }
+        .cardInfo{
+            padding: 10px;
+        }
+
+        &:hover{
+        transform: scale(1.035);
+
+        img{
+            transform: scale(1.1);
         }
     }
 }
