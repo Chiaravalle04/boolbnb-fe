@@ -232,8 +232,8 @@ export default {
 </script>
   
 <template>
-    <LoaderVue v-if="loading"/>
-        
+    <LoaderVue v-if="loading" />
+
     <main v-else class="overflow-x-hidden">
         <div class="jumbotron">
             <div class="container h-100">
@@ -247,8 +247,10 @@ export default {
                 <div class="row h-50 test pb-5">
                     <div class="col-6">
                         <div class="searchBox position-relative rounded-5">
-                            <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5" placeholder="Cerca destinazioni...">
-                            <a href="#" class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
+                            <input v-model="searchApartment" type="search" class="searchBar w-100 py-2 px-3 rounded-5"
+                                placeholder="Cerca destinazioni...">
+                            <a href="#"
+                                class="iconSearch px-4 position-absolute end-0 top-0 bottom-0 text-white d-flex align-items-center rounded-5">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </a>
                         </div>
@@ -373,28 +375,21 @@ export default {
                     </div>
                 </div>
 
-                <swiper
-                :slidesPerView="4"
-                :spaceBetween="20"
-                :centeredSlides="false"
-                :autoplay="{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }"
-                :navigation="true"
-                :modules="modules"
-                class="mySwiper p-4"
-            >
+                <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }" :navigation="true" :modules="modules" class="mySwiper p-4">
                     <swiper-slide v-for="index in filtredApartment">
-                        <router-link :to="{ name: 'app-show-apartments', params: {slug: index.slug} }" class="text-decoration-none h-100">
-                                <div class="myCard">
-                                    <div class="cardCover">
-                                        <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
-                                    </div>
-                                    <div class="cardInfo">
-                                        <h5>{{ index.title }}</h5>
-                                    </div>
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                            class="text-decoration-none h-100">
+                            <div class="myCard">
+                                <div class="cardCover">
+                                    <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
                                 </div>
+                                <div class="cardInfo">
+                                    <h5>{{ index.title }}</h5>
+                                </div>
+                            </div>
                         </router-link>
                     </swiper-slide>
                 </swiper>
@@ -425,105 +420,109 @@ export default {
 </template>
   
 <style lang="scss" scoped>
-    .jumbotron {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top;
-        background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
-        height: 450px;
+.jumbotron {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
+    height: 450px;
 
-        .mainTitle {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--bg-color);
-        }
-
-        .test {
-            display: flex;
-            align-items: end;
-        }
-        .searchBar {
-            background-color: var(--bg-color);
-            line-height: 35px;
-            border-style: none;
-            color: #fff;
-            outline: none;
-            }
-
-            .iconSearch{
-                background-color: var(--link-color);
-                text-decoration: none;
-
-                &:hover {
-                    background-color: #fff;
-
-                    i {
-                    background-color: #fff;
-                    color: var(--link-color);
-                    }
-                }
-            }
-
-            .advancedSearch {
-
-                button {
-                    background-color: white;
-                }
-
-                .btn {
-                    font-weight: bold;
-                    border-radius: 5px;
-
-                    &:hover {
-                        color: white;
-                        background-color: #ff385c;
-                    }
-                }
-            }
-        }
-    
-    .sponsored {
-        background-color: var(--bg-color);
-    }
-
-    .main-title-1 {
-        color: #fff;
-        text-align: center;
+    .mainTitle {
+        font-size: 3.5rem;
         font-weight: bold;
-    }
-    .main-title-2 {
         color: var(--bg-color);
-        text-align: center;
-        font-weight: bold;
     }
 
-    .mySwiper{
+    .test {
+        display: flex;
+        align-items: end;
+    }
+
+    .searchBar {
         background-color: var(--bg-color);
+        line-height: 35px;
+        border-style: none;
+        color: #fff;
+        outline: none;
     }
-    .myCard{
-        box-shadow: 1px 3px 15px -4px rgba(0,0,0,0.15);
-        color: black !important;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: #fff;
-        height: 280px;
 
-        .cardCover{
-            height: 200px;
-            overflow: hidden;
-            
-            img{
-                object-fit: cover;
+    .iconSearch {
+        background-color: var(--link-color);
+        text-decoration: none;
+
+        &:hover {
+            background-color: #fff;
+
+            i {
+                background-color: #fff;
+                color: var(--link-color);
             }
         }
-        .cardInfo{
-            padding: 10px;
+    }
+
+    .advancedSearch {
+
+        button {
+            background-color: white;
         }
 
-        &:hover{
+        .btn {
+            font-weight: bold;
+            border-radius: 5px;
+
+            &:hover {
+                color: white;
+                background-color: #ff385c;
+            }
+        }
+    }
+}
+
+.sponsored {
+    background-color: var(--bg-color);
+}
+
+.main-title-1 {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main-title-2 {
+    color: var(--bg-color);
+    text-align: center;
+    font-weight: bold;
+}
+
+.mySwiper {
+    background-color: var(--bg-color);
+}
+
+.myCard {
+    box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
+    color: black !important;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    height: 280px;
+
+    .cardCover {
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .cardInfo {
+        padding: 10px;
+    }
+
+    &:hover {
         transform: scale(1.035);
 
-        img{
+        img {
             transform: scale(1.1);
         }
     }
@@ -534,7 +533,7 @@ export default {
 }
 
 .mySwiper {
-    border: 1px solid lightgray;
+    //border: 1px solid lightgray;
     background-color: var(--bg-color);
 }
 

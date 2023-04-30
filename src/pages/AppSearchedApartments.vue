@@ -20,28 +20,28 @@ export default {
                 <div class="struttura-alloggio">
                     <div>
                         <div class="icona-appartamento">
-                            <i class="fa-solid fa-hotel"></i>
+                            <i class="fa-solid fa-hotel hotel"></i>
                             <span class="nome-appartamento">
                                 Hotel
                             </span>
                         </div>
 
                         <div class="icona-appartamento">
-                            <i class="fa-solid fa-warehouse"></i>
+                            <i class="fa-solid fa-warehouse villa "></i>
                             <span class="nome-appartamento">
                                 Villa
                             </span>
                         </div>
 
                         <div class="icona-appartamento">
-                            <i class="fa-solid fa-people-roof"></i>
+                            <i class="fa-solid fa-people-roof stanza"></i>
                             <span class="nome-appartamento">
                                 Stanza
                             </span>
                         </div>
 
                         <div class="icona-appartamento">
-                            <i class="fa-regular fa-building"></i>
+                            <i class="fa-regular fa-building appartamento"></i>
                             <span class="nome-appartamento">
                                 Appartamento
                             </span>
@@ -70,9 +70,94 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="stanze-letti"></div>
-            <div class="price"></div>
-            <div></div>
+            <div class="servizi-placeholder">
+                <h3>Servizi</h3>
+                <hr>
+                <!-- <h6>Servizi essenziali</h6> -->
+                <div class="servizi-essenziali">
+
+                    <div>
+                        <input type="checkbox" id="Wi-Fi" name="Wi-Fi" value="wifi">
+                        <label for="Wi-Fi">Wifi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Parcheggio" name="Parcheggio" value="Parcheggio">
+                        <label for="Parcheggio">Parcheggio</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Piscina" name="Piscina" value="Piscina">
+                        <label for="Piscina">Piscina</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Aria condizionata" name="Aria condizionata" value="Aria condizionata">
+                        <label for="Aria condizionata">Aria condizionata</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Letto singolo" name="Letto singolo" value="Letto singolo">
+                        <label for="Letto singolo">Letto singolo</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Letto matrimoniale" name="Letto matrimoniale" value="Letto matrimoniale">
+                        <label for="Letto matrimoniale">Letto matrimoniale</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Cucina" name="Cucina" value="Cucina">
+                        <label for="Cucina">Cucina</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Riscaldamento" name="Riscaldamento" value="Riscaldamento">
+                        <label for="Riscaldamento">Riscaldamento</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Tv" name="Tv" value="Tv">
+                        <label for="Tv">Tv</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Lavatrice" name="Lavatrice" value="Lavatrice">
+                        <label for="Lavatrice">Lavatrice</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Balcone" name="Balcone" value="Balcone">
+                        <label for="Balcone">Balcone</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Ascensore" class="ascensore" name="Ascensore" value="Ascensore">
+                        <label for="Ascensore">Ascensore</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Vasca da bagno" name="Vasca da bagno" value="Vasca da bagno">
+                        <label for="Vasca da bagno">Vasca da bagno</label>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="price-km">
+                <h3>Prezzo e KM dal centro</h3>
+                <hr>
+                <div>
+                    <label for="input-range">
+                        <h4>KM dal centro</h4>
+                    </label><br>
+                    <input id="numero" min="50" max="300" step="1" type="range">
+                </div>
+                <hr>
+                <div>
+                    <h5>Prezzo €</h5>
+                    <input type="number" min="50" placeholder="50€" class="input_number">
+                </div>
+                <hr>
+                <div>
+                    <ul class="py-2">
+                        <li>
+                            Ogni prenotazione include una protezione gratuita in caso di cancellazione da parte dell'host,
+                            di inesattezze dell'annuncio e di altri problemi come le difficoltà in fase di check-in.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -82,6 +167,7 @@ export default {
 main {
     height: 79vh;
 }
+
 
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
@@ -118,8 +204,8 @@ hr {
 .icona-appartamento {
     padding: 12px;
 
-    i {
-        font-size: 22px;
+    >.nome-appartamento {
+        margin-left: 20px;
     }
 
     &:hover {
@@ -133,6 +219,17 @@ hr {
         font-size: 20px;
         cursor: pointer;
     }
+}
+
+.hotel,
+.villa,
+.stanza {
+    font-size: 22px;
+}
+
+.appartamento {
+    margin-right: 8px;
+    font-size: 24px;
 }
 
 .servizi {
@@ -153,5 +250,73 @@ hr {
     border: 1px solid gray;
     padding: 4px;
     background-color: #cbcbcb;
+}
+
+.servizi-placeholder,
+.price {
+    border-right: 1px dashed rgb(170, 169, 169);
+    padding: 10px;
+}
+
+.servizi-essenziali {
+    // border: 1px solid black;
+    width: 100%;
+    height: 340px;
+
+    >div {
+        padding-left: 5px;
+    }
+
+    >div>label {
+        margin-left: 10px;
+        font-size: 16px;
+        margin-bottom: 3px;
+        padding-left: 10px;
+    }
+}
+
+input[type=checkbox] {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.price-km {
+    padding: 10px;
+
+    h3 {
+        font-size: 25px;
+        padding-bottom: 4px;
+    }
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(74, 72, 72);
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.input_number {
+    content: '€';
+    background-color: lightgray;
+    color: black;
+    border-radius: 20px;
+    border: none;
+    width: 100px;
+    padding: 4px;
+    text-align: center;
 }
 </style>
