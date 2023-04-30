@@ -16,9 +16,15 @@ export default {
 <template>
     <main>
         <div class="input_ricerca_avanzata text-center mt-4">
-            <div><i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Ricerca avanzata">
+            <div class="icona_input">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div>
+                    <input type="text" placeholder="Ricerca avanzata">
+                </div>
             </div>
+
         </div>
 
         <div class="ricerca-avanzata">
@@ -170,6 +176,11 @@ export default {
                 </div>
             </div>
         </div>
+        <div class="go">
+            <button>
+                vai
+            </button>
+        </div>
 
     </main>
 </template>
@@ -179,15 +190,12 @@ main {
     height: 81vh;
 }
 
-
-
-
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
     width: 87%;
     margin: 0 auto;
     height: 470px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
     border-radius: 20px;
     padding: 10px;
@@ -210,6 +218,33 @@ main {
     }
 }
 
+.icona_input {
+    display: flex;
+    border: 1px solid rgb(143, 142, 142);
+    width: 300px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 20px;
+    width: 500px;
+
+    >div:last-child>input {
+        padding-left: 20px;
+        border: none;
+        font-size: 20px;
+    }
+
+    >div:first-child {
+        padding-top: 4px;
+        color: rgb(59, 58, 58);
+    }
+}
+
+.icona_input:focus-within input {
+    outline: none;
+}
+
 hr {
     border: 2px solid rgb(170, 169, 169);
 }
@@ -222,7 +257,7 @@ hr {
     }
 
     &:hover {
-        //background-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
         cursor: pointer;
         border-radius: 20px;
         transition: 1.5s;
@@ -319,7 +354,7 @@ input[type=checkbox] {
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;
-    height: 20px;
+    height: 14px;
     border-radius: 10px;
     background-color: rgb(74, 72, 72);
     outline: none;
@@ -327,8 +362,8 @@ input[type=range] {
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background-color: white;
     cursor: pointer;
@@ -343,5 +378,22 @@ input[type=range]::-webkit-slider-thumb {
     width: 100px;
     padding: 4px;
     text-align: center;
+}
+
+.go {
+    width: 200px;
+
+    margin: 0 auto;
+    text-align: center;
+
+    button {
+        width: 170px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 20px;
+        border: 3px solid gray;
+        text-transform: uppercase;
+
+    }
 }
 </style>
