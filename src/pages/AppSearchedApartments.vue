@@ -4,7 +4,10 @@ export default {
 
     data() {
         return {
-
+            isClicked: false,
+            isClicked2: false,
+            isClicked3: false,
+            isClicked4: false
         }
     },
 };
@@ -12,6 +15,11 @@ export default {
 
 <template>
     <main>
+        <div class="input_ricerca_avanzata text-center mt-4">
+            <div><i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Ricerca avanzata">
+            </div>
+        </div>
 
         <div class="ricerca-avanzata">
             <div class="type">
@@ -19,28 +27,31 @@ export default {
                 <hr>
                 <div class="struttura-alloggio">
                     <div>
-                        <div class="icona-appartamento">
+                        <div class="icona-appartamento" :class="{ 'clicked': isClicked }" @click="isClicked = !isClicked">
                             <i class="fa-solid fa-hotel hotel"></i>
                             <span class="nome-appartamento">
                                 Hotel
                             </span>
                         </div>
 
-                        <div class="icona-appartamento">
+                        <div class="icona-appartamento" :class="{ 'clicked2': isClicked2 }"
+                            @click="isClicked2 = !isClicked2">
                             <i class="fa-solid fa-warehouse villa "></i>
                             <span class="nome-appartamento">
                                 Villa
                             </span>
                         </div>
 
-                        <div class="icona-appartamento">
+                        <div class="icona-appartamento" :class="{ 'clicked3': isClicked3 }"
+                            @click="isClicked3 = !isClicked3">
                             <i class="fa-solid fa-people-roof stanza"></i>
                             <span class="nome-appartamento">
                                 Stanza
                             </span>
                         </div>
 
-                        <div class="icona-appartamento">
+                        <div class="icona-appartamento" :class="{ 'clicked4': isClicked4 }"
+                            @click="isClicked4 = !isClicked4">
                             <i class="fa-regular fa-building appartamento"></i>
                             <span class="nome-appartamento">
                                 Appartamento
@@ -141,7 +152,7 @@ export default {
                     <label for="input-range">
                         <h4>KM dal centro</h4>
                     </label><br>
-                    <input id="numero" min="50" max="300" step="1" type="range">
+                    <input id="numero" min="50" max="300" step="" type="range">
                 </div>
                 <hr>
                 <div>
@@ -165,8 +176,10 @@ export default {
 
 <style lang="scss" scoped>
 main {
-    height: 79vh;
+    height: 81vh;
 }
+
+
 
 
 .ricerca-avanzata {
@@ -209,7 +222,7 @@ hr {
     }
 
     &:hover {
-        background-color: rgb(255, 255, 255);
+        //background-color: rgb(255, 255, 255);
         cursor: pointer;
         border-radius: 20px;
         transition: 1.5s;
@@ -219,6 +232,18 @@ hr {
         font-size: 20px;
         cursor: pointer;
     }
+}
+
+.clicked {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+.clicked2,
+.clicked3,
+.clicked4 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
 }
 
 .hotel,
