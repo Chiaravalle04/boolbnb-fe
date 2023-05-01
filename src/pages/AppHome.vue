@@ -535,6 +535,7 @@ export default {
 
     &:hover {
         transform: scale(1.035);
+        transition: 1s;
 
         img {
             transform: scale(1.1);
@@ -543,8 +544,7 @@ export default {
 }
 
 .cardInfoSponsorizzati:hover {
-    background: linear-gradient(to left, rgba(246, 253, 29, 0.5956757703081232), rgba(240, 252, 69, 0.3799894957983193));
-
+    background: linear-gradient(rgba(246, 253, 29, 0.5956757703081232), rgba(230, 235, 161, 0.38));
     transition: 2s;
 }
 
