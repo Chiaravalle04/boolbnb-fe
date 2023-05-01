@@ -28,16 +28,16 @@ export default {
         <div class="col-6 d-flex align-items-center justify-content-center mt-2 links">
           <ul class="d-flex">
             <li>
-              <a href="#">in evidenza</a>
+              <a href="#primoPiano">in evidenza</a>
             </li>
             <li>
-              <a href="#">tutte le case</a>
+              <a href="#tutteStrutture">tutte le case</a>
             </li>
             <li>
               <a href="http://">chi siamo</a>
             </li>
             <li>
-              <a href="http://">contatti</a>
+              <a href="https://www.airbnb.it/help/?audience=guest">contatti</a>
             </li>
           </ul>
         </div>
