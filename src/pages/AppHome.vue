@@ -32,6 +32,7 @@ export default {
             filterApartments: [],
             sponsoredApartemts: [],
             searchApartment: '',
+            cover: null,
             bed: null,
             room: null,
             bathroom: null,
@@ -107,6 +108,12 @@ export default {
                     return;
                 }
 
+                input.addEventListener("input", function() {
+                    if (input.value === '') {
+                        autocompleteList.innerHTML = '';
+                        }
+                    });
+
                 const apiUrl = 'https://api.tomtom.com/search/2/geocode/';
 
                 delete axios.defaults.headers.common['X-Requested-With'];
@@ -139,6 +146,14 @@ export default {
                         });
                         autocompleteList.appendChild(liElement);
                     }
+                        // Verifica se il numero di risultati supera 5
+                        if (results.length > 5) {
+                        // Aggiunge una classe CSS per attivare la scrollbar
+                        autocompleteList.classList.add('scrollbar');
+                        } else {
+                        // Rimuove la classe CSS per disattivare la scrollbar
+                        autocompleteList.classList.remove('scrollbar');
+                        }
 
                 }).catch(function (error) {
                     console.log(error);
@@ -272,7 +287,7 @@ export default {
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
-                                    <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
+                                    <img :src=index.cover class="w-100 h-100" alt="">
                                 </div>
                                 <div class="cardInfo">
                                     <h5>{{ index.title }}</h5>
@@ -337,6 +352,11 @@ export default {
         border-style: none;
         // color: #fff;
         outline: none;
+    }
+
+    .scrollbar {
+        max-height: 200px;
+        overflow-y: auto;
     }
 
     .iconSearch {
