@@ -544,7 +544,7 @@ export default {
 }
 
 .cardInfoSponsorizzati:hover {
-    background: linear-gradient(rgba(246, 253, 29, 0.5956757703081232), rgba(230, 235, 161, 0.38));
+    background: linear-gradient(rgba(246, 253, 29, 0.5956757703081232), rgba(236, 246, 61, 0.38));
     transition: 2s;
 }
 
