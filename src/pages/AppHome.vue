@@ -30,7 +30,7 @@ export default {
         return {
             apartments: [],
             filterApartments: [],
-            sponsoredApartemts: [],
+            sponsoredApartments: [],
             searchApartment: '',
             cover: null,
             bed: null,
@@ -174,6 +174,16 @@ export default {
                     this.apartments = response.data.results.apartments;
                     console.log(this.apartments);
                     this.loading = false;
+
+                    const arrayQualcosa = response.data.results.apartments.sponsorships;
+
+                    if (arrayQualcosa.length > 0) {
+                        this.sponsoredApartments = response.data.results.apartments; 
+                        console.log(this.sponsoredApartments);
+                    }
+
+                    
+
                 })
 
         },
@@ -283,7 +293,7 @@ export default {
                         delay: 2500,
                         disableOnInteraction: false,
                     }" :navigation="true" :modules="modules" class="mySwiper p-4">
-                    <swiper-slide v-for="index in filtredApartment">
+                    <swiper-slide v-for="index in sponsoredApartments">
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
