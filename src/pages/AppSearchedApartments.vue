@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main><!--
         <div class="input_ricerca_avanzata text-center mt-4">
             <div class="icona_input">
                 <div>
@@ -25,7 +25,7 @@ export default {
                 </div>
             </div>
 
-        </div>
+        </div>-->
 
         <div class="ricerca-avanzata">
             <div class="type">
@@ -196,7 +196,7 @@ main {
     margin: 0 auto;
     height: 470px;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-radius: 20px;
     padding: 10px;
     display: flex;
