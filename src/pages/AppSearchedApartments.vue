@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+
 export default {
     name: "AppSearchedApartments",
 
@@ -7,9 +9,190 @@ export default {
             isClicked: false,
             isClicked2: false,
             isClicked3: false,
-            isClicked4: false
+            isClicked4: false,
+            address: '',
+            bed: null,
+            room: null,
+            bathroom: null,
+            price: null,
+            latitude: null,
+            longitude: null,
+            services: [],
+            distanceNumber: 20,
+            filterApartments: [],
+            allServices: [],
         }
     },
+
+    methods: {
+
+        advancedSearchApartments() {
+
+            axios
+                .get('http://127.0.0.1:8000/api/apartments', {
+                    params: {
+                        bed: this.bed,
+                        room: this.room,
+                        bathroom: this.bathroom,
+                        price: this.price,
+                        services: this.services,
+                    }
+                })
+                .then((response) => {
+                    this.filterApartments = response.data.results.apartments;
+                    console.log('Appartamenti filtrati', this.filterApartments)
+
+                    if (this.latitude !== null || this.longitude !== null) {
+                        this.filterApartments.forEach((apartment) => {
+                            const R = 6371; // raggio della Terra in km
+                            const lat1 = this.latitude; //latitudine ricerca
+                            const lon1 = this.longitude; //longitudine ricerca
+                            const lat2 = apartment.latitude; //latitudine appartamento
+                            const lon2 = apartment.longitude; // longitudine appartamento
+
+                            const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                            const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                            const a =
+                                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                                Math.cos((lat1 * Math.PI) / 180) *
+                                Math.cos((lat2 * Math.PI) / 180) *
+                                Math.sin(dLon / 2) *
+                                Math.sin(dLon / 2);
+                            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                            const distance = R * c; // distanza in km
+                            apartment.distance = distance.toFixed(1);
+
+                            console.log('distanza', apartment.distance);
+
+                        });
+                    }
+                })
+
+        },
+
+        getAllServices() {
+            axios
+                .get('http://127.0.0.1:8000/api/services')
+                .then((response) => {
+                    this.allServices = response.data.services;
+                    console.log('servizi', this.allServices)
+                })
+
+        },
+        
+    }, 
+
+    computed: {
+
+        distanceToCenter() {
+            const inputRange = document.getElementById('range');
+
+            const inputNumber = document.getElementById('number');
+
+            inputNumber.innerHTML = inputRange.value;
+
+            inputNumber.oninput = () => {
+
+                inputRange.value = inputNumber.value;
+
+            }
+
+            inputRange.oninput = () => {
+
+                inputNumber.value = inputRange.value;
+
+            }
+        },
+
+        saveCoordinate() {
+
+            axios
+                .get('https://api.tomtom.com/search/2/geocode/' + this.address + '.json?key=YqMdhFbqAodquBGAGfGAfSFvrkVm0sD5')
+                .then((response) => {
+                    this.latitude = response.data.results[0].position.lat
+                    this.longitude = response.data.results[0].position.lon
+
+                    console.log('coordinate:', response)
+                    console.log('latitudine:', this.latitude)
+                    console.log('longitudine:', this.longitude)
+                })
+
+        },
+
+        searchAutocomplete() {
+
+            let autocompleteList = document.getElementById('autocomplete-list');
+
+            const input = document.getElementById('address');
+
+            input.addEventListener("keyup", function () {
+
+                let userInput = document.getElementById('address').value;
+
+                if (userInput.trim().length < 3) {
+                    return;
+                }
+
+                input.addEventListener("input", function () {
+                    if (input.value === '') {
+                        autocompleteList.innerHTML = '';
+                    }
+                });
+
+                const apiUrl = 'https://api.tomtom.com/search/2/geocode/';
+
+                delete axios.defaults.headers.common['X-Requested-With'];
+
+                axios.get(apiUrl + userInput + '.json', {
+                    params: {
+                        key: 'c4P3eR2jCkOGFFaGzYk7vwGVrmG9wsHs',
+                        typeahead: true,
+                        countrySet: 'IT'
+                    }
+                }).then(function (response) {
+
+                    console.log(response.data.results);
+                    const results = response.data.results;
+
+                    // Svuota il container della lista
+                    autocompleteList.innerHTML = '';
+
+                    // Creo i nuovi elementi della lista
+                    for (let i = 0; i < results.length; i++) {
+                        const resultList = results[i].address.freeformAddress;
+                        const liElement = document.createElement('li');
+                        liElement.innerHTML = resultList;
+                        liElement.classList.add('list-group-item');
+                        liElement.classList.add('list-group-item-action');
+                        liElement.style = 'cursor: pointer';
+                        liElement.addEventListener('click', function () {
+                            input.value = resultList;
+                            autocompleteList.innerHTML = '';
+                        });
+                        autocompleteList.appendChild(liElement);
+                    }
+                    // Verifica se il numero di risultati supera 5
+                    if (results.length > 5) {
+                        // Aggiunge una classe CSS per attivare la scrollbar
+                        autocompleteList.classList.add('scrollbar');
+                    } else {
+                        // Rimuove la classe CSS per disattivare la scrollbar
+                        autocompleteList.classList.remove('scrollbar');
+                    }
+
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+            });
+
+        },
+
+    },
+
+    created() {
+        this.getAllServices();
+    }
 };
 </script>
 
@@ -21,7 +204,11 @@ export default {
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div>
-                    <input type="text" placeholder="Ricerca avanzata">
+                    <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
+                    <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
+                    name="address">
+                    <ul id="autocomplete-list" class="list-group"></ul>
                 </div>
             </div>
 
@@ -73,17 +260,17 @@ export default {
                 <div class="struttura-alloggio-servizi">
                     <div class="letti">
                         <h5>Numero di letti:</h5>
-                        <input type="number" min="1" placeholder="Numero di letti" value="1" class="input-letti">
+                        <input type="number" min="1" v-model.number="bed"  placeholder="Numero di letti" class="input-letti">
                     </div>
                     <hr>
                     <div class="stanze">
-                        <h5>Numero di stanze:</h5>
-                        <input type="number" min="1" placeholder="Numero di stanze" value="1" class="input-stanze">
+                        <h5>Numero di stanze:</h5> 
+                        <input type="number" min="1" v-model.number="room" placeholder="Numero di stanze" class="input-stanze">
                     </div>
                     <hr>
                     <div class="bagni">
                         <h5>Numero di bagni:</h5>
-                        <input type="number" min="1" placeholder="Numero di bagni" value="1" class="input-bagni">
+                        <input type="number" min="1" v-model.number="bathroom" placeholder="Numero di bagni" class="input-bagni">
                     </div>
                 </div>
             </div>
@@ -93,77 +280,28 @@ export default {
                 <!-- <h6>Servizi essenziali</h6> -->
                 <div class="servizi-essenziali">
 
-                    <div>
-                        <input type="checkbox" id="Wi-Fi" name="Wi-Fi" value="wifi">
-                        <label for="Wi-Fi">Wifi</label>
+                    <div v-for="item in allServices">
+                        <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
+                        <label :for="item.name">{{ item.name }}</label>
                     </div>
-                    <div>
-                        <input type="checkbox" id="Parcheggio" name="Parcheggio" value="Parcheggio">
-                        <label for="Parcheggio">Parcheggio</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Piscina" name="Piscina" value="Piscina">
-                        <label for="Piscina">Piscina</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Aria condizionata" name="Aria condizionata" value="Aria condizionata">
-                        <label for="Aria condizionata">Aria condizionata</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Letto singolo" name="Letto singolo" value="Letto singolo">
-                        <label for="Letto singolo">Letto singolo</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Letto matrimoniale" name="Letto matrimoniale" value="Letto matrimoniale">
-                        <label for="Letto matrimoniale">Letto matrimoniale</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Cucina" name="Cucina" value="Cucina">
-                        <label for="Cucina">Cucina</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Riscaldamento" name="Riscaldamento" value="Riscaldamento">
-                        <label for="Riscaldamento">Riscaldamento</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Tv" name="Tv" value="Tv">
-                        <label for="Tv">Tv</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Lavatrice" name="Lavatrice" value="Lavatrice">
-                        <label for="Lavatrice">Lavatrice</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Balcone" name="Balcone" value="Balcone">
-                        <label for="Balcone">Balcone</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Ascensore" class="ascensore" name="Ascensore" value="Ascensore">
-                        <label for="Ascensore">Ascensore</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="Vasca da bagno" name="Vasca da bagno" value="Vasca da bagno">
-                        <label for="Vasca da bagno">Vasca da bagno</label>
-                    </div>
-
 
                 </div>
-
 
             </div>
             <div class="price-km">
                 <h3>Prezzo e KM dal centro</h3>
                 <hr>
                 <div>
-                    <label for="input-range">
+                    <label for="distance_to_center">
                         <h4>KM dal centro</h4>
                     </label><br>
-                    <input id="numero" min="50" max="300" step="" type="range">
+                    <input id="range" v-model.number="distanceNumber"  @input="distanceToCenter" min="1" max="40" name="number-value" type="range">
+                    <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" min="1" max="40" name="number-value" id="number">
                 </div>
                 <hr>
                 <div>
                     <h5>Prezzo €</h5>
-                    <input type="number" min="50" placeholder="50€" class="input_number">
+                    <input type="number" v-model.number="price" min="50" placeholder="50€" class="input_number">
                 </div>
                 <hr>
                 <div>
@@ -177,9 +315,31 @@ export default {
             </div>
         </div>
         <div class="go">
-            <button>
+            <button @click="advancedSearchApartments()">
                 vai
             </button>
+        </div>
+
+        <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+            <div class="col mt-5" v-for="index in filterApartments">
+                <div v-if="index.distance <= distanceNumber">
+
+                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                        class="text-decoration-none">
+                        <div class="myCard h-100">
+                            <div class="cardCover">
+                                <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="cardInfo">
+                                <h5>{{ index.title }}</h5>
+                                <div>{{ index.address }}</div>
+                                <div>{{ index.price }} €/notte</div>
+                                <div>km dal centro</div>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -187,7 +347,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
-    height: 84.5vh;
+    min-height: calc(100vh - 70px);
     margin-bottom: -10px;
     background-color: var(--bg-color);
 }
