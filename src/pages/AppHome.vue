@@ -287,7 +287,7 @@ export default {
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
-                                    <img :src=index.cover class="w-100 h-100" alt="">
+                                    <img :src= index.cover class="w-100 h-100" alt="">
                                 </div>
                                 <div class="cardInfo">
                                     <h5>{{ index.title }}</h5>
@@ -302,7 +302,7 @@ export default {
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
             <h1 class="main-title-2 mt-5" id="tutteStrutture">
                 Tutte le altre strutture
             </h1>
