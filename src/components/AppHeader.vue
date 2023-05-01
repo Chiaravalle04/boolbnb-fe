@@ -21,12 +21,12 @@ export default {
     <div class="container h-100">
       <div class="row align-items-center h-100">
         <div class="col-3 logo">
-          <a href="http://localhost:5174" class="d-flex align-items-center">
+          <a href="http://localhost:5174" class="d-flex align-items-center logo-boolbnb">
             BoolBnB
           </a>
         </div>
         <div class="col-6 d-flex align-items-center justify-content-center mt-2 links">
-          <ul class="d-flex">
+          <ul class="d-flex mt-2">
             <li>
               <a href="#primoPiano">in evidenza</a>
             </li>
@@ -65,6 +65,10 @@ export default {
     color: var(--link-color);
   }
 
+  .logo-boolbnb {
+    font-size: 50px;
+  }
+
   .myLogo {
     height: 60px;
     width: 130px;
@@ -77,8 +81,9 @@ export default {
     li {
       text-decoration: none;
       margin-right: 25px;
-      border-right: 1px solid var(--title-color);
+      //border-right: 1px solid var(--title-color);
       padding-right: 25px;
+      text-transform: uppercase;
 
       a {
         text-decoration: none;
@@ -89,30 +94,37 @@ export default {
         &:hover {
           transform: scale(1.1);
           color: var(--link-color);
+          font-weight: bold;
         }
       }
     }
   }
+
   .link {
     color: #fff;
     // font-weight: bold;
-    padding: 5px 10px;
+    padding: 3px 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
 
     &:hover {
-      box-shadow: inset 0px 0px 0px 2px var(--link-color);
-      color: var(--link-color);
+      //box-shadow: inset 0px 0px 0px 2px var(--link-color);
+      // color: var(--link-color);
+      background-color: lightgray;
+      color: black;
     }
   }
 
   .link-two {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--link-color);
+    color: #fff;
     // font-weight: bold;
-    padding: 5px 10px;
+    padding: 5px 20px;
+    border-radius: 10px;
 
     &:hover {
       color: #fff;
-      background-color: var(--link-color);
+      background: linear-gradient(90deg, rgb(180, 58, 58) 0%, rgba(253, 29, 29, 1) 50%, rgb(199, 17, 17) 100%);
     }
   }
 }

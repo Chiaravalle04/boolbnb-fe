@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <main><!--
+    <main>
         <div class="input_ricerca_avanzata text-center mt-4">
             <div class="icona_input">
                 <div>
@@ -25,7 +25,7 @@ export default {
                 </div>
             </div>
 
-        </div>-->
+        </div>
 
         <div class="ricerca-avanzata">
             <div class="type">
@@ -352,7 +352,7 @@ input[type=checkbox] {
 
 
 input[type=range] {
-    -webkit-appearance: none;
+    // -webkit-appearance: none;
     width: 100%;
     height: 14px;
     border-radius: 10px;

@@ -108,11 +108,11 @@ export default {
                     return;
                 }
 
-                input.addEventListener("input", function() {
+                input.addEventListener("input", function () {
                     if (input.value === '') {
                         autocompleteList.innerHTML = '';
-                        }
-                    });
+                    }
+                });
 
                 const apiUrl = 'https://api.tomtom.com/search/2/geocode/';
 
@@ -146,14 +146,14 @@ export default {
                         });
                         autocompleteList.appendChild(liElement);
                     }
-                        // Verifica se il numero di risultati supera 5
-                        if (results.length > 5) {
+                    // Verifica se il numero di risultati supera 5
+                    if (results.length > 5) {
                         // Aggiunge una classe CSS per attivare la scrollbar
                         autocompleteList.classList.add('scrollbar');
-                        } else {
+                    } else {
                         // Rimuove la classe CSS per disattivare la scrollbar
                         autocompleteList.classList.remove('scrollbar');
-                        }
+                    }
 
                 }).catch(function (error) {
                     console.log(error);
@@ -183,10 +183,10 @@ export default {
                         }
                     }
 
-                        this.sponsoredApartments = sponsoredApartments;
-                        console.log('appartamenti sponsorizzati', this.sponsoredApartments);
+                    this.sponsoredApartments = sponsoredApartments;
+                    console.log('appartamenti sponsorizzati', this.sponsoredApartments);
 
-                    })
+                })
 
         },
 
@@ -255,20 +255,27 @@ export default {
         <div class="jumbotron">
             <div class="container h-100">
                 <div class="row h-50">
-                    <div class="col-4 d-flex align-items-end">
-                        <h1 class="mainTitle">
+                    <div class="d-flex align-items-end text-center">
+                        <h2 class="mainTitle">
                             Sblocca nuove avventure
-                        </h1>
+                        </h2>
                     </div>
                 </div>
                 <div class="row h-50 test pb-5">
                     <div class="col-6">
-                        <div class="searchBox position-relative rounded-5">
-                            <div class="input-group">
-                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="form-control searchBar" placeholder="Inserisci una destinazione" id="address" name="address">
-                                <a href="searched-apartments" class="iconSearch">
+                        <div class="searchBox position-relative">
+                            <div class="input-group mt-5">
+                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
+                                    name="address">
+                                <a href="" class="iconSearch">
                                     <button class="btn my-btn" type="button" id="button-addon2">
                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </a>
+                                <a href="searched-apartments" class="iconSearch ricercavanzata">
+                                    <button class="btn my-btn" type="button" id="button-addon2">
+                                        <i class="fa-solid fa-bolt"></i>
                                     </button>
                                 </a>
                             </div>
@@ -276,7 +283,7 @@ export default {
                         </div>
                     </div>
 
-                   
+
                 </div>
             </div>
         </div>
@@ -296,7 +303,8 @@ export default {
                         disableOnInteraction: false,
                     }" :navigation="true" :modules="modules" class="mySwiper p-4">
                     <swiper-slide v-for="item in sponsoredApartments">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
+                            class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
@@ -342,6 +350,14 @@ export default {
 </template>
   
 <style lang="scss" scoped>
+.searchBox {
+    border-radius: 20px;
+}
+
+.ricercavanzata {
+    border-left: 1px solid gray;
+}
+
 .jumbotron {
     background-size: cover;
     background-repeat: no-repeat;
@@ -350,9 +366,15 @@ export default {
     height: 450px;
 
     .mainTitle {
-        font-size: 3.5rem;
+        //font-size: 3.5rem;
+        font-size: 43px;
+        width: 633px;
         font-weight: bold;
         color: var(--bg-color);
+        border: none;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
     .test {
