@@ -596,22 +596,13 @@ input[type=range]::-webkit-slider-thumb {
 
 
 .myCard {
-    box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
-    color: black !important;
+    box-shadow: 1px 3px 15px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     height: 360px;
-    position: relative;
+    color: black;
 
-    .badge {
-        position: absolute;
-        color: #ffd700;
-        background-color: var(--bg-color);
-        top: 5%;
-        left: 2%;
-        padding: 8px;
-    }
 
     .cardCover {
         height: 200px;
@@ -633,9 +624,5 @@ input[type=range]::-webkit-slider-thumb {
             transform: scale(1.1);
         }
     }
-}
-
-.cardInfo {
-    color: black;
 }
 </style>

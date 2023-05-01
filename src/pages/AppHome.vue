@@ -292,8 +292,8 @@ export default {
             <div class="container-fluid text-center ms-3 me-3">
                 <div class="row">
                     <div class="col">
-                        <h1 class="main-title-1 mt-3" id="primoPiano">
-                            Appartamenti in evidenza
+                        <h1 class="main-title-1 mt-4" id="primoPiano">
+                            Appartamenti sponsorizzati
                         </h1>
                     </div>
                 </div>
@@ -305,7 +305,7 @@ export default {
                     <swiper-slide v-for="item in sponsoredApartments">
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
                             class="text-decoration-none h-100">
-                            <div class="myCard">
+                            <div class="myCard cardInfoSponsorizzati">
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
                                 </div>
@@ -323,12 +323,12 @@ export default {
             </div>
         </div>
 
-        <div class="container">
-            <h1 class="main-title-2 mt-3" id="tutteStrutture">
+        <div class="container altre-strutture">
+            <h1 class="main-title-2 pt-5" id="tutteStrutture">
                 Tutte le altre strutture
             </h1>
-            <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
-                <div class="col mt-5" v-for="index in filtredApartment">
+            <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3 pt-5">
+                <div class="col" v-for="index in filtredApartment">
                     <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
                         class="text-decoration-none">
                         <div class="myCard h-100">
@@ -361,8 +361,10 @@ export default {
 .jumbotron {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
+    //background-position: center;
+    // background-position: top;
     background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
+    //background-image: url(https://tecnicafotografica.net/wp-content/uploads/2021/09/dqejx2ucpbs.jpg);
     height: 450px;
 
     .mainTitle {
@@ -475,7 +477,7 @@ export default {
         position: absolute;
         color: #ffd700;
         background-color: var(--bg-color);
-        top: 5%;
+        top: 3%;
         left: 2%;
         padding: 8px;
     }
@@ -516,6 +518,7 @@ export default {
     color: black !important;
     border-radius: 10px;
     overflow: hidden;
+    //background-color: lightgreen;
 
     .cardCover {
         height: 200px;
@@ -527,7 +530,7 @@ export default {
     }
 
     .cardInfo {
-        padding: 10px;
+        padding-top: 10px;
     }
 
     &:hover {
@@ -537,5 +540,20 @@ export default {
             transform: scale(1.1);
         }
     }
+}
+
+.cardInfoSponsorizzati:hover {
+    background: linear-gradient(to left, rgba(246, 253, 29, 0.5956757703081232), rgba(240, 252, 69, 0.3799894957983193));
+
+    transition: 2s;
+}
+
+main {
+    background-color: rgb(228, 227, 227);
+}
+
+.altre-strutture {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 </style>

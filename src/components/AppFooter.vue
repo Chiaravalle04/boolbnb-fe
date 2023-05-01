@@ -68,7 +68,6 @@ footer {
     font-size: 13px;
     background-color: var(--bg-color);
     color: #fff;
-    margin-top: 10px;
 }
 
 li {

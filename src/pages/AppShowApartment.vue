@@ -152,7 +152,7 @@ export default {
                         {{ apartment.description }}
                     </div>
                     <hr>
-                    <h4>Cosa troverai</h4>
+                    <h4>Cosa troverai • servizi extra</h4>
                     <div class="icons-services">
 
                         <div v-for="service in singleServicesApartment" class="icons">
@@ -481,7 +481,7 @@ hr {
 }
 
 .dark {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
 
     input,
     textarea {
