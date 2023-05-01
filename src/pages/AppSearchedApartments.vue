@@ -15,7 +15,7 @@ export default {
 
 <template>
     <main>
-        <div class="input_ricerca_avanzata text-center mt-4">
+        <div class="input_ricerca_avanzata text-center">
             <div class="icona_input">
                 <div>
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -187,8 +187,11 @@ export default {
 
 <style lang="scss" scoped>
 main {
-    height: 81vh;
+    height: 84.5vh;
+    margin-bottom: -10px;
+    background-color: var(--bg-color);
 }
+
 
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
@@ -228,11 +231,13 @@ main {
     padding-bottom: 6px;
     border-radius: 20px;
     width: 500px;
+    background-color: #F2F2F2;
 
     >div:last-child>input {
         padding-left: 20px;
         border: none;
         font-size: 20px;
+        background-color: #F2F2F2;
     }
 
     >div:first-child {

@@ -242,6 +242,7 @@ $description-color: #81878C;
 $bg-color: #F2F2F2;
 */
 
+
 // titolo + indirizzo 
 .title {
     width: 97%;
