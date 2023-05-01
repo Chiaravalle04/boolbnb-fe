@@ -309,7 +309,7 @@ export default {
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
                                 </div>
-                                <div class="badge">Sponsorizzato</div>
+                                <div class="badge">Sponsorizzato &star;</div>
                                 <div class="cardInfo">
                                     <h5>{{ item.title }}</h5>
                                     <div>{{ item.address }}</div>
@@ -477,6 +477,7 @@ export default {
         background-color: var(--bg-color);
         top: 5%;
         left: 2%;
+        padding: 8px;
     }
 
     .cardCover {
