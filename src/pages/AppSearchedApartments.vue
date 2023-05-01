@@ -352,7 +352,7 @@ input[type=checkbox] {
 
 
 input[type=range] {
-    -webkit-appearance: none;
+    // -webkit-appearance: none;
     width: 100%;
     height: 14px;
     border-radius: 10px;
