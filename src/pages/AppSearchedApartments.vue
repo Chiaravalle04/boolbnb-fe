@@ -198,7 +198,7 @@ export default {
 
 <template>
     <main>
-        <div class="input_ricerca_avanzata text-center py-2">
+        <div class="input_ricerca_avanzata text-center pt-3">
             <div class="icona_input">
                 <div>
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -352,7 +352,7 @@ export default {
 main {
     min-height: calc(100vh - 70px);
     margin-bottom: -10px;
-    background-color: var(--bg-color);
+    background-color: rgb(147, 147, 147);
 }
 
 
@@ -582,19 +582,56 @@ input[type=range]::-webkit-slider-thumb {
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 90%;
+    width: 87%;
     margin-top: 20px;
-    background-color: lightgray;
     border-radius: 20px;
     padding-bottom: 20px;
 
     >div {
-        border: 1px solid black;
         width: 23%;
-        padding: 10px;
         margin: 8px;
-        border-radius: 10px;
         color: black;
+    }
+}
+
+
+.myCard {
+    box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
+    color: black !important;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    height: 360px;
+    position: relative;
+
+    .badge {
+        position: absolute;
+        color: #ffd700;
+        background-color: var(--bg-color);
+        top: 5%;
+        left: 2%;
+        padding: 8px;
+    }
+
+    .cardCover {
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .cardInfo {
+        padding: 10px;
+    }
+
+    &:hover {
+        transform: scale(1.035);
+
+        img {
+            transform: scale(1.1);
+        }
     }
 }
 
