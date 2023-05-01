@@ -198,7 +198,7 @@ export default {
 
 <template>
     <main>
-        <div class="input_ricerca_avanzata text-center">
+        <div class="input_ricerca_avanzata text-center py-2">
             <div class="icona_input">
                 <div>
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -594,6 +594,11 @@ input[type=range]::-webkit-slider-thumb {
         padding: 10px;
         margin: 8px;
         border-radius: 10px;
+        color: black;
     }
+}
+
+.cardInfo {
+    color: black;
 }
 </style>
