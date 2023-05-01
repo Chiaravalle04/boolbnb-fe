@@ -33,7 +33,7 @@ export default {
                             Francesco Benvenuti •
                         </li>
                         <li>
-                            Nicholas Chiaravalle •
+                            Nicolas Chiaravalle •
                         </li>
                         <li>
                             Stefania Aveta •
