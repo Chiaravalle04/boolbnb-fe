@@ -299,7 +299,7 @@ export default {
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
-                                    <img :src= item.cover class="w-100 h-100" alt="">
+                                    <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
                                 </div>
                                 <div class="cardInfo">
                                     <h5>{{ item.title }}</h5>
@@ -324,7 +324,7 @@ export default {
                         class="text-decoration-none">
                         <div class="myCard h-100">
                             <div class="cardCover">
-                                <img src="../../public/paesaggio-2.jpeg" class="w-100 h-100" alt="">
+                                <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
                             </div>
                             <div class="cardInfo">
                                 <h5>{{ index.title }}</h5>
