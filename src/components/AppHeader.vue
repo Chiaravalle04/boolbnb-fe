@@ -112,6 +112,7 @@ export default {
       // color: var(--link-color);
       background-color: lightgray;
       color: black;
+      transition: 1s;
     }
   }
 
@@ -124,7 +125,8 @@ export default {
 
     &:hover {
       color: #fff;
-      background: linear-gradient(90deg, rgb(180, 58, 58) 0%, rgba(253, 29, 29, 1) 50%, rgb(199, 17, 17) 100%);
+      background-color: rgba(253, 29, 29, 1);
+      transition: 1s;
     }
   }
 }
