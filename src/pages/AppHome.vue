@@ -255,7 +255,7 @@ export default {
         <div class="jumbotron">
             <div class="container h-100">
                 <div class="row h-50">
-                    <div class="d-flex align-items-end">
+                    <div class="d-flex align-items-end text-center">
                         <h2 class="mainTitle">
                             Sblocca nuove avventure
                         </h2>
@@ -368,6 +368,7 @@ export default {
     .mainTitle {
         //font-size: 3.5rem;
         font-size: 43px;
+        width: 633px;
         font-weight: bold;
         color: var(--bg-color);
         border: none;
