@@ -30,6 +30,7 @@ export default {
         return {
             apartments: [],
             filterApartments: [],
+            sponsoredApartemts: [],
             searchApartment: '',
             bed: null,
             room: null,
