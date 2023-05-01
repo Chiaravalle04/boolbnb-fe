@@ -175,16 +175,18 @@ export default {
                     console.log(this.apartments);
                     this.loading = false;
 
-                    const arrayQualcosa = response.data.results.apartments.sponsorships;
+                    const sponsoredApartments = [];
 
-                    if (arrayQualcosa.length > 0) {
-                        this.sponsoredApartments = response.data.results.apartments; 
-                        console.log(this.sponsoredApartments);
+                    for (let i = 0; i < response.data.results.apartments.length; i++) {
+                        if (response.data.results.apartments[i].sponsorships.length > 0) {
+                            sponsoredApartments.push(response.data.results.apartments[i]);
+                        }
                     }
 
-                    
+                        this.sponsoredApartments = sponsoredApartments;
+                        console.log('appartamenti sponsorizzati', this.sponsoredApartments);
 
-                })
+                    })
 
         },
 
@@ -293,16 +295,16 @@ export default {
                         delay: 2500,
                         disableOnInteraction: false,
                     }" :navigation="true" :modules="modules" class="mySwiper p-4">
-                    <swiper-slide v-for="index in sponsoredApartments">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
+                    <swiper-slide v-for="item in sponsoredApartments">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
                             <div class="myCard">
                                 <div class="cardCover">
-                                    <img :src= index.cover class="w-100 h-100" alt="">
+                                    <img :src= item.cover class="w-100 h-100" alt="">
                                 </div>
                                 <div class="cardInfo">
-                                    <h5>{{ index.title }}</h5>
-                                    <div>{{ index.address }}</div>
-                                    <div>{{ index.price }} €/notte</div>
+                                    <h5>{{ item.title }}</h5>
+                                    <div>{{ item.address }}</div>
+                                    <div>{{ item.price }} €/notte</div>
                                     <div>km dal centro</div>
                                 </div>
                             </div>
