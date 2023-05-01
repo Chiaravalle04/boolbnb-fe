@@ -79,8 +79,8 @@ export default {
                 })
 
         },
-        
-    }, 
+
+    },
 
     computed: {
 
@@ -206,12 +206,11 @@ export default {
                 <div>
                     <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
                     <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
-                    name="address">
+                        class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione" id="address"
+                        name="address">
                     <ul id="autocomplete-list" class="list-group"></ul>
                 </div>
             </div>
-
         </div>
 
         <div class="ricerca-avanzata">
@@ -260,17 +259,19 @@ export default {
                 <div class="struttura-alloggio-servizi">
                     <div class="letti">
                         <h5>Numero di letti:</h5>
-                        <input type="number" min="1" v-model.number="bed"  placeholder="Numero di letti" class="input-letti">
+                        <input type="number" min="1" v-model.number="bed" placeholder="Numero di letti" class="input-letti">
                     </div>
                     <hr>
                     <div class="stanze">
-                        <h5>Numero di stanze:</h5> 
-                        <input type="number" min="1" v-model.number="room" placeholder="Numero di stanze" class="input-stanze">
+                        <h5>Numero di stanze:</h5>
+                        <input type="number" min="1" v-model.number="room" placeholder="Numero di stanze"
+                            class="input-stanze">
                     </div>
                     <hr>
                     <div class="bagni">
                         <h5>Numero di bagni:</h5>
-                        <input type="number" min="1" v-model.number="bathroom" placeholder="Numero di bagni" class="input-bagni">
+                        <input type="number" min="1" v-model.number="bathroom" placeholder="Numero di bagni"
+                            class="input-bagni">
                     </div>
                 </div>
             </div>
@@ -295,8 +296,10 @@ export default {
                     <label for="distance_to_center">
                         <h4>KM dal centro</h4>
                     </label><br>
-                    <input id="range" v-model.number="distanceNumber"  @input="distanceToCenter" min="1" max="40" name="number-value" type="range">
-                    <input type="number" v-model.number="distanceNumber"  @input="distanceToCenter" min="1" max="40" name="number-value" id="number">
+                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" type="range">
+                    <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" id="number">
                 </div>
                 <hr>
                 <div>
@@ -320,13 +323,13 @@ export default {
             </button>
         </div>
 
-        <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
-            <div class="col mt-5" v-for="index in filterApartments">
+        <div class="appartamentiRicercaAvanzata">
+            <div class="" v-for="index in filterApartments">
                 <div v-if="index.distance <= distanceNumber">
 
                     <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
                         class="text-decoration-none">
-                        <div class="myCard h-100">
+                        <div class="myCard">
                             <div class="cardCover">
                                 <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
                             </div>
@@ -398,6 +401,7 @@ main {
         border: none;
         font-size: 20px;
         background-color: #F2F2F2;
+        width: 450px;
     }
 
     >div:first-child {
@@ -406,9 +410,6 @@ main {
     }
 }
 
-.icona_input:focus-within input {
-    outline: none;
-}
 
 hr {
     border: 2px solid rgb(170, 169, 169);
@@ -515,7 +516,7 @@ input[type=checkbox] {
     }
 }
 
-
+/*
 input[type=range] {
     // -webkit-appearance: none;
     width: 100%;
@@ -523,6 +524,15 @@ input[type=range] {
     border-radius: 10px;
     background-color: rgb(74, 72, 72);
     outline: none;
+}*/
+
+.input-ricerca-avanzata {
+    height: 14px;
+    border-radius: 10px;
+    background-color: rgb(74, 72, 72);
+    outline: none;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -534,8 +544,8 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
+
 .input_number {
-    content: '€';
     background-color: lightgray;
     color: black;
     border-radius: 20px;
@@ -547,7 +557,6 @@ input[type=range]::-webkit-slider-thumb {
 
 .go {
     width: 200px;
-
     margin: 0 auto;
     text-align: center;
 
@@ -559,6 +568,32 @@ input[type=range]::-webkit-slider-thumb {
         border: 3px solid gray;
         text-transform: uppercase;
 
+    }
+}
+
+#autocomplete-list {
+    position: absolute;
+    width: 450px;
+    z-index: 1;
+}
+
+.appartamentiRicercaAvanzata {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+    background-color: lightgray;
+    border-radius: 20px;
+    padding-bottom: 20px;
+
+    >div {
+        border: 1px solid black;
+        width: 23%;
+        padding: 10px;
+        margin: 8px;
+        border-radius: 10px;
     }
 }
 </style>
