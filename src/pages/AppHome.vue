@@ -181,11 +181,7 @@ export default {
                         this.sponsoredApartments = response.data.results.apartments; 
                         console.log(this.sponsoredApartments);
                     }
-
-                    
-
                 })
-
         },
 
         getAllServices() {
@@ -313,7 +309,7 @@ export default {
         </div>
 
         <div class="container">
-            <h1 class="main-title-2 mt-5" id="tutteStrutture">
+            <h1 class="main-title-2 mt-3" id="tutteStrutture">
                 Tutte le altre strutture
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
@@ -412,6 +408,11 @@ export default {
 
 .sponsored {
     background-color: var(--bg-color);
+
+    #primoPiano {
+        scroll-margin-block-start: 70px;
+    }
+
 }
 
 .main-title-1 {
@@ -424,6 +425,10 @@ export default {
     color: var(--bg-color);
     text-align: center;
     font-weight: bold;
+}
+
+#tutteStrutture {
+    scroll-margin-block-start: 70px;
 }
 
 .mySwiper {
