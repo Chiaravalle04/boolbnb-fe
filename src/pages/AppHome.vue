@@ -360,10 +360,8 @@ export default {
     }
 
     .searchBar {
-        // background-color: var(--bg-color);
         line-height: 35px;
         border-style: none;
-        // color: #fff;
         outline: none;
     }
 
