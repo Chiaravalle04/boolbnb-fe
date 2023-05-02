@@ -346,11 +346,11 @@ export default {
 main {
     min-height: calc(100vh - 70px);
     margin-bottom: -10px;
-    background-color: rgb(195, 195, 195);
+    background-color: rgb(232, 232, 232);
 }
 
 .ricerca-avanzata {
-    border: 1px solid rgb(172, 172, 172);
+    border: 3px solid rgb(172, 172, 172);
     width: 100%;
     margin: 0 auto;
     height: 320px;
@@ -359,7 +359,7 @@ main {
     border-radius: 20px;
     padding: 10px;
     display: flex;
-    background-color: #F2F2F2;
+    background-color: #dedede;
 
     >.type,
     .servizi,
@@ -605,12 +605,12 @@ input[type="checkbox"]:checked {
 /* ---------------------------------------------------- */
 .appartamentiRicercaAvanzata {
     //border: 1px solid black;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    padding-left: 9px;
+    padding-left: 8px;
 }
 
 
