@@ -265,17 +265,17 @@ export default {
                     <div class="col-6">
                         <div class="searchBox position-relative">
                             <div class="input-group mt-5">
-                                <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
-                                    name="address">
+                                <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete"
+                                    type="search" class="form-control searchBar" placeholder="Inserisci una destinazione"
+                                    id="address" name="address">
                                 <!-- <a href="" class="iconSearch">
                                     <button class="btn my-btn" type="button" id="button-addon2">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </a> -->
                                 <a href="searched-apartments" class="mx-4 iconSearch ricercavanzata">
-                                    <button class="btn my-btn" type="button" id="button-addon2">
-                                        <i class="fa-solid fa-bolt"></i> Ricerca Avanzata
+                                    <button class=" my-btn" type="button" id="button-addon2">
+                                        <i class="fa-solid fa-bolt p-2"></i> Ricerca Avanzata
                                     </button>
                                 </a>
                             </div>
@@ -354,9 +354,6 @@ export default {
     border-radius: 20px;
 }
 
-.ricercavanzata {
-    border-left: 1px solid gray;
-}
 
 .jumbotron {
     background-size: cover;
@@ -395,13 +392,13 @@ export default {
     }
 
     .iconSearch {
-        background-color: var(--link-color);
+        // background-color: var(--link-color);
         text-decoration: none;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
 
         &:hover {
-            background-color: var(--bg-color);
+            //background-color: var(--bg-color);
 
             i {
                 background-color: var(--bg-color);
@@ -419,18 +416,11 @@ export default {
 
     .advancedSearch {
 
-        button {
-            background-color: white;
-        }
-
         .btn {
             font-weight: bold;
             border-radius: 5px;
 
-            &:hover {
-                color: white;
-                background-color: #ff385c;
-            }
+
         }
     }
 }
@@ -502,6 +492,14 @@ export default {
             transform: scale(1.1);
         }
     }
+}
+
+#button-addon2 {
+    border-radius: 20px;
+    background-color: var(--bg-color);
+    color: #fff;
+    border: none;
+    padding-left: 5px;
 }
 
 .main-title {

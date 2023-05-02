@@ -299,7 +299,7 @@ export default {
                     <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
                         name="number-value" type="range">
                     <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" id="number">
+                        name="number-value" id="number" class="input-km">
                 </div>
                 <hr>
                 <div>
@@ -322,8 +322,9 @@ export default {
                 vai
             </button>
         </div>
-
+        <h2 class="text-center pt-5 pb-4">Appartamenti ricerca avanzata</h2>
         <div class="appartamentiRicercaAvanzata">
+
             <div class="" v-for="index in filterApartments">
                 <div v-if="index.distance <= distanceNumber">
 
@@ -624,5 +625,13 @@ input[type=range]::-webkit-slider-thumb {
             transform: scale(1.1);
         }
     }
+}
+
+.input-km {
+    border: none;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: rgb(151, 151, 151);
+    padding-left: 20px;
 }
 </style>
