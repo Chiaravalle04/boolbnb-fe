@@ -396,7 +396,6 @@ main {
 
 .n_letti {
     margin-right: 50px;
-
 }
 
 .n_bagni {
@@ -485,9 +484,10 @@ hr {
 .input-bagni {
     border-radius: 10px;
     border: 1px solid gray;
-    padding: 2px;
     width: 80px;
     background-color: #c4c4c4;
+    padding-left: 32px;
+    margin-left: 100px;
 }
 
 .servizi-placeholder,
@@ -536,10 +536,6 @@ input[type=checkbox] {
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
-}
-
-input[type="checkbox"]:checked {
-    background-color: red;
 }
 
 
@@ -593,6 +589,11 @@ input[type="checkbox"]:checked {
         border: 3px solid gray;
         text-transform: uppercase;
 
+        &:hover {
+            transition: 1s;
+            background-color: var(--bg-color);
+            color: white;
+        }
     }
 }
 
@@ -650,46 +651,7 @@ img {
 
 
 /* -------------------------------------------------------------*/
-/*
-.appartamentiRicercaAvanzata {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 10px 0;
-    a {
-        display: block;
-        width: calc(100% / 4);
-    }
-}
-.myCard {
-    width: calc(100% / 4);
-    box-shadow: 1px 3px 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    height: 360px;
-    color: black;
-    .cardCover {
-        height: 200px;
-        overflow: hidden;
 
-        img {
-            object-fit: cover;
-        }
-    }
-
-    .cardInfo {
-        padding: 10px;
-    }
-
-    &:hover {
-        transform: scale(1.035);
-
-        img {
-            transform: scale(1.1);
-        }
-    }
-}*/
 
 #range {
     width: 70%;
@@ -697,23 +659,23 @@ img {
 
 input[type=range]::-webkit-slider-runnable-track {
     background-color: var(--bg-color);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 input[type=range]::-moz-range-track {
-    background-color: green;
+    background-color: var(--bg-color);
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     cursor: pointer;
-    background-color: red;
-    border: 1px solid black;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
 }
+
+input[type=range]:focus {
+    outline: none;
+    background-color: red;
+}
+
 
 .input-km {
     border: none;
