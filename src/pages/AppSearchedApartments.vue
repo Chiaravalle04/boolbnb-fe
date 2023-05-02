@@ -222,8 +222,8 @@ export default {
                     <div>
                         <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
                         <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                            class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione" id="address"
-                            name="address">
+                            class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione"
+                            id="address" name="address">
                         <ul id="autocomplete-list" class="list-group"></ul>
                     </div>
                 </div>
@@ -231,8 +231,8 @@ export default {
                     <div class="range">
                         <label for="distance_to_center">
                             <h5 class="mb-3">KM dal centro
-                                <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                                    name="number-value" id="number" class="input-km">
+                                <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1"
+                                    max="40" name="number-value" id="number" class="input-km">
                             </h5>
                         </label><br>
                         <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
@@ -296,14 +296,14 @@ export default {
                     <h3 class="text-center">Servizi</h3>
                     <hr>
                     <div class="servizi-essenziali">
-    
+
                         <div v-for="item in allServices">
                             <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
                             <label :for="item.name">{{ item.name }}</label>
                         </div>
-    
+
                     </div>
-    
+
                 </div>
                 <!-- <div class="price-km">
                     <h3>Prezzo e KM dal centro</h3>
@@ -333,22 +333,24 @@ export default {
                     </div>
                 </div>-->
             </div>
-        
+
 
             <div class="go">
                 <button @click="advancedSearchApartments()">
                     vai
                 </button>
             </div>
-            
+
             <div class="appartamentiRicercaAvanzata">
 
                 <div v-for="index in apartmentsDistance">
-                    <div v-if="index.distance <= distanceNumber">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none">
-                            <div class="myCard">
+                    <div v-if="index.distance <= distanceNumber" class="container-card">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                            class="text-decoration-none link">
+                            <div class="myCardd">
+
                                 <div class="cardCover">
-                                    <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
+                                    <img :src="'http://127.0.0.1:8000/storage/' + index.cover" alt="">
                                 </div>
                                 <div class="cardInfo">
                                     <h5>{{ index.title }}</h5>
@@ -356,6 +358,7 @@ export default {
                                     <div>{{ index.price }} €/notte</div>
                                     <div>{{ index.distance }} km dal centro</div>
                                 </div>
+
                             </div>
                         </router-link>
                     </div>
@@ -372,6 +375,7 @@ main {
     margin-bottom: -10px;
     background-color: rgb(195, 195, 195);
 }
+
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
     width: 100%;
@@ -585,6 +589,7 @@ input[type="checkbox"]:checked {
     outline: none;
     padding-top: 14px;
     padding-bottom: 14px;
+
 }
 
 
@@ -624,6 +629,55 @@ input[type="checkbox"]:checked {
     z-index: 1;
 }
 
+/* ---------------------------------------------------- */
+.appartamentiRicercaAvanzata {
+    //border: 1px solid black;
+    margin-top: 20px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-left: 9px;
+}
+
+
+.myCardd {
+    width: 310px;
+    height: 360px;
+    box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+
+
+    &:hover {
+        transform: scale(1.035);
+    }
+
+}
+
+.link {
+    color: black;
+}
+
+.cardInfo {
+    padding: 10px;
+}
+
+.cardCover {
+    height: 200px;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* -------------------------------------------------------------*/
+/*
 .appartamentiRicercaAvanzata {
     display: flex;
     flex-wrap: wrap;
@@ -662,7 +716,7 @@ input[type="checkbox"]:checked {
             transform: scale(1.1);
         }
     }
-}
+}*/
 
 #range {
     width: 70%;
