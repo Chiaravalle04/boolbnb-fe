@@ -322,7 +322,7 @@ export default {
                 vai
             </button>
         </div>
-        <h2 class="text-center pt-5 pb-4">Appartamenti ricerca avanzata</h2>
+        <!-- <h2 class="text-center pt-5 pb-4 ">Appartamenti ricerca avanzata</h2>-->
         <div class="appartamentiRicercaAvanzata">
 
             <div class="" v-for="index in filterApartments">
@@ -518,14 +518,14 @@ input[type=checkbox] {
 }
 
 /*
-input[type=range] {
-    // -webkit-appearance: none;
-    width: 100%;
-    height: 14px;
-    border-radius: 10px;
-    background-color: rgb(74, 72, 72);
-    outline: none;
-}*/
+    input[type=range] {
+        // -webkit-appearance: none;
+        width: 100%;
+        height: 14px;
+        border-radius: 10px;
+        background-color: rgb(74, 72, 72);
+        outline: none;
+    }*/
 
 .input-ricerca-avanzata {
     height: 14px;
@@ -633,5 +633,4 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 10px;
     color: rgb(151, 151, 151);
     padding-left: 20px;
-}
-</style>
+}</style>
