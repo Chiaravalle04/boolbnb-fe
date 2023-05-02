@@ -304,7 +304,7 @@ export default {
                 <hr>
                 <div>
                     <h5>Prezzo €</h5>
-                    <input type="number" v-model.number="price" min="50" placeholder="50€" class="input_number">
+                    <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
                 </div>
                 <hr>
                 <div>
@@ -633,4 +633,5 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 10px;
     color: rgb(151, 151, 151);
     padding-left: 20px;
-}</style>
+}
+</style>
