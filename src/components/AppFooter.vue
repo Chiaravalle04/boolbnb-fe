@@ -28,24 +28,25 @@ export default {
                         <li>
                             <i class="fa-solid fa-angle-right px-3"></i> 
                             <a href="https://www.linkedin.com/in/federicofois/" target="_blank">Federico Fois</a>
-                            <span class="px-3">•</span>
-                        </li>
-                        <li>
+                            
+                        </li><span class="px-3">•</span>
+                        <li class="text-center">
                             <a href="https://www.linkedin.com/in/francescobenvenutii/" target="_blank">Francesco Benvenuti</a>
-                            <span class="px-3">•</span>
-                        </li>
-                        <li>
+                            
+                        </li><span class="px-3">•</span>
+                        <li class="text-center">
                             <a href="https://www.linkedin.com/in/nicolaschiaravalle/" target="_blank">Nicolas Chiaravalle</a>
-                            <span class="px-3">•</span>
-                        </li>
-                        <li>
+                            
+                        </li><span class="px-3">•</span>
+                        <li class="text-center">
                             <a href="https://www.linkedin.com/in/stefania-aveta/" target="_blank">Stefania Aveta</a>
-                            <span class="px-3">•</span>
-                        </li>
-                        <li>
+                            
+                        </li><span class="px-3">•</span>
+                        <li class="text-center">
                             <a href="https://www.linkedin.com/in/ludovico-longhini/" target="_blank">Ludovico Longhini</a>
-                            <i class="fa-solid fa-angle-left px-3"></i>
                         </li>
+
+                        <i class="fa-solid fa-angle-left px-3"></i>
                     </ul>
                 </div>
                 <div class="col-2">
@@ -54,7 +55,7 @@ export default {
                             <i class="fa-solid fa-globe px-1"></i> 
                             Italiano (IT)
                         </li>
-                        <li class="px-1">
+                        <li class="d-inline-block px-1">
                             &euro; EUR
                         </li>
                     </ul>

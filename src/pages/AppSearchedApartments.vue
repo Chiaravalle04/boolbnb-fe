@@ -305,33 +305,6 @@ export default {
                     </div>
 
                 </div>
-                <!-- <div class="price-km">
-                    <h3>Prezzo e KM dal centro</h3>
-                    <hr>
-                    <div>
-                        <label for="distance_to_center">
-                            <h4>KM dal centro</h4>
-                        </label><br>
-                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                            name="number-value" type="range">
-                        <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                            name="number-value" id="number" class="input-km">
-                    </div>
-                    <hr>
-                    <div>
-                        <h5>Prezzo €</h5>
-                        <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
-                    </div>
-                    <hr>
-                    <div>
-                        <ul class="py-2">
-                            <li>
-                                Ogni prenotazione include una protezione gratuita in caso di cancellazione da parte dell'host,
-                                di inesattezze dell'annuncio e di altri problemi come le difficoltà in fase di check-in.
-                            </li>
-                        </ul>
-                    </div>
-                </div>-->
             </div>
 
 
@@ -373,11 +346,11 @@ export default {
 main {
     min-height: calc(100vh - 70px);
     margin-bottom: -10px;
-    background-color: rgb(195, 195, 195);
+    background-color: rgb(232, 232, 232);
 }
 
 .ricerca-avanzata {
-    border: 1px solid rgb(172, 172, 172);
+    border: 3px solid rgb(172, 172, 172);
     width: 100%;
     margin: 0 auto;
     height: 320px;
@@ -386,7 +359,7 @@ main {
     border-radius: 20px;
     padding: 10px;
     display: flex;
-    background-color: #F2F2F2;
+    background-color: #dedede;
 
     >.type,
     .servizi,
@@ -423,7 +396,6 @@ main {
 
 .n_letti {
     margin-right: 50px;
-
 }
 
 .n_bagni {
@@ -512,9 +484,10 @@ hr {
 .input-bagni {
     border-radius: 10px;
     border: 1px solid gray;
-    padding: 2px;
     width: 80px;
     background-color: #c4c4c4;
+    padding-left: 32px;
+    margin-left: 100px;
 }
 
 .servizi-placeholder,
@@ -563,10 +536,6 @@ input[type=checkbox] {
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
-}
-
-input[type="checkbox"]:checked {
-    background-color: red;
 }
 
 
@@ -620,6 +589,11 @@ input[type="checkbox"]:checked {
         border: 3px solid gray;
         text-transform: uppercase;
 
+        &:hover {
+            transition: 1s;
+            background-color: var(--bg-color);
+            color: white;
+        }
     }
 }
 
@@ -632,12 +606,12 @@ input[type="checkbox"]:checked {
 /* ---------------------------------------------------- */
 .appartamentiRicercaAvanzata {
     //border: 1px solid black;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-bottom: 100px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    padding-left: 9px;
+    padding-left: 8px;
 }
 
 
@@ -677,46 +651,7 @@ img {
 
 
 /* -------------------------------------------------------------*/
-/*
-.appartamentiRicercaAvanzata {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 10px 0;
-    a {
-        display: block;
-        width: calc(100% / 4);
-    }
-}
-.myCard {
-    width: calc(100% / 4);
-    box-shadow: 1px 3px 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    height: 360px;
-    color: black;
-    .cardCover {
-        height: 200px;
-        overflow: hidden;
 
-        img {
-            object-fit: cover;
-        }
-    }
-
-    .cardInfo {
-        padding: 10px;
-    }
-
-    &:hover {
-        transform: scale(1.035);
-
-        img {
-            transform: scale(1.1);
-        }
-    }
-}*/
 
 #range {
     width: 70%;
@@ -724,23 +659,23 @@ img {
 
 input[type=range]::-webkit-slider-runnable-track {
     background-color: var(--bg-color);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 input[type=range]::-moz-range-track {
-    background-color: green;
+    background-color: var(--bg-color);
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     cursor: pointer;
-    background-color: red;
-    border: 1px solid black;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
 }
+
+input[type=range]:focus {
+    outline: none;
+    background-color: red;
+}
+
 
 .input-km {
     border: none;
