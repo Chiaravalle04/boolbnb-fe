@@ -268,14 +268,14 @@ export default {
                                 <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
                                     class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
                                     name="address">
-                                <a href="" class="iconSearch">
+                                <!-- <a href="" class="iconSearch">
                                     <button class="btn my-btn" type="button" id="button-addon2">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
-                                </a>
-                                <a href="searched-apartments" class="iconSearch ricercavanzata">
+                                </a> -->
+                                <a href="searched-apartments" class="mx-4 iconSearch ricercavanzata">
                                     <button class="btn my-btn" type="button" id="button-addon2">
-                                        <i class="fa-solid fa-bolt"></i>
+                                        <i class="fa-solid fa-bolt"></i> Ricerca Avanzata
                                     </button>
                                 </a>
                             </div>
