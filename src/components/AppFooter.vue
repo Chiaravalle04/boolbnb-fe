@@ -17,11 +17,10 @@ export default {
 </script>
 
 <template>
-    <footer class="border">
-        <div class="container-fluid d-flex justify-content-between py-2">
-
-            <div class="content-dx row">
-                <div class="col">
+    <footer>
+        <div class="container-fluid d-flex align-items-center h-100">
+            <div class="row w-100">
+                <div class="col-8">
                     <ul class="d-flex p-0 m-0">
                         <li>
                             &copy; 2023 Boolbnb, inc.
@@ -33,7 +32,7 @@ export default {
                             Francesco Benvenuti •
                         </li>
                         <li>
-                            Nicolas Chiaravalle •
+                            Nicholas Chiaravalle •
                         </li>
                         <li>
                             Stefania Aveta •
@@ -43,20 +42,16 @@ export default {
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="content-sx">
-                <ul class="d-flex p-0 m-0">
-                    <li>
-                        <i class="fa-solid fa-globe"></i> Italiano (IT)
-                    </li>
-                    <li>
-                        &euro; EUR
-                    </li>
-                    <!-- <li>
-                        Supporto e risorse <i class="fa-solid fa-angle-up"></i>
-                    </li> -->
-                </ul>
+                <div class="col-4">
+                    <ul class="d-flex p-0 m-0 justify-content-end">
+                        <li>
+                            <i class="fa-solid fa-globe"></i> Italiano (IT)
+                        </li>
+                        <li>
+                            &euro; EUR
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
@@ -64,19 +59,14 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-    padding: 13px;
-    font-size: 13px;
+    font-size: 0.9rem;
     background-color: var(--bg-color);
     color: #fff;
+    height: 70px;
 }
 
 li {
     list-style: none;
     margin-right: 10px;
-
-    a {
-        color: rgb(26, 26, 26);
-        text-decoration: none;
-    }
 }
 </style>
