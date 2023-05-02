@@ -220,23 +220,23 @@ export default {
                 <h3 class="">Tipo di alloggio</h3>
                 <hr>
                 <div class="choose_type">
-                    <input type="checkbox" v-model="types" name="type" id="appartamento">
+                    <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
                     <label for="appartamento" name="type">Appartamento</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" v-model="types" name="type" id="stanza">
+                    <input type="checkbox" v-model="types" value="Stanza" name="type" id="stanza">
                     <label for="stanza" name="type">Stanza</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" v-model="types" name="type" id="villa">
+                    <input type="checkbox" v-model="types" value="Villa" name="type" id="villa">
                     <label for="villa" name="type">Villa</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" v-model="types" name="type" id="chalet">
+                    <input type="checkbox" v-model="types" value="Chalet" name="type" id="chalet">
                     <label for="chalet" name="type">Chalet</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" v-model="types" name="type" id="hotel">
+                    <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
                     <label for="hotel" name="type">Hotel</label>
                 </div>
                 <!--<div class="struttura-alloggio">
