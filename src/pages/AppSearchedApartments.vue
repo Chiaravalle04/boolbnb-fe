@@ -21,6 +21,7 @@ export default {
             types: [],
             distanceNumber: 20,
             filterApartments: [],
+            apartmentsDistance: [],
             allServices: [],
         }
     },
@@ -45,6 +46,7 @@ export default {
                     console.log('Appartamenti filtrati', this.filterApartments)
 
                     if (this.latitude !== null || this.longitude !== null) {
+                        const closestApartments = [];
                         this.filterApartments.forEach((apartment) => {
                             const R = 6371; // raggio della Terra in km
                             const lat1 = this.latitude; //latitudine ricerca
@@ -64,9 +66,19 @@ export default {
                             const distance = R * c; // distanza in km
                             apartment.distance = distance.toFixed(1);
 
-                            console.log('distanza', apartment.distance);
+                            // console.log('distanza', apartment.distance);
+
+                            if (apartment.distance <= this.distanceNumber) {
+
+                                closestApartments.push(apartment);
+
+                                console.log('APPARTAMENTO DISTANZA', this.apartmentsDistance)
+
+                            }
 
                         });
+
+                        this.apartmentsDistance = closestApartments;
                     }
                 })
 
@@ -114,9 +126,9 @@ export default {
                     this.latitude = response.data.results[0].position.lat
                     this.longitude = response.data.results[0].position.lon
 
-                    console.log('coordinate:', response)
-                    console.log('latitudine:', this.latitude)
-                    console.log('longitudine:', this.longitude)
+                    // console.log('coordinate:', response)
+                    // console.log('latitudine:', this.latitude)
+                    // console.log('longitudine:', this.longitude)
                 })
 
         },
@@ -200,154 +212,157 @@ export default {
 
 <template>
     <main>
-        <div class="input_ricerca_avanzata text-center pt-3">
-            <div class="icona_input">
-                <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <div>
-                    <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
-                    <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                        class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione" id="address"
-                        name="address">
-                    <ul id="autocomplete-list" class="list-group"></ul>
-                </div>
-            </div>
-            <div class="range_price">
-                <div class="range">
-                    <label for="distance_to_center">
-                        <h5 class="mb-3">KM dal centro
-                            <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                                name="number-value" id="number" class="input-km">
-                        </h5>
-                    </label><br>
-                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" type="range">
-                    <!--<input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" id="number" class="input-km">-->
-                </div>
-                <div class="price-input">
-                    <h5>Prezzo €</h5>
-                    <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
-                </div>
-            </div>
-        </div>
+        <div class="container">
 
-        <div class="ricerca-avanzata">
-            <div class="type">
-                <h3 class="text-center">Tipo di alloggio</h3>
-                <hr>
-                <div class="choose_type">
-                    <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
-                    <label for="appartamento" name="type">Appartamento</label>
+            <div class="input_ricerca_avanzata text-center pt-3">
+                <div class="icona_input">
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div>
+                        <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
+                        <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                            class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione" id="address"
+                            name="address">
+                        <ul id="autocomplete-list" class="list-group"></ul>
+                    </div>
                 </div>
-                <div class="choose_type">
-                    <input type="checkbox" v-model="types" value="Stanza" name="type" id="stanza">
-                    <label for="stanza" name="type">Stanza</label>
-                </div>
-                <div class="choose_type">
-                    <input type="checkbox" v-model="types" value="Villa" name="type" id="villa">
-                    <label for="villa" name="type">Villa</label>
-                </div>
-                <div class="choose_type">
-                    <input type="checkbox" v-model="types" value="Chalet" name="type" id="chalet">
-                    <label for="chalet" name="type">Chalet</label>
-                </div>
-                <div class="choose_type">
-                    <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
-                    <label for="hotel" name="type">Hotel</label>
+                <div class="range_price">
+                    <div class="range">
+                        <label for="distance_to_center">
+                            <h5 class="mb-3">KM dal centro
+                                <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                                    name="number-value" id="number" class="input-km">
+                            </h5>
+                        </label><br>
+                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                            name="number-value" type="range">
+                        <!--<input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                            name="number-value" id="number" class="input-km">-->
+                    </div>
+                    <div class="price-input">
+                        <h5>Prezzo €</h5>
+                        <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
+                    </div>
                 </div>
             </div>
-            <div class="servizi">
-                <h3 class="text-center">Stanze e letti</h3>
-                <hr>
-                <div class="struttura-alloggio-servizi">
-                    <div class="letti">
-                        <span class="n_letti">Numero di letti:</span>
-                        <input type="number" min="1" v-model.number="bed" placeholder="1" class="input-letti">
-                    </div>
+
+            <div class="ricerca-avanzata">
+                <div class="type">
+                    <h3 class="text-center">Tipo di alloggio</h3>
                     <hr>
-                    <div class="stanze">
-                        <span class="n_stanze">Numero di stanze:</span>
-                        <input type="number" min="1" v-model.number="room" placeholder="1" class="input-stanze">
+                    <div class="choose_type">
+                        <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
+                        <label for="appartamento" name="type">Appartamento</label>
                     </div>
+                    <div class="choose_type">
+                        <input type="checkbox" v-model="types" value="Stanza" name="type" id="stanza">
+                        <label for="stanza" name="type">Stanza</label>
+                    </div>
+                    <div class="choose_type">
+                        <input type="checkbox" v-model="types" value="Villa" name="type" id="villa">
+                        <label for="villa" name="type">Villa</label>
+                    </div>
+                    <div class="choose_type">
+                        <input type="checkbox" v-model="types" value="Chalet" name="type" id="chalet">
+                        <label for="chalet" name="type">Chalet</label>
+                    </div>
+                    <div class="choose_type">
+                        <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
+                        <label for="hotel" name="type">Hotel</label>
+                    </div>
+                </div>
+                <div class="servizi">
+                    <h3 class="text-center">Stanze e letti</h3>
                     <hr>
-                    <div class="bagni">
-                        <span class="n_bagni">Numero di bagni:</span>
-                        <input type="number" min="1" v-model.number="bathroom" placeholder="1" class="input-bagni">
-                    </div>
-                </div>
-            </div>
-            <div class="servizi-placeholder">
-                <h3 class="text-center">Servizi</h3>
-                <hr>
-                <div class="servizi-essenziali">
-
-                    <div v-for="item in allServices">
-                        <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
-                        <label :for="item.name">{{ item.name }}</label>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- <div class="price-km">
-                <h3>Prezzo e KM dal centro</h3>
-                <hr>
-                <div>
-                    <label for="distance_to_center">
-                        <h4>KM dal centro</h4>
-                    </label><br>
-                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" type="range">
-                    <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" id="number" class="input-km">
-                </div>
-                <hr>
-                <div>
-                    <h5>Prezzo €</h5>
-                    <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
-                </div>
-                <hr>
-                <div>
-                    <ul class="py-2">
-                        <li>
-                            Ogni prenotazione include una protezione gratuita in caso di cancellazione da parte dell'host,
-                            di inesattezze dell'annuncio e di altri problemi come le difficoltà in fase di check-in.
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
-        </div>
-        <div class="go">
-            <button @click="advancedSearchApartments()">
-                vai
-            </button>
-        </div>
-        <!-- <h2 class="text-center pt-5 pb-4 ">Appartamenti ricerca avanzata</h2>-->
-        <div class="appartamentiRicercaAvanzata">
-
-            <div class="" v-for="index in filterApartments">
-                <div v-if="index.distance <= distanceNumber">
-
-                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
-                        class="text-decoration-none">
-                        <div class="myCard">
-                            <div class="cardCover">
-                                <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
-                            </div>
-                            <div class="cardInfo">
-                                <h5>{{ index.title }}</h5>
-                                <div>{{ index.address }}</div>
-                                <div>{{ index.price }} €/notte</div>
-                                <div>{{ index.distance }} km dal centro</div>
-                            </div>
+                    <div class="struttura-alloggio-servizi">
+                        <div class="letti">
+                            <span class="n_letti">Numero di letti:</span>
+                            <input type="number" min="1" v-model.number="bed" placeholder="1" class="input-letti">
                         </div>
-                    </router-link>
+                        <hr>
+                        <div class="stanze">
+                            <span class="n_stanze">Numero di stanze:</span>
+                            <input type="number" min="1" v-model.number="room" placeholder="1" class="input-stanze">
+                        </div>
+                        <hr>
+                        <div class="bagni">
+                            <span class="n_bagni">Numero di bagni:</span>
+                            <input type="number" min="1" v-model.number="bathroom" placeholder="1" class="input-bagni">
+                        </div>
+                    </div>
                 </div>
+                <div class="servizi-placeholder">
+                    <h3 class="text-center">Servizi</h3>
+                    <hr>
+                    <div class="servizi-essenziali">
+    
+                        <div v-for="item in allServices">
+                            <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
+                            <label :for="item.name">{{ item.name }}</label>
+                        </div>
+    
+                    </div>
+    
+                </div>
+                <!-- <div class="price-km">
+                    <h3>Prezzo e KM dal centro</h3>
+                    <hr>
+                    <div>
+                        <label for="distance_to_center">
+                            <h4>KM dal centro</h4>
+                        </label><br>
+                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                            name="number-value" type="range">
+                        <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                            name="number-value" id="number" class="input-km">
+                    </div>
+                    <hr>
+                    <div>
+                        <h5>Prezzo €</h5>
+                        <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
+                    </div>
+                    <hr>
+                    <div>
+                        <ul class="py-2">
+                            <li>
+                                Ogni prenotazione include una protezione gratuita in caso di cancellazione da parte dell'host,
+                                di inesattezze dell'annuncio e di altri problemi come le difficoltà in fase di check-in.
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+        
+
+            <div class="go">
+                <button @click="advancedSearchApartments()">
+                    vai
+                </button>
+            </div>
+            
+            <div class="appartamentiRicercaAvanzata">
+
+                <div v-for="index in apartmentsDistance">
+                    <div v-if="index.distance <= distanceNumber">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none">
+                            <div class="myCard">
+                                <div class="cardCover">
+                                    <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
+                                </div>
+                                <div class="cardInfo">
+                                    <h5>{{ index.title }}</h5>
+                                    <div>{{ index.address }}</div>
+                                    <div>{{ index.price }} €/notte</div>
+                                    <div>{{ index.distance }} km dal centro</div>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+
             </div>
         </div>
-
     </main>
 </template>
 
@@ -357,11 +372,9 @@ main {
     margin-bottom: -10px;
     background-color: rgb(195, 195, 195);
 }
-
-
 .ricerca-avanzata {
     border: 1px solid rgb(172, 172, 172);
-    width: 87%;
+    width: 100%;
     margin: 0 auto;
     height: 320px;
     margin-top: 20px;
@@ -613,31 +626,22 @@ input[type="checkbox"]:checked {
 
 .appartamentiRicercaAvanzata {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 auto;
-    width: 87%;
-    margin-top: 20px;
-    border-radius: 20px;
-    padding-bottom: 20px;
-
-    >div {
-        width: 23%;
-        margin: 8px;
-        color: black;
+    width: 100%;
+    padding: 10px 0;
+    a {
+        display: block;
+        width: calc(100% / 4);
     }
 }
-
-
 .myCard {
+    width: calc(100% / 4);
     box-shadow: 1px 3px 15px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     height: 360px;
     color: black;
-
-
     .cardCover {
         height: 200px;
         overflow: hidden;
