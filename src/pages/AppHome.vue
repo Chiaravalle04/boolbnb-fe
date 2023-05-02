@@ -266,7 +266,7 @@ export default {
                         <div class="searchBox position-relative">
                             <div class="input-group mt-5">
                                 <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete"
-                                    type="search" class="form-control searchBar" placeholder="Inserisci una destinazione"
+                                    type="search" class="form-control searchBar" placeholder="Inserisci una destinazione.."
                                     id="address" name="address">
                                 <!-- <a href="" class="iconSearch">
                                     <button class="btn my-btn" type="button" id="button-addon2">
@@ -275,7 +275,7 @@ export default {
                                 </a> -->
                                 <a href="searched-apartments" class="mx-4 iconSearch ricercavanzata">
                                     <button class=" my-btn" type="button" id="button-addon2">
-                                        <i class="fa-solid fa-bolt p-2"></i> Ricerca Avanzata
+                                        <i class="fa-solid fa-bolt"></i> Advanced
                                     </button>
                                 </a>
                             </div>
@@ -367,7 +367,7 @@ export default {
     .mainTitle {
         //font-size: 3.5rem;
         font-size: 43px;
-        width: 633px;
+        width: 613px;
         font-weight: bold;
         color: var(--bg-color);
         border: none;
@@ -495,11 +495,15 @@ export default {
 }
 
 #button-addon2 {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: var(--bg-color);
     color: #fff;
     border: none;
-    padding-left: 5px;
+    padding: 6px;
+
+    i {
+        padding-right: 6px;
+    }
 }
 
 .main-title {
@@ -553,5 +557,10 @@ main {
 .altre-strutture {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+input {
+    border-radius: 20px;
+    background-color: lightgray;
 }
 </style>
