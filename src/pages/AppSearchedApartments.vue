@@ -239,6 +239,15 @@ export default {
                     <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
                     <label for="hotel" name="type">Hotel</label>
                 </div>
+                <div class="km-centro">
+                    <label for="distance_to_center">
+                        <h6>KM dal centro</h6>
+                    </label><br>
+                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" type="range"><br>
+                    <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" id="number" class="input-km">
+                </div>
                 <!--<div class="struttura-alloggio">
                     <div>
                         <div class="icona-appartamento" :class="{ 'clicked': isClicked }" @click="isClicked = !isClicked">
@@ -380,7 +389,7 @@ main {
     border: 1px solid rgb(172, 172, 172);
     width: 87%;
     margin: 0 auto;
-    height: 320px;
+    height: 340px;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -413,6 +422,12 @@ main {
     >label {
         margin-left: 20px;
     }
+}
+
+.km-centro {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .n_letti {
@@ -679,8 +694,10 @@ input[type=range]::-webkit-slider-thumb {
 .input-km {
     border: none;
     margin-left: 10px;
+    margin-bottom: 3px;
     border-radius: 10px;
     color: rgb(151, 151, 151);
+    background-color: #F2F2F2;
     padding-left: 20px;
 }
 </style>
