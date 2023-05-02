@@ -297,7 +297,7 @@ export default {
                 <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
                         delay: 2500,
                         disableOnInteraction: false,
-                    }" :navigation="true" :modules="modules" class="mySwiper p-4">
+                    }" :navigation="false" :modules="modules" class="mySwiper p-4">
                     <swiper-slide v-for="item in sponsoredApartments">
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
                             <div class="mySponsored">
@@ -309,7 +309,6 @@ export default {
                                     <h5>{{ item.title }}</h5>
                                     <div>{{ item.address }}</div>
                                     <div>{{ item.price }} €/notte <i class="fa-regular fa-moon"></i></div>
-                                    <!--<div>km dal centro</div>-->
                                 </div>
                             </div>
                         </router-link>
