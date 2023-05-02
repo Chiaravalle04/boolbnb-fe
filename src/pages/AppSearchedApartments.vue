@@ -216,7 +216,7 @@ export default {
             <div class="range_price">
                 <div class="range">
                     <label for="distance_to_center">
-                        <h5>KM dal centro
+                        <h5 class="mb-3">KM dal centro
                             <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
                                 name="number-value" id="number" class="input-km">
                         </h5>
@@ -257,50 +257,6 @@ export default {
                     <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
                     <label for="hotel" name="type">Hotel</label>
                 </div>
-                <!-- <div class="km-centro">
-                    <label for="distance_to_center">
-                        <h6>KM dal centro</h6>
-                    </label><br>
-                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" type="range"><br>
-                    <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                        name="number-value" id="number" class="input-km">
-                </div>-->
-                <!--<div class="struttura-alloggio">
-                    <div>
-                        <div class="icona-appartamento" :class="{ 'clicked': isClicked }" @click="isClicked = !isClicked">
-                            <i class="fa-solid fa-hotel hotel"></i>
-                            <span class="nome-appartamento">
-                                Hotel
-                            </span>
-                        </div>
-
-                        <div class="icona-appartamento" :class="{ 'clicked2': isClicked2 }"
-                            @click="isClicked2 = !isClicked2">
-                            <i class="fa-solid fa-warehouse villa "></i>
-                            <span class="nome-appartamento">
-                                Villa
-                            </span>
-                        </div>
-
-                        <div class="icona-appartamento" :class="{ 'clicked3': isClicked3 }"
-                            @click="isClicked3 = !isClicked3">
-                            <i class="fa-solid fa-people-roof stanza"></i>
-                            <span class="nome-appartamento">
-                                Stanza
-                            </span>
-                        </div>
-
-                        <div class="icona-appartamento" :class="{ 'clicked4': isClicked4 }"
-                            @click="isClicked4 = !isClicked4">
-                            <i class="fa-regular fa-building appartamento"></i>
-                            <span class="nome-appartamento">
-                                Appartamento
-                            </span>
-                        </div>
-
-            </div>
-            </div>-->
             </div>
             <div class="servizi">
                 <h3 class="text-center">Stanze e letti</h3>
@@ -399,7 +355,7 @@ export default {
 main {
     min-height: calc(100vh - 70px);
     margin-bottom: -10px;
-    background-color: rgb(147, 147, 147);
+    background-color: rgb(195, 195, 195);
 }
 
 
@@ -512,18 +468,6 @@ hr {
     }
 }
 
-.clicked {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-}
-
-.clicked2,
-.clicked3,
-.clicked4 {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-}
-
 .hotel,
 .villa,
 .stanza {
@@ -562,6 +506,7 @@ hr {
     padding: 10px;
 }
 
+
 .range_price {
     height: 50px;
     width: 50%;
@@ -596,11 +541,19 @@ hr {
     }
 }
 
+
 input[type=checkbox] {
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
 }
+
+input[type="checkbox"]:checked {
+    background-color: red;
+}
+
+
+
 
 .price-km {
     padding: 10px;
@@ -611,15 +564,6 @@ input[type=checkbox] {
     }
 }
 
-/*
-    input[type=range] {
-        // -webkit-appearance: none;
-        width: 100%;
-        height: 14px;
-        border-radius: 10px;
-        background-color: rgb(74, 72, 72);
-        outline: none;
-    }*/
 
 .input-ricerca-avanzata {
     height: 14px;
@@ -730,14 +674,15 @@ input[type=range]::-moz-range-track {
 }
 
 input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     background-color: red;
     border: 1px solid black;
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    height: 50px;
+    width: 50px;
 }
-
 
 .input-km {
     border: none;
