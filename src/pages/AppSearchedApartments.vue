@@ -217,7 +217,27 @@ export default {
             <div class="type">
                 <h3 class="">Tipo di alloggio</h3>
                 <hr>
-                <div class="struttura-alloggio">
+                <div class="choose_type">
+                    <input type="checkbox" name="type" value="type">
+                    <label for="type" name="type">Appartamento</label>
+                </div>
+                <div class="choose_type">
+                    <input type="checkbox" name="type" value="type">
+                    <label for="type" name="type">Stanza</label>
+                </div>
+                <div class="choose_type">
+                    <input type="checkbox" name="type" value="type">
+                    <label for="type" name="type">Villa</label>
+                </div>
+                <div class="choose_type">
+                    <input type="checkbox" name="type" value="type">
+                    <label for="type" name="type">Chalet</label>
+                </div>
+                <div class="choose_type">
+                    <input type="checkbox" name="type" value="type">
+                    <label for="type" name="type">Hotel</label>
+                </div>
+                <!--<div class="struttura-alloggio">
                     <div>
                         <div class="icona-appartamento" :class="{ 'clicked': isClicked }" @click="isClicked = !isClicked">
                             <i class="fa-solid fa-hotel hotel"></i>
@@ -250,35 +270,32 @@ export default {
                             </span>
                         </div>
 
-                    </div>
-                </div>
+            </div>
+            </div>-->
             </div>
             <div class="servizi">
                 <h3>Stanze e letti</h3>
                 <hr>
                 <div class="struttura-alloggio-servizi">
                     <div class="letti">
-                        <h5>Numero di letti:</h5>
-                        <input type="number" min="1" v-model.number="bed" placeholder="Numero di letti" class="input-letti">
+                        <span class="n_letti">Numero di letti:</span>
+                        <input type="number" min="1" v-model.number="bed" placeholder="1" class="input-letti">
                     </div>
                     <hr>
                     <div class="stanze">
-                        <h5>Numero di stanze:</h5>
-                        <input type="number" min="1" v-model.number="room" placeholder="Numero di stanze"
-                            class="input-stanze">
+                        <span class="n_stanze">Numero di stanze:</span>
+                        <input type="number" min="1" v-model.number="room" placeholder="1" class="input-stanze">
                     </div>
                     <hr>
                     <div class="bagni">
-                        <h5>Numero di bagni:</h5>
-                        <input type="number" min="1" v-model.number="bathroom" placeholder="Numero di bagni"
-                            class="input-bagni">
+                        <span class="n_bagni">Numero di bagni:</span>
+                        <input type="number" min="1" v-model.number="bathroom" placeholder="1" class="input-bagni">
                     </div>
                 </div>
             </div>
             <div class="servizi-placeholder">
-                <h3>Servizi</h3>
+                <h3 class="text-center">Servizi</h3>
                 <hr>
-                <!-- <h6>Servizi essenziali</h6> -->
                 <div class="servizi-essenziali">
 
                     <div v-for="item in allServices">
@@ -289,7 +306,7 @@ export default {
                 </div>
 
             </div>
-            <div class="price-km">
+            <!-- <div class="price-km">
                 <h3>Prezzo e KM dal centro</h3>
                 <hr>
                 <div>
@@ -315,13 +332,13 @@ export default {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
         </div>
-        <div class="go">
+        <!-- <div class="go">
             <button @click="advancedSearchApartments()">
                 vai
             </button>
-        </div>
+        </div>-->
         <!-- <h2 class="text-center pt-5 pb-4 ">Appartamenti ricerca avanzata</h2>-->
         <div class="appartamentiRicercaAvanzata">
 
@@ -361,7 +378,7 @@ main {
     border: 1px solid rgb(172, 172, 172);
     width: 87%;
     margin: 0 auto;
-    height: 470px;
+    height: 320px;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -369,8 +386,10 @@ main {
     display: flex;
     background-color: #F2F2F2;
 
-    >div {
-        width: 25%;
+    >.type,
+    .servizi,
+    .servizi-placeholder {
+        width: 60%;
         height: 100%;
     }
 
@@ -383,6 +402,28 @@ main {
     .type>.struttura-alloggio {
         height: 200px;
     }
+}
+
+.choose_type {
+    padding: 5px;
+    padding-left: 20px;
+
+    >label {
+        margin-left: 20px;
+    }
+}
+
+.n_letti {
+    margin-right: 50px;
+
+}
+
+.n_bagni {
+    margin-right: 38px;
+}
+
+.n_stanze {
+    margin-right: 31px;
 }
 
 .icona_input {
@@ -475,20 +516,26 @@ hr {
 .input-bagni {
     border-radius: 10px;
     border: 1px solid gray;
-    padding: 4px;
-    background-color: #cbcbcb;
+    padding: 2px;
+    width: 80px;
+    background-color: #c4c4c4;
 }
 
 .servizi-placeholder,
 .price {
-    border-right: 1px dashed rgb(170, 169, 169);
+    //border-right: 1px dashed rgb(170, 169, 169);
     padding: 10px;
 }
 
+
+
 .servizi-essenziali {
-    // border: 1px solid black;
     width: 100%;
-    height: 340px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
     >div {
         padding-left: 5px;
