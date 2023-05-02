@@ -115,7 +115,7 @@ export default {
 
             <div class="images">
                 <div class="img-grande">
-                    <img :src="projectImg">
+                    <img :src="'http://127.0.0.1:8000/storage/' + apartment.cover">
                 </div>
                 <div class="img-piccole">
                     <div>
