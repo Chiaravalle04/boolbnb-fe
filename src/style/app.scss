@@ -1,24 +1,18 @@
 // Bootstrap
     @import 'node_modules/bootstrap/scss/bootstrap';
+    @import './mediaquery.scss';
 
 // GENERAL
-main, footer, .links, .login {
+main, footer, .links, .userLog {
     font-family: 'Montserrat', sans-serif;
-    transition: 0.25s all;
-    scroll-margin: 100px;
-}
-
-.logo {
-  font-family: 'Mr Dafoe', cursive;
-  font-size: 2.5rem;
 }
 
  // ALL COLORS
  :root {
-  --title-color: #4F5559;
-  --link-color: #A62626;
-  --description-color: #81878C;
-  --bg-color: rgb(50, 50, 50);
+  --title-color: #274c77;
+  --link-color: #020758;
+  --description-color: #274c77;
+  --bg-color: #e7ecef;
 }
 
 // SWIPER

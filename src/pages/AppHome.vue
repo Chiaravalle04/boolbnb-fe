@@ -254,15 +254,18 @@ export default {
     <main v-else class="overflow-x-hidden">
         <div class="jumbotron">
             <div class="container h-100">
-                <div class="row h-50">
-                    <div class="d-flex align-items-end justify-content-center text-center col-6">
-                        <h1 class="mainTitle">
-                            Sblocca nuove avventure
+                <div class="row h-50 d-flex align-items-center">
+                    <div class="col">
+                        <h1 class="mainTitle d-flex justify-content-center">
+                            Benvenuto a casa
                         </h1>
+                        <p class="localHost d-flex justify-content-center">
+                            Affitta allogi unici da host locali in 190 Paesi.
+                        </p>
                     </div>
                 </div>
-                <div class="row h-50">
-                    <div class="col-6">
+                <div class="row h-50 d-flex align-items-center">
+                    <div class="col h-25 d-flex justify-content-center">
                         <div class="searchBox">
                             <div class="input-group">
                                 <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="form-control searchBar" placeholder="Inserisci una destinazione" id="address" name="address">
@@ -285,7 +288,7 @@ export default {
             <div class="container-fluid text-center ms-3 me-3">
                 <div class="row">
                     <div class="col">
-                        <h1 class="main-title-1 mt-4" id="primoPiano">
+                        <h1 class="main-title-1 mt-3" id="primoPiano">
                             In evidenza
                         </h1>
                     </div>
@@ -296,9 +299,8 @@ export default {
                         disableOnInteraction: false,
                     }" :navigation="true" :modules="modules" class="mySwiper p-4">
                     <swiper-slide v-for="item in sponsoredApartments">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
-                            class="text-decoration-none h-100">
-                            <div class="myCard cardInfoSponsorizzati">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
+                            <div class="mySponsored">
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
                                 </div>
@@ -317,14 +319,13 @@ export default {
         </div>
 
         <div class="container altre-strutture">
-            <h1 class="main-title-2 pt-5" id="tutteStrutture">
+            <h1 class="main-title-2 pt-3" id="tutteStrutture">
                 Lasciati consigliare
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3 pt-5">
                 <div class="col" v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
-                        class="text-decoration-none">
-                        <div class="myCard h-100">
+                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
+                        <div class="myCard">
                             <div class="cardCover">
                                 <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
                             </div>
@@ -345,39 +346,43 @@ export default {
 .searchBox {
     border-radius: 5px;
     margin-top: 2rem;
+    width: 40%;
 }
 
 
 .jumbotron {
     background-size: cover;
     background-repeat: no-repeat;
-    //background-position: center;
-    // background-position: top;
-    background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
-    //background-image: url(https://tecnicafotografica.net/wp-content/uploads/2021/09/dqejx2ucpbs.jpg);
+    background-image: url('./public/super-jumbo-2.jpg');
     height: 450px;
 
     .mainTitle {
-        font-size: 2.9rem;
-        width: 100%;
+        font-size: 3rem;
         font-weight: bold;
-        color: var(--bg-color);
-        border: none;
-        border-radius: 10px;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.1);
+        color: var(--link-color);
+        text-transform: uppercase;
+    }
+
+    .localHost {
+        color: var(--link-color);
+        font-weight: bold;
+        font-size: 1.1rem;
     }
 
     .searchBar {
         line-height: 2rem;
         border-style: none;
         outline: none;
+        background-color: var(--bg-color);
+        outline-style: none;
+        box-shadow: none;
+        border-color: transparent;
     }
 
     .scrollbar {
         height: 200px;
         overflow-y: auto;
-        width: 94%;
+        width: 93%;
     }
 
     .scrollbar::-webkit-scrollbar {
@@ -392,19 +397,24 @@ export default {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
 
+        i {
+            color: var(--bg-color);
+        }
+
         &:hover {
             background-color: var(--bg-color);
-
+            
             i {
-                background-color: var(--bg-color);
                 color: var(--link-color);
             }
         }
+
         .my-btn {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
+
         }
     }
 }
@@ -418,14 +428,8 @@ export default {
 
 }
 
-.main-title-1 {
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-}
-
-.main-title-2 {
-    color: var(--bg-color);
+.main-title-1, .main-title-2 {
+    color: var(--link-color);
     text-align: center;
     font-weight: bold;
 }
@@ -438,19 +442,19 @@ export default {
     background-color: var(--bg-color);
 }
 
-.myCard {
+.mySponsored {
     box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
-    color: black !important;
+    color: var(--bg-color);
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--link-color);
     height: 360px;
     position: relative;
 
     .badge {
         position: absolute;
         color: #ffd700;
-        background-color: var(--bg-color);
+        background-color: var(--link-color);
         top: 3%;
         left: 2%;
         padding: 8px;
@@ -471,6 +475,7 @@ export default {
 
     &:hover {
         transform: scale(1.035);
+        transition: 1s;
 
         img {
             transform: scale(1.1);
@@ -478,19 +483,13 @@ export default {
     }
 }
 
-.main-title {
-    color: var(--link-color);
-}
-
-.mySwiper {
-    background-color: var(--bg-color);
-}
-
 .myCard {
     box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
-    color: black !important;
+    color: var(--link-color);
     border-radius: 10px;
     overflow: hidden;
+    height: 360px;
+    background-color: var(--bg-color);
 
     .cardCover {
         height: 200px;
@@ -513,15 +512,6 @@ export default {
             transform: scale(1.1);
         }
     }
-}
-
-.cardInfoSponsorizzati:hover {
-    background: linear-gradient(rgba(246, 253, 29, 0.5956757703081232), rgba(236, 246, 61, 0.38));
-    transition: 2s;
-}
-
-main {
-    background-color: rgb(228, 227, 227);
 }
 
 .altre-strutture {

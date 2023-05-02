@@ -17,117 +17,91 @@ export default {
 </script>
 
 <template>
-  <header class="sticky-top my-header">
-    <div class="container h-100">
-      <div class="row align-items-center h-100">
-        <div class="col-3 logo">
-          <a href="http://localhost:5174" class="d-flex align-items-center logo-boolbnb">
-            BoolBnB
-          </a>
+    <header class="sticky-top my-header">
+        <div class="container h-100">
+            <div class="row d-flex align-items-center h-100">
+                <div class="col-3 logo">
+                    <a href="http://localhost:5174" class="">
+                        BoolBnB
+                    </a>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <ul class="d-flex links align-items-center">
+                        <li>
+                            <a href="#primoPiano">in evidenza</a>
+                        </li>
+                        <li>
+                            <a href="#tutteStrutture">tutte le case</a>
+                        </li>
+                        <li>
+                            <router-link to="/who-we-are">chi siamo</router-link>
+                        </li>
+                        <li>
+                            <a href="https://www.airbnb.it/help/?audience=guest">contatti</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 d-flex justify-content-end userLog">
+                    <a href="http://127.0.0.1:8000/login" class="text-decoration-none register">
+                        Login
+                    </a>
+                    <a href="http://127.0.0.1:8000/register" class="text-decoration-none register">
+                        Registrati
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-center mt-2 links">
-          <ul class="d-flex mt-2">
-            <li>
-              <a href="#primoPiano">in evidenza</a>
-            </li>
-            <li>
-              <a href="#tutteStrutture">tutte le case</a>
-            </li>
-            <li>
-              <a href="http://">chi siamo</a>
-            </li>
-            <li>
-              <a href="https://www.airbnb.it/help/?audience=guest">contatti</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-3 d-flex align-items-center justify-content-end login">
-          <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
-            Login
-          </a>
-          <a href="http://127.0.0.1:8000/register" class="text-decoration-none ms-2 link-two">
-            Registrati
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
 </template>
 
 <style lang="scss" scoped>
+
 .my-header {
-  height: 70px;
-  background-color: var(--bg-color);
-  color: #fff;
+    background-color: var(--bg-color);
+    height: 70px;
 
-  a {
-    text-decoration: none;
-    color: var(--link-color);
-  }
+    .logo {
+        font-family: 'Mr Dafoe', cursive;
+        font-size: 2.5rem;
 
-  .logo-boolbnb {
-    font-size: 50px;
-  }
-
-  .myLogo {
-    height: 60px;
-    width: 130px;
-  }
-
-  ul {
-    list-style: none;
-    // font-weight: bold;
-
-    li {
-      text-decoration: none;
-      margin-right: 25px;
-      //border-right: 1px solid var(--title-color);
-      padding-right: 25px;
-      text-transform: uppercase;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-        display: inline-block;
-        transition: 0.25s all;
-
-        &:hover {
-          transform: scale(1.1);
-          color: var(--link-color);
-          font-weight: bold;
+        a {
+          text-decoration: none;
+          color: var(--link);
         }
-      }
     }
-  }
 
-  .link {
-    color: #fff;
-    // font-weight: bold;
-    padding: 3px 20px;
-    border-radius: 10px;
-    border: 1px solid #fff;
+    .links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-    &:hover {
-      //box-shadow: inset 0px 0px 0px 2px var(--link-color);
-      // color: var(--link-color);
-      background-color: lightgray;
-      color: black;
-      transition: 1s;
+        li {
+            padding: 1rem;
+            text-transform: uppercase;
+
+              a {
+                text-decoration: none;
+                color: var(--link-color);
+                display: inline-block;
+
+                &:hover {
+                    transform: scale(1.1);
+                    transition: 0.1s;
+                }
+            }
+        }
     }
-  }
 
-  .link-two {
-    background-color: var(--link-color);
-    color: #fff;
-    // font-weight: bold;
-    padding: 5px 20px;
-    border-radius: 10px;
+    .register {
+          color: var(--link-color);
+          text-transform: uppercase;
+          margin-left: .5rem;
 
-    &:hover {
-      color: #fff;
-      background-color: rgba(253, 29, 29, 1);
-      transition: 1s;
+          &:hover {
+              transform: scale(1.1);
+              transition: 0.1s;
+          }
     }
-  }
 }
-</style>
+
+ </style>
