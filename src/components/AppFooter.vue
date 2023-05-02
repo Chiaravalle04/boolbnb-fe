@@ -18,9 +18,9 @@ export default {
 
 <template>
     <footer>
-        <div class="container-fluid d-flex align-items-center h-100">
+        <div class="container d-flex align-items-center h-100">
             <div class="row w-100">
-                <div class="col-9">
+                <div class="col-10">
                     <ul class="d-flex p-0 m-0">
                         <li>
                             &copy; 2023 Boolbnb, inc.
@@ -48,7 +48,7 @@ export default {
                         </li>
                     </ul>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <ul class="d-flex p-0 m-0 justify-content-end">
                         <li>
                             <i class="fa-solid fa-globe px-1"></i> 
@@ -68,7 +68,7 @@ export default {
 footer {
     font-size: 0.9rem;
     background-color: var(--bg-color);
-    color: #fff;
+    color: var(--link-color);
     height: 70px;
 
     li {
@@ -76,9 +76,12 @@ footer {
 
         a {
             text-decoration: none;
-            color: white;
+            color: var(--link-color);
+
             &:hover {
-                text-decoration: underline;
+                transform: scale(1.1);
+                display: inline-block;
+                transition: 0.1s;
             }
         }
     }
