@@ -253,15 +253,15 @@ export default {
 
     <main v-else class="overflow-x-hidden">
         <div class="jumbotron">
-            <div class="container h-100">
-                <div class="row h-50">
+            <div class="container py-5">
+                <div class="row pt-5">
                     <div class="d-flex align-items-end justify-content-center text-center col-6">
                         <h1 class="mainTitle">
                             Sblocca nuove avventure
                         </h1>
                     </div>
                 </div>
-                <div class="row h-50">
+                <div class="row pb-5">
                     <div class="col-6">
                         <div class="searchBox">
                             <div class="input-group">
@@ -351,11 +351,7 @@ export default {
 .jumbotron {
     background-size: cover;
     background-repeat: no-repeat;
-    //background-position: center;
-    // background-position: top;
     background-image: url(https://a0.muscache.com/pictures/4bfe5a0a-375d-4a63-8c0b-5de59949e7d1.jpg);
-    //background-image: url(https://tecnicafotografica.net/wp-content/uploads/2021/09/dqejx2ucpbs.jpg);
-    height: 450px;
 
     .mainTitle {
         font-size: 2.9rem;

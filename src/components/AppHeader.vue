@@ -18,15 +18,16 @@ export default {
 
 <template>
   <header class="sticky-top my-header">
-    <div class="container h-100">
+    <div class="container position-relative h-100">
       <div class="row align-items-center h-100">
         <div class="col-3 logo">
           <a href="http://localhost:5174" class="d-flex align-items-center logo-boolbnb">
             BoolBnB
           </a>
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-center mt-2 links">
-          <ul class="d-flex mt-2">
+        
+        <div class="col-6 d-flex align-items-center justify-content-center links">
+          <ul class="d-flex m-0 text-center">
             <li>
               <a href="#primoPiano">in evidenza</a>
             </li>
@@ -41,6 +42,7 @@ export default {
             </li>
           </ul>
         </div>
+        
         <div class="col-3 d-flex align-items-center justify-content-end login">
           <a href="http://127.0.0.1:8000/login" class="text-decoration-none link">
             Login
@@ -50,13 +52,26 @@ export default {
           </a>
         </div>
       </div>
+
+      <div class="hamburger-menu d-none position-absolute end-0 top-50 translate-middle">
+        <div class="dropdown">
+        <button class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      </div>
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
 .my-header {
-  height: 70px;
+  // height: 70px;
   background-color: var(--bg-color);
   color: #fff;
 
@@ -67,11 +82,6 @@ export default {
 
   .logo-boolbnb {
     font-size: 50px;
-  }
-
-  .myLogo {
-    height: 60px;
-    width: 130px;
   }
 
   ul {
