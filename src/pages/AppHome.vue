@@ -265,7 +265,7 @@ export default {
                     <div class="col-6">
                         <div class="searchBox position-relative">
                             <div class="input-group mt-5">
-                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                                <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
                                     class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
                                     name="address">
                                 <a href="" class="iconSearch">
