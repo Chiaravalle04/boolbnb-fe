@@ -213,11 +213,29 @@ export default {
                     <ul id="autocomplete-list" class="list-group"></ul>
                 </div>
             </div>
+            <div class="range_price">
+                <div class="range">
+                    <label for="distance_to_center">
+                        <h5>KM dal centro
+                            <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                                name="number-value" id="number" class="input-km">
+                        </h5>
+                    </label><br>
+                    <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" type="range">
+                    <!--<input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        name="number-value" id="number" class="input-km">-->
+                </div>
+                <div class="price-input">
+                    <h5>Prezzo €</h5>
+                    <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
+                </div>
+            </div>
         </div>
 
         <div class="ricerca-avanzata">
             <div class="type">
-                <h3 class="">Tipo di alloggio</h3>
+                <h3 class="text-center">Tipo di alloggio</h3>
                 <hr>
                 <div class="choose_type">
                     <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
@@ -239,7 +257,7 @@ export default {
                     <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
                     <label for="hotel" name="type">Hotel</label>
                 </div>
-                <div class="km-centro">
+                <!-- <div class="km-centro">
                     <label for="distance_to_center">
                         <h6>KM dal centro</h6>
                     </label><br>
@@ -247,7 +265,7 @@ export default {
                         name="number-value" type="range"><br>
                     <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
                         name="number-value" id="number" class="input-km">
-                </div>
+                </div>-->
                 <!--<div class="struttura-alloggio">
                     <div>
                         <div class="icona-appartamento" :class="{ 'clicked': isClicked }" @click="isClicked = !isClicked">
@@ -285,7 +303,7 @@ export default {
             </div>-->
             </div>
             <div class="servizi">
-                <h3>Stanze e letti</h3>
+                <h3 class="text-center">Stanze e letti</h3>
                 <hr>
                 <div class="struttura-alloggio-servizi">
                     <div class="letti">
@@ -389,7 +407,7 @@ main {
     border: 1px solid rgb(172, 172, 172);
     width: 87%;
     margin: 0 auto;
-    height: 340px;
+    height: 320px;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -416,7 +434,7 @@ main {
 }
 
 .choose_type {
-    padding: 5px;
+    padding: 7px;
     padding-left: 20px;
 
     >label {
@@ -544,7 +562,19 @@ hr {
     padding: 10px;
 }
 
+.range_price {
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    // background-color: #c4c4c4;
+    border-radius: 10px;
 
+    div {
+        width: 50%;
+    }
+}
 
 .servizi-essenziali {
     width: 100%;
@@ -600,24 +630,19 @@ input[type=checkbox] {
     padding-bottom: 14px;
 }
 
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    background-color: white;
-    cursor: pointer;
-}
+
 
 
 .input_number {
-    background-color: lightgray;
+    background-color: rgb(208, 208, 208);
+    color: rgb(198, 198, 198);
     color: black;
     border-radius: 20px;
     border: none;
-    width: 100px;
-    padding: 4px;
+    width: 150px;
+    padding: 0;
     text-align: center;
+    border: 1px solid black;
 }
 
 .go {
@@ -691,6 +716,29 @@ input[type=range]::-webkit-slider-thumb {
     }
 }
 
+#range {
+    width: 70%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background-color: var(--link-color);
+    border-radius: 20px;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: green;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    cursor: pointer;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+
+
 .input-km {
     border: none;
     margin-left: 10px;
@@ -698,6 +746,7 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 10px;
     color: rgb(151, 151, 151);
     background-color: #F2F2F2;
-    padding-left: 20px;
+    font-size: 15px;
+    padding-left: 18px;
 }
 </style>
