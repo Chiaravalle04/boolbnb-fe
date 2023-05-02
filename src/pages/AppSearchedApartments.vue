@@ -18,6 +18,7 @@ export default {
             latitude: null,
             longitude: null,
             services: [],
+            types: [],
             distanceNumber: 20,
             filterApartments: [],
             allServices: [],
@@ -36,6 +37,7 @@ export default {
                         bathroom: this.bathroom,
                         price: this.price,
                         services: this.services,
+                        type: this.types,
                     }
                 })
                 .then((response) => {
@@ -218,24 +220,24 @@ export default {
                 <h3 class="">Tipo di alloggio</h3>
                 <hr>
                 <div class="choose_type">
-                    <input type="checkbox" name="type" value="type">
-                    <label for="type" name="type">Appartamento</label>
+                    <input type="checkbox" v-model="types" name="type" id="appartamento">
+                    <label for="appartamento" name="type">Appartamento</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" name="type" value="type">
-                    <label for="type" name="type">Stanza</label>
+                    <input type="checkbox" v-model="types" name="type" id="stanza">
+                    <label for="stanza" name="type">Stanza</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" name="type" value="type">
-                    <label for="type" name="type">Villa</label>
+                    <input type="checkbox" v-model="types" name="type" id="villa">
+                    <label for="villa" name="type">Villa</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" name="type" value="type">
-                    <label for="type" name="type">Chalet</label>
+                    <input type="checkbox" v-model="types" name="type" id="chalet">
+                    <label for="chalet" name="type">Chalet</label>
                 </div>
                 <div class="choose_type">
-                    <input type="checkbox" name="type" value="type">
-                    <label for="type" name="type">Hotel</label>
+                    <input type="checkbox" v-model="types" name="type" id="hotel">
+                    <label for="hotel" name="type">Hotel</label>
                 </div>
                 <!--<div class="struttura-alloggio">
                     <div>
@@ -334,11 +336,11 @@ export default {
                 </div>
             </div>-->
         </div>
-        <!-- <div class="go">
+        <div class="go">
             <button @click="advancedSearchApartments()">
                 vai
             </button>
-        </div>-->
+        </div>
         <!-- <h2 class="text-center pt-5 pb-4 ">Appartamenti ricerca avanzata</h2>-->
         <div class="appartamentiRicercaAvanzata">
 
