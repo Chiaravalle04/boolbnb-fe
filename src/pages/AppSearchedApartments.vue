@@ -665,7 +665,7 @@ input[type="checkbox"]:checked {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    background-color: var(--link-color);
+    background-color: var(--bg-color);
     border-radius: 20px;
 }
 
