@@ -255,27 +255,20 @@ export default {
         <div class="jumbotron">
             <div class="container h-100">
                 <div class="row h-50">
-                    <div class="d-flex align-items-end text-center">
-                        <h2 class="mainTitle">
+                    <div class="d-flex align-items-end justify-content-center text-center col-6">
+                        <h1 class="mainTitle">
                             Sblocca nuove avventure
-                        </h2>
+                        </h1>
                     </div>
                 </div>
-                <div class="row h-50 test pb-5">
+                <div class="row h-50">
                     <div class="col-6">
-                        <div class="searchBox position-relative">
-                            <div class="input-group mt-5">
-                                <input v-model="searchApartment" @input="saveCoordinate" @keyup="searchAutocomplete"
-                                    type="search" class="form-control searchBar" placeholder="Inserisci una destinazione.."
-                                    id="address" name="address">
-                                <!-- <a href="" class="iconSearch">
-                                    <button class="btn my-btn" type="button" id="button-addon2">
+                        <div class="searchBox">
+                            <div class="input-group">
+                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="form-control searchBar" placeholder="Inserisci una destinazione" id="address" name="address">
+                                <a href="searched-apartments" class="iconSearch">
+                                    <button class="btn my-btn" type="button">
                                         <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </a> -->
-                                <a href="searched-apartments" class="mx-4 iconSearch ricercavanzata">
-                                    <button class=" my-btn" type="button" id="button-addon2">
-                                        <i class="fa-solid fa-bolt"></i> Advanced
                                     </button>
                                 </a>
                             </div>
@@ -293,7 +286,7 @@ export default {
                 <div class="row">
                     <div class="col">
                         <h1 class="main-title-1 mt-4" id="primoPiano">
-                            Appartamenti sponsorizzati
+                            In evidenza
                         </h1>
                     </div>
                 </div>
@@ -325,7 +318,7 @@ export default {
 
         <div class="container altre-strutture">
             <h1 class="main-title-2 pt-5" id="tutteStrutture">
-                Tutte le altre strutture
+                Lasciati consigliare
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3 pt-5">
                 <div class="col" v-for="index in filtredApartment">
@@ -339,7 +332,6 @@ export default {
                                 <h5>{{ index.title }}</h5>
                                 <div>{{ index.address }}</div>
                                 <div>{{ index.price }} €/notte <i class="fa-regular fa-moon"></i></div>
-                                <!--  <div>km dal centro</div>-->
                             </div>
                         </div>
                     </router-link>
@@ -351,7 +343,8 @@ export default {
   
 <style lang="scss" scoped>
 .searchBox {
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-top: 2rem;
 }
 
 
@@ -365,9 +358,8 @@ export default {
     height: 450px;
 
     .mainTitle {
-        //font-size: 3.5rem;
-        font-size: 43px;
-        width: 613px;
+        font-size: 2.9rem;
+        width: 100%;
         font-weight: bold;
         color: var(--bg-color);
         border: none;
@@ -376,51 +368,43 @@ export default {
         background-color: rgba(0, 0, 0, 0.1);
     }
 
-    .test {
-        display: flex;
-    }
-
     .searchBar {
-        line-height: 35px;
+        line-height: 2rem;
         border-style: none;
         outline: none;
     }
 
     .scrollbar {
-        max-height: 200px;
+        height: 200px;
         overflow-y: auto;
+        width: 94%;
+    }
+
+    .scrollbar::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
     .iconSearch {
-        // background-color: var(--link-color);
+        background-color: var(--link-color);
         text-decoration: none;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
 
         &:hover {
-            //background-color: var(--bg-color);
+            background-color: var(--bg-color);
 
             i {
                 background-color: var(--bg-color);
                 color: var(--link-color);
             }
         }
-
         .my-btn {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
-        }
-    }
-
-    .advancedSearch {
-
-        .btn {
-            font-weight: bold;
-            border-radius: 5px;
-
-
         }
     }
 }
@@ -494,24 +478,11 @@ export default {
     }
 }
 
-#button-addon2 {
-    border-radius: 10px;
-    background-color: var(--bg-color);
-    color: #fff;
-    border: none;
-    padding: 6px;
-
-    i {
-        padding-right: 6px;
-    }
-}
-
 .main-title {
     color: var(--link-color);
 }
 
 .mySwiper {
-    //border: 1px solid lightgray;
     background-color: var(--bg-color);
 }
 
@@ -520,7 +491,6 @@ export default {
     color: black !important;
     border-radius: 10px;
     overflow: hidden;
-    //background-color: lightgreen;
 
     .cardCover {
         height: 200px;
@@ -557,10 +527,5 @@ main {
 .altre-strutture {
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-input {
-    border-radius: 20px;
-    background-color: lightgray;
 }
 </style>
