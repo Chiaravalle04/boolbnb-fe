@@ -338,7 +338,7 @@ export default {
                                 <h5>{{ index.title }}</h5>
                                 <div>{{ index.address }}</div>
                                 <div>{{ index.price }} €/notte</div>
-                                <div>km dal centro</div>
+                                <div>{{ index.distance }} km dal centro</div>
                             </div>
                         </div>
                     </router-link>
