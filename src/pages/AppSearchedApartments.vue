@@ -305,33 +305,6 @@ export default {
                     </div>
 
                 </div>
-                <!-- <div class="price-km">
-                    <h3>Prezzo e KM dal centro</h3>
-                    <hr>
-                    <div>
-                        <label for="distance_to_center">
-                            <h4>KM dal centro</h4>
-                        </label><br>
-                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                            name="number-value" type="range">
-                        <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                            name="number-value" id="number" class="input-km">
-                    </div>
-                    <hr>
-                    <div>
-                        <h5>Prezzo €</h5>
-                        <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
-                    </div>
-                    <hr>
-                    <div>
-                        <ul class="py-2">
-                            <li>
-                                Ogni prenotazione include una protezione gratuita in caso di cancellazione da parte dell'host,
-                                di inesattezze dell'annuncio e di altri problemi come le difficoltà in fase di check-in.
-                            </li>
-                        </ul>
-                    </div>
-                </div>-->
             </div>
 
 
