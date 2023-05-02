@@ -4,6 +4,7 @@ import AppHome from './pages/AppHome.vue';
 import AppShowApartment from './pages/AppShowApartment.vue';
 import AppSearchedApartments from './pages/AppSearchedApartments.vue';
 import AppError from './pages/AppError.vue';
+import AppWhoWeAre from './pages/AppWhoWeAre.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/:pathMatch(.*)*',
             name: 'AppError',
             component: AppError
+        },
+        {
+            path: '/who-we-are',
+            name: 'who-we-are',
+            component: AppWhoWeAre
         }
     ]
 });
