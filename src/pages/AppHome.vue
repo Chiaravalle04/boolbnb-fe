@@ -313,8 +313,8 @@ export default {
                                 <div class="cardInfo">
                                     <h5>{{ item.title }}</h5>
                                     <div>{{ item.address }}</div>
-                                    <div>{{ item.price }} €/notte</div>
-                                    <div>km dal centro</div>
+                                    <div>{{ item.price }} €/notte <i class="fa-regular fa-moon"></i></div>
+                                    <!--<div>km dal centro</div>-->
                                 </div>
                             </div>
                         </router-link>
@@ -338,8 +338,8 @@ export default {
                             <div class="cardInfo">
                                 <h5>{{ index.title }}</h5>
                                 <div>{{ index.address }}</div>
-                                <div>{{ index.price }} €/notte</div>
-                                <div>km dal centro</div>
+                                <div>{{ index.price }} €/notte <i class="fa-regular fa-moon"></i></div>
+                                <!--  <div>km dal centro</div>-->
                             </div>
                         </div>
                     </router-link>
