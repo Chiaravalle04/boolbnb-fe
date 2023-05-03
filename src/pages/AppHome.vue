@@ -267,17 +267,9 @@ export default {
                 <div class="row h-50 d-flex align-items-center">
                     <div class="col h-25 d-flex justify-content-center">
                         <div class="searchBox">
-                            <div class="input-group">
-                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
-                                    name="address">
-                                <a href="searched-apartments" class="iconSearch">
-                                    <button class="btn my-btn" type="button">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </a>
-                            </div>
-                            <ul id="autocomplete-list" class="list-group"></ul>
+                            <a href="searched-apartments">
+                                Cerca la tua struttura ideale
+                            </a>
                         </div>
                     </div>
 
@@ -357,12 +349,6 @@ export default {
 </template>
   
 <style lang="scss" scoped>
-.searchBox {
-    border-radius: 5px;
-    margin-top: 2rem;
-    width: 40%;
-}
-
 
 .jumbotron {
     background-size: cover;
@@ -383,27 +369,34 @@ export default {
         font-size: 1.1rem;
     }
 
-    .searchBar {
-        line-height: 2rem;
-        border-style: none;
-        outline: none;
-        background-color: var(--bg-color);
-        outline-style: none;
-        box-shadow: none;
-        border-color: transparent;
+    .searchBox {
+       background-color: var(--link-color);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 5px;
+       width: 20%;
+       height: 80%;
+
+        a {
+            text-decoration: none;
+            color: var(--bg-color);
+            font-weight: bold;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: var(--bg-color);
+                border-radius: 5px;
+                color: var(--link-color);
+                transition: all 0.2s ease-in;
+            }
+        }
     }
 
-    .scrollbar {
-        height: 200px;
-        overflow-y: auto;
-        width: 93%;
-    }
-
-    .scrollbar::-webkit-scrollbar {
-        display: none;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
 
     .iconSearch {
         background-color: var(--link-color);
