@@ -243,7 +243,7 @@ $bg-color: #F2F2F2;
 */
 
 main {
-    background-color: #e7ecef;
+    background-color: #e7f3f8;
 }
 
 // titolo + indirizzo 
@@ -469,14 +469,14 @@ hr {
         padding: 5px;
         border-radius: 10px;
         width: 290px;
-        border: 3px solid rgb(101, 99, 99);
+        border: 3px solid #020758;
         margin-bottom: 20px;
         font-weight: bold;
     }
 
     textarea {
         border-radius: 10px;
-        border: 3px solid rgb(101, 99, 99);
+        border: 3px solid #020758;
         padding: 8px;
         height: 150px;
     }
