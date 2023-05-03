@@ -243,7 +243,7 @@ $bg-color: #F2F2F2;
 */
 
 main {
-    background-color: #e7ecef;
+    background-color: #e7f3f8;
 }
 
 // titolo + indirizzo 
