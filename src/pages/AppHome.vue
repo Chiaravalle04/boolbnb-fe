@@ -299,7 +299,18 @@ export default {
                 <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
                         delay: 2500,
                         disableOnInteraction: false,
-                    }" :navigation="false" :modules="modules" class="mySwiper p-4">
+                    }" :navigation="false" :modules="modules" class="mySwiper p-4"
+                        :breakpoints="{
+                            640: {
+                                slidesPerView: 2
+                            },
+                            768: {
+                                slidesPerView: 3
+                            },
+                            1024: {
+                                slidesPerView: 4
+                            }
+                        }">
                     <swiper-slide v-for="item in sponsoredApartments">
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
                             class="text-decoration-none h-100">
