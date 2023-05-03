@@ -16,7 +16,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="https://picsum.photos/170" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Nic.jpg" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Nicolas Chiaravalle</h4>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="https://picsum.photos/175" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Ste.jpg" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Stefania Aveta</h4>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="https://picsum.photos/180" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Ludo.jpg" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Ludovico Longhini</h4>
@@ -69,7 +69,7 @@
             <div class="row justify-content-md-center mt-4">
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="https://picsum.photos/200" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Fede.jpg" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Federico Fois</h4>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="https://picsum.photos/202" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Frank.png" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Francesco Benvenuti</h4>
