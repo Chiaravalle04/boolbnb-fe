@@ -360,7 +360,7 @@ export default {
 .searchBox {
     border-radius: 5px;
     margin-top: 2rem;
-    width: 40%;
+    width: 50%;
 }
 
 

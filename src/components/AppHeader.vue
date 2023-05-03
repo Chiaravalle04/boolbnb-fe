@@ -26,7 +26,7 @@ export default {
                     </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                    <ul class="d-flex links align-items-center">
+                    <ul class="d-flex links align-items-center text-center">
                         <li>
                             <a href="#primoPiano">in evidenza</a>
                         </li>
