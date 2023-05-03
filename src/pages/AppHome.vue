@@ -299,10 +299,7 @@ export default {
                 <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
                         delay: 2500,
                         disableOnInteraction: false,
-                    }" :navigation="true" :modules="modules" class="mySwiper p-4"
-                        :pagination="{
-                            clickable: true,
-                        }"
+                    }" :modules="modules" class="mySwiper p-4"
                         :breakpoints="{
                             640: {
                                 slidesPerView: 2
@@ -363,7 +360,7 @@ export default {
 .searchBox {
     border-radius: 5px;
     margin-top: 2rem;
-    width: 40%;
+    width: 50%;
 }
 
 

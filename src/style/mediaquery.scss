@@ -34,6 +34,12 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .searchBox{
+        width: 100% !important;
+    }
+}
+
 // APPFOOTER
 @media screen and (max-width: 768px) {
     footer{
