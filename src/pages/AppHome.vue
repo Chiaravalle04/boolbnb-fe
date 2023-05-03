@@ -293,6 +293,9 @@ export default {
                         disableOnInteraction: false,
                     }" :modules="modules" class="mySwiper p-4"
                         :breakpoints="{
+                            390: {
+                                slidesPerView: 1
+                            },
                             640: {
                                 slidesPerView: 2
                             },
