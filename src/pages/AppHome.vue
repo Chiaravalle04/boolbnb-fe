@@ -379,8 +379,9 @@ export default {
        align-items: center;
        justify-content: center;
        border-radius: 5px;
-       width: 20%;
+       width: 30%;
        height: 80%;
+       margin-top: 20px;
 
         a {
             text-decoration: none;
@@ -439,8 +440,7 @@ export default {
 
 }
 
-.main-title-1,
-.main-title-2 {
+.main-title-1, .main-title-2 {
     color: var(--link-color);
     text-align: center;
     font-weight: bold;
