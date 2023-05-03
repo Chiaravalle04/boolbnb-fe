@@ -299,7 +299,10 @@ export default {
                 <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
                         delay: 2500,
                         disableOnInteraction: false,
-                    }" :navigation="false" :modules="modules" class="mySwiper p-4"
+                    }" :navigation="true" :modules="modules" class="mySwiper p-4"
+                        :pagination="{
+                            clickable: true,
+                        }"
                         :breakpoints="{
                             640: {
                                 slidesPerView: 2
