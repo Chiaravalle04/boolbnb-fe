@@ -212,132 +212,140 @@ export default {
 
 <template>
     <main>
-        <div class="container">
+        <div class="container d-flex">
 
-            <div class="input_ricerca_avanzata text-center pt-3">
-                <div class="icona_input">
-                    <div>
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div>
-                        <!-- <input type="search" v-model="address" @input="saveCoordinate" placeholder="Ricerca avanzata"> -->
-                        <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
-                            class="form-control input-ricerca-avanzata " placeholder="Inserisci una destinazione"
+            <aside>
+
+                <div class="container_search_bar">
+
+                    <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                            class="" placeholder="Inserisci una destinazione"
                             id="address" name="address">
-                        <ul id="autocomplete-list" class="list-group"></ul>
-                    </div>
+                    <ul id="autocomplete-list" class="list-group"></ul>
+
                 </div>
-                <div class="range_price">
-                    <div class="range">
-                        <label for="distance_to_center">
-                            <h5 class="mb-3">KM dal centro
-                                <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1"
-                                    max="40" name="number-value" id="number" class="input-km">
-                            </h5>
-                        </label><br>
-                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+
+                <div class="distance_to_center">
+
+                    <div class="km_center">
+
+                        <label for="number">KM dal centro</label><br>
+                                
+                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="20"
                             name="number-value" type="range">
-                        <!--<input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
-                            name="number-value" id="number" class="input-km">-->
-                    </div>
-                    <div class="price-input">
-                        <h5>Prezzo €</h5>
-                        <input type="number" v-model.number="price" min="0" placeholder="€" class="input_number">
-                    </div>
-                </div>
-            </div>
+        
+                        <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1"
+                            max="20" name="number-value" id="number" class="input-km">
 
-            <div class="ricerca-avanzata">
-                <div class="type">
-                    <h3 class="text-center">Tipo di alloggio</h3>
-                    <hr>
-                    <div class="choose_type">
-                        <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
-                        <label for="appartamento" name="type">Appartamento</label>
                     </div>
-                    <div class="choose_type">
-                        <input type="checkbox" v-model="types" value="Stanza" name="type" id="stanza">
-                        <label for="stanza" name="type">Stanza</label>
-                    </div>
-                    <div class="choose_type">
-                        <input type="checkbox" v-model="types" value="Villa" name="type" id="villa">
-                        <label for="villa" name="type">Villa</label>
-                    </div>
-                    <div class="choose_type">
-                        <input type="checkbox" v-model="types" value="Chalet" name="type" id="chalet">
-                        <label for="chalet" name="type">Chalet</label>
-                    </div>
-                    <div class="choose_type">
-                        <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
-                        <label for="hotel" name="type">Hotel</label>
-                    </div>
-                </div>
-                <div class="servizi">
-                    <h3 class="text-center">Stanze e letti</h3>
-                    <hr>
-                    <div class="struttura-alloggio-servizi">
-                        <div class="letti">
-                            <span class="n_letti">Numero di letti:</span>
-                            <input type="number" min="1" v-model.number="bed" placeholder="1" class="input-letti">
-                        </div>
-                        <hr>
-                        <div class="stanze">
-                            <span class="n_stanze">Numero di stanze:</span>
-                            <input type="number" min="1" v-model.number="room" placeholder="1" class="input-stanze">
-                        </div>
-                        <hr>
-                        <div class="bagni">
-                            <span class="n_bagni">Numero di bagni:</span>
-                            <input type="number" min="1" v-model.number="bathroom" placeholder="1" class="input-bagni">
-                        </div>
-                    </div>
-                </div>
-                <div class="servizi-placeholder">
-                    <h3 class="text-center">Servizi</h3>
-                    <hr>
-                    <div class="servizi-essenziali">
 
-                        <div v-for="item in allServices">
-                            <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
-                            <label :for="item.name">{{ item.name }}</label>
-                        </div>
+                    <div class="price">
+
+                        <label for="price">Prezzo massimo</label>
+                        <input type="number" id="price" v-model.number="price" min="0" placeholder="€" class="input_number">
 
                     </div>
 
                 </div>
-            </div>
 
+                <div class="structure_type">
 
-            <div class="go">
-                <button @click="advancedSearchApartments()">
-                    vai
-                </button>
-            </div>
+                    <div class="choose_type">
+                        <!-- <input type="checkbox" v-model="types" value="Appartamento" name="type" id="appartamento">
+                        <label for="appartamento" name="type"><i class="fa-solid fa-house"></i></label> -->
+                        <input type="checkbox" v-model="types" value="Appartamento" class="btn-check" id="Appartamento" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Appartamento"><i class="fa-solid fa-house"></i>Casa</label>
+                    </div>
+                    <div class="choose_type">
+                        <!-- <input type="checkbox" v-model="types" value="Stanza" name="type" id="stanza">
+                        <label for="stanza" name="type">Stanza</label> -->
+                        <input type="checkbox" v-model="types" value="Stanza" class="btn-check" id="Stanza" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Stanza"><i class="fa-solid fa-bed"></i>Stanza</label>
+                    </div>
+                    <div class="choose_type">
+                        <!-- <input type="checkbox" v-model="types" value="Villa" name="type" id="villa">
+                        <label for="villa" name="type">Villa</label> -->
+                        <input type="checkbox" v-model="types" value="Villa" class="btn-check" id="Villa" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Villa"><i class="fa-solid fa-landmark"></i> Villa</label>
+                    </div>
+                    <div class="choose_type">
+                        <!-- <input type="checkbox" v-model="types" value="Chalet" name="type" id="chalet">
+                        <label for="chalet" name="type">Chalet</label> -->
+                        <input type="checkbox" v-model="types" value="Chalet" class="btn-check" id="Chalet" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Chalet"><i class="fa-solid fa-tree"></i>Chalet</label>
+                    </div>
+                    <div class="choose_type">
+                        <!-- <input type="checkbox" v-model="types" value="Hotel" name="type" id="hotel">
+                        <label for="hotel" name="type">Hotel</label> -->
+                        <input type="checkbox" v-model="types" value="Hotel" class="btn-check" id="Hotel" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Hotel"><i class="fa-solid fa-hotel"></i>Hotel</label>
+                    </div>
 
-            <div class="appartamentiRicercaAvanzata">
+                </div>
 
-                <div v-for="index in apartmentsDistance">
-                    <div v-if="index.distance <= distanceNumber" class="container-card">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
-                            class="text-decoration-none link">
-                            <div class="myCardd">
+                <div class="bed_room_bath">
 
-                                <div class="cardCover">
+                    <div class="container_brb">
+                        <label for="number_bed" class="n_bed"><i class="fa-solid fa-bed"></i> Letti</label>
+                        <input id="number_bed" type="number" min="1" v-model.number="bed" placeholder="1" class="input-letti">
+                    </div>
+                    <div class="container_brb">
+                        <label for="number_room" class="n_room"><i class="fa-solid fa-person-shelter"></i> Stanze</label>
+                        <input id="number_room" type="number" min="1" v-model.number="room" placeholder="1" class="input-stanze">
+                    </div>
+                    <div class="container_brb">
+                        <label for="number_bath" class="n_bath"><i class="fa-solid fa-bath"></i> Bagni</label>
+                        <input id="number_bath" type="number" min="1" v-model.number="bathroom" placeholder="1" class="input-bagni">
+                    </div>
+
+                </div>
+
+                <div class="services_container">
+
+                    <div class="container_input" v-for="item in allServices">
+                        <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name" class="btn-check" autocomplete="off">
+                        <label class="btn btn-outline-primary" :for="item.name">{{ item.name }}</label><br>
+                        <!-- <input type="checkbox" v-model="services" :id="item.name" name="services" :value="item.name">
+                        <label :for="item.name">{{ item.name }}</label> -->
+                    </div>
+
+                </div>
+
+                <div class="filter_apartment_btn">
+                    <button @click="advancedSearchApartments()">
+                        Filtra
+                    </button>
+                </div>
+
+            </aside>
+
+            <div class="container_card">
+
+                <div class="text_search_apartmet" v-if="apartmentsDistance.length == 0">
+                    <h3>Cerca la tua struttura ideale</h3>
+                    <img src="../../public/img_search_page.png" alt="">
+                </div>
+
+                <div v-for="index in apartmentsDistance"  class="container_details_card">
+                    <div v-if="index.distance <= distanceNumber">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }">
+                            <div class="my_card">
+                                <div class="card_cover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + index.cover" alt="">
                                 </div>
-                                <div class="cardInfo">
-                                    <h5>{{ index.title }}</h5>
-                                    <div>{{ index.address }}</div>
-                                    <div>{{ index.price }} €/notte</div>
-                                    <div>{{ index.distance }} km dal centro</div>
+                                <div class="card_info">
+                                    <h5><b>{{ index.title }}</b></h5>
+                                    <h6>{{ index.address }}</h6>
+                                    <h6><b>{{ index.price }}</b> €/notte</h6>
+                                    <h6><b>{{ index.distance }}</b> km dal centro</h6>
                                 </div>
-
                             </div>
                         </router-link>
                     </div>
                 </div>
 
             </div>
+
         </div>
     </main>
 </template>
@@ -345,346 +353,276 @@ export default {
 <style lang="scss" scoped>
 main {
     min-height: calc(100vh - 70px);
-    margin-bottom: -10px;
-    background-color: rgb(232, 232, 232);
+    // background-color: rgb(232, 232, 232);
 }
 
-.ricerca-avanzata {
-    border: 3px solid rgb(172, 172, 172);
-    width: 100%;
-    margin: 0 auto;
-    height: 320px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 10px;
+aside {
+    width: 35%;
+    padding: 20px;
+    height: calc(100vh + 60px);
+    // height: 100vh;
+    position: sticky;
+    top: 70px;
+    box-shadow: 17px 0px 17px -5px rgba(0,0,0,0.42);
+    .container_search_bar {
+        input {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--link-color);
+            padding: 0 15px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .distance_to_center {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .km_center{
+            width: 50%;
+            text-align: center;
+            label {
+                font-size: 15px;
+                color: var(--link-color);
+            }
+            #range {
+                -webkit-appearance: none;
+                width: 90%;
+                height: 8px;
+                margin-top: 15px;
+                border-radius: 25px;
+                background: var(--description-color);
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+                &:hover {
+                    opacity: 1;
+                }
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%; 
+                    background: var(--description-color);
+                    cursor: pointer;
+                }
+                &::-moz-range-thumb {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: var(--title-color);
+                    cursor: pointer;
+                }
+            }
+            #number {
+                display: block;
+                margin: 0 auto;
+                width: 30%;
+                margin-top: 10px;
+                border-radius: 15px;
+                border: none;
+                text-align: center;
+                background-color: var(--description-color);
+                color: var(--bg-color);
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .price {
+            width: 50%;
+            text-align: center;
+            label {
+                font-size: 15px;
+                color: var(--link-color);
+            }
+            #price {
+                display: block;
+                margin: 0 auto;
+                width: 40%;
+                margin-top: 10px;
+                border-radius: 15px;
+                border: none;
+                padding-left: 15px;
+                background-color: var(--description-color);
+                color: var(--bg-color);
+                &:focus {
+                    outline: none;
+                }
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .structure_type {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .choose_type {
+            display: flex;
+            width: calc(100% / 5 - 5px);
+            label {
+                display: inline-block;
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                // padding-left: 0 !important;
+                // padding-right: 0 !important;
+            }
+            
+        }
+    }
+    .bed_room_bath {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .container_brb {
+            width: calc(100% / 3);
+            text-align: center;
+            label {
+                font-size: 15px;
+                color: var(--link-color);
+            }
+            input {
+                display: block;
+                margin: 0 auto;
+                width: 50%;
+                margin-top: 10px;
+                border-radius: 15px;
+                border: none;
+                padding-left: 15px;
+                background-color: var(--description-color);
+                color: var(--bg-color);
+                &:focus {
+                    outline: none;
+                }
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .services_container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        .container_input {
+            width: 50%;
+            label {
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
+        }
+    }
+    .filter_apartment_btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        button {
+            display: inline-block;
+            width: 40%;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background-color: var(--description-color);
+            color: var(--bg-color);
+        }
+    }
+    
+}
+
+.container_card {
+    width: 65%;
+    min-height: calc(100vh - 70px);
+    overflow: auto;
+    padding: 20px;
     display: flex;
-    background-color: #dedede;
-
-    >.type,
-    .servizi,
-    .servizi-placeholder {
-        width: 60%;
-        height: 100%;
-    }
-
-    .type {
-        // background-color: rgb(226, 224, 224);
-        padding: 10px;
-        border-right: 1px dashed rgb(170, 169, 169);
-    }
-
-    .type>.struttura-alloggio {
-        height: 200px;
-    }
-}
-
-.choose_type {
-    padding: 7px;
-    padding-left: 20px;
-
-    >label {
-        margin-left: 20px;
-    }
-}
-
-.km-centro {
-    text-align: center;
-    width: 50%;
-    margin: 0 auto;
-}
-
-.n_letti {
-    margin-right: 50px;
-}
-
-.n_bagni {
-    margin-right: 38px;
-}
-
-.n_stanze {
-    margin-right: 31px;
-}
-
-.icona_input {
-    display: flex;
-    border: 1px solid rgb(143, 142, 142);
-    width: 300px;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-radius: 20px;
-    width: 500px;
-    background-color: #F2F2F2;
-
-    >div:last-child>input {
-        padding-left: 20px;
-        border: none;
-        font-size: 20px;
-        background-color: #F2F2F2;
-        width: 450px;
-    }
-
-    >div:first-child {
-        padding-top: 4px;
-        color: rgb(59, 58, 58);
-    }
-}
-
-
-hr {
-    border: 2px solid rgb(170, 169, 169);
-}
-
-.icona-appartamento {
-    padding: 12px;
-
-    >.nome-appartamento {
-        margin-left: 20px;
-    }
-
-    &:hover {
-        background-color: rgb(255, 255, 255);
-        cursor: pointer;
-        border-radius: 20px;
-        transition: 1.5s;
-    }
-
-    span {
-        font-size: 20px;
-        cursor: pointer;
-    }
-}
-
-.hotel,
-.villa,
-.stanza {
-    font-size: 22px;
-}
-
-.appartamento {
-    margin-right: 8px;
-    font-size: 24px;
-}
-
-.servizi {
-    padding: 10px;
-    border-right: 1px dashed rgb(170, 169, 169);
-}
-
-.struttura-alloggio-servizi>.letti,
-.stanze,
-.bagni {
-    padding-left: 10px;
-}
-
-.input-letti,
-.input-stanze,
-.input-bagni {
-    border-radius: 10px;
-    border: 1px solid gray;
-    width: 80px;
-    background-color: #c4c4c4;
-    padding-left: 32px;
-    margin-left: 100px;
-}
-
-.servizi-placeholder,
-.price {
-    //border-right: 1px dashed rgb(170, 169, 169);
-    padding: 10px;
-}
-
-
-.range_price {
-    height: 50px;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 20px;
-    display: flex;
-    // background-color: #c4c4c4;
-    border-radius: 10px;
-
-    div {
-        width: 50%;
-    }
-}
-
-.servizi-essenziali {
-    width: 100%;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
-
-    >div {
-        padding-left: 5px;
+    .text_search_apartmet {
+        width: 100%;
+        height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            color: var(--title-color);
+        }
+        img {
+            width: 30%;
+        }
     }
-
-    >div>label {
-        margin-left: 10px;
-        font-size: 16px;
-        margin-bottom: 3px;
-        padding-left: 10px;
-    }
-}
-
-
-input[type=checkbox] {
-    -webkit-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    transform: scale(1.5);
-}
-
-
-
-
-.price-km {
-    padding: 10px;
-
-    h3 {
-        font-size: 25px;
-        padding-bottom: 4px;
-    }
-}
-
-
-.input-ricerca-avanzata {
-    height: 14px;
-    border-radius: 10px;
-    background-color: rgb(74, 72, 72);
-    outline: none;
-    padding-top: 14px;
-    padding-bottom: 14px;
-
-}
-
-
-
-
-.input_number {
-    background-color: rgb(208, 208, 208);
-    color: rgb(198, 198, 198);
-    color: black;
-    border-radius: 20px;
-    border: none;
-    width: 150px;
-    padding: 0;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.go {
-    width: 200px;
-    margin: 0 auto;
-    text-align: center;
-
-    button {
-        width: 170px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-radius: 20px;
-        border: 3px solid gray;
-        text-transform: uppercase;
-
+    .container_details_card {
+        width: calc(100% / 3 - 10px);
+        height: 360px;
+        margin: 5px;
+        box-shadow: 0px 7px 15px -1px rgba(0,0,0,0.4);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: var(--bg-color);
+        transition: all 0.3s ease-in;
         &:hover {
-            transition: 1s;
-            background-color: var(--bg-color);
-            color: white;
+            scale: 1.035;
+        }
+        div {
+            width: 100%;
+            height: 100%;
+        }
+        a {
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+        .my_card {
+            width: 100%;
+            height: 100%;
+            // box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
+            color: var(--title-color) !important;
+            border-radius: 10px;
+            overflow: hidden;
+            .card_cover {
+                height: 55%;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
+            .card_info {
+                height: 45%;
+                padding: 10px;
+            }
         }
     }
 }
 
-#autocomplete-list {
-    position: absolute;
-    width: 450px;
-    z-index: 1;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-/* ---------------------------------------------------- */
-.appartamentiRicercaAvanzata {
-    //border: 1px solid black;
-    margin-top: 50px;
-    padding-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-left: 8px;
+.btn-check:checked + .btn-outline-primary,
+.btn-outline-primary.active,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+    color: var(--bg-color) !important;
+    background-color: var(--description-color) !important;
+    border-color: var(--description-color) !important;
 }
 
-
-.myCardd {
-    width: 310px;
-    height: 360px;
-    box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-
-
-    &:hover {
-        transform: scale(1.035);
-    }
-
-}
-
-.link {
-    color: black;
-}
-
-.cardInfo {
-    padding: 10px;
-}
-
-.cardCover {
-    height: 200px;
-
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-
-
-/* -------------------------------------------------------------*/
-
-
-#range {
-    width: 70%;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    background-color: var(--bg-color);
-    border-radius: 10px;
-}
-
-input[type=range]::-moz-range-track {
-    background-color: var(--bg-color);
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    cursor: pointer;
-}
-
-input[type=range]:focus {
-    outline: none;
-    background-color: red;
-}
-
-
-.input-km {
-    border: none;
-    margin-left: 10px;
-    margin-bottom: 3px;
-    border-radius: 10px;
-    color: rgb(151, 151, 151);
-    background-color: #F2F2F2;
-    font-size: 15px;
-    padding-left: 18px;
+.btn-outline-primary {
+    color: var(--description-color) !important;
+    border-color: var(--description-color) !important;
+    background-color: #fff !important;
 }
 </style>

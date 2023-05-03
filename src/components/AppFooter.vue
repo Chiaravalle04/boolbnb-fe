@@ -19,40 +19,42 @@ export default {
 <template>
     <footer>
         <div class="container d-flex align-items-center h-100">
-            <div class="row w-100">
-                <div class="col-10">
+            <div class="row justify-content-between w-100">
+                <div class="col-2 text-center">
+                    &copy; 2023 Boolbnb, inc.
+                </div>
+                <div class="col-8">
                     <ul class="d-flex p-0 m-0">
                         <li>
-                            &copy; 2023 Boolbnb, inc.
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-angle-right px-3"></i> 
+                            <i class="fa-solid fa-angle-right px-3"></i>
                             <a href="https://www.linkedin.com/in/federicofois/" target="_blank">Federico Fois</a>
-                            
+
                         </li><span class="px-3">•</span>
                         <li class="text-center">
-                            <a href="https://www.linkedin.com/in/francescobenvenutii/" target="_blank">Francesco Benvenuti</a>
-                            
+                            <a href="https://www.linkedin.com/in/francescobenvenutii/" target="_blank">Francesco
+                                Benvenuti</a>
+
                         </li><span class="px-3">•</span>
                         <li class="text-center">
-                            <a href="https://www.linkedin.com/in/nicolaschiaravalle/" target="_blank">Nicolas Chiaravalle</a>
-                            
+                            <a href="https://www.linkedin.com/in/nicolaschiaravalle/" target="_blank">Nicolas
+                                Chiaravalle</a>
+
                         </li><span class="px-3">•</span>
                         <li class="text-center">
                             <a href="https://www.linkedin.com/in/stefania-aveta/" target="_blank">Stefania Aveta</a>
-                            
+
                         </li><span class="px-3">•</span>
                         <li class="text-center">
                             <a href="https://www.linkedin.com/in/ludovico-longhini/" target="_blank">Ludovico Longhini</a>
                         </li>
 
-                        <i class="fa-solid fa-angle-left px-3"></i>
+
                     </ul>
                 </div>
-                <div class="col-2">
+                <div class="col-2 text-center">
                     <ul class="d-flex p-0 m-0 justify-content-end">
                         <li>
-                            <i class="fa-solid fa-globe px-1"></i> 
+                            <i class="fa-solid fa-globe px-1"></i>
                             Italiano (IT)
                         </li>
                         <li class="d-inline-block px-1">

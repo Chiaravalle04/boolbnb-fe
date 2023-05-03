@@ -1,18 +1,27 @@
 <script>
+// import { ref, onMounted } from 'vue';
+// import axios from 'axios';
+
+// const user = ref();
+// onMounted(async () => {
+//     const data = await axios.get('/api/user');
+//     console.log(data);
+// });
+
 export default {
-  name: "AppHeader",
+    name: "AppHeader",
 
-  components: {
+    components: {
 
-  },
+    },
 
-  data() {
+    data() {
 
-    return {
+        return {
 
-    }
+        }
 
-  },
+    },
 };
 </script>
 
@@ -26,7 +35,7 @@ export default {
                     </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                    <ul class="d-flex links align-items-center">
+                    <ul class="d-flex links align-items-center text-center">
                         <li>
                             <a href="#primoPiano">in evidenza</a>
                         </li>
@@ -55,18 +64,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 .my-header {
     background-color: var(--bg-color);
     height: 70px;
 
     .logo {
         font-family: 'Mr Dafoe', cursive;
-        font-size: 2.5rem;
+        font-size: 3rem;
 
         a {
-          text-decoration: none;
-          color: var(--link-color);
+            text-decoration: none;
+            color: var(--link-color);
         }
     }
 
@@ -79,7 +87,7 @@ export default {
             padding: 1rem;
             text-transform: uppercase;
 
-              a {
+            a {
                 text-decoration: none;
                 color: var(--link-color);
                 display: inline-block;
@@ -93,17 +101,17 @@ export default {
     }
 
     .register {
-          color: var(--bg-color);
-          background-color: var(--link-color);
-          padding: 5px;
-          text-transform: uppercase;
-          margin-left: .5rem;
+        color: var(--bg-color);
+        background-color: var(--link-color);
+        padding: 5px;
+        text-transform: uppercase;
+        margin-left: .5rem;
+        border-radius: 5px;
 
-          &:hover {
-              transform: scale(1.1);
-              transition: 0.1s;
-          }
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
     }
 }
-
- </style>
+</style>

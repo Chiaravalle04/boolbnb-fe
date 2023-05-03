@@ -267,15 +267,9 @@ export default {
                 <div class="row h-50 d-flex align-items-center">
                     <div class="col h-25 d-flex justify-content-center">
                         <div class="searchBox">
-                            <div class="input-group">
-                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="form-control searchBar" placeholder="Inserisci una destinazione" id="address" name="address">
-                                <a href="searched-apartments" class="iconSearch">
-                                    <button class="btn my-btn" type="button">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </button>
-                                </a>
-                            </div>
-                            <ul id="autocomplete-list" class="list-group"></ul>
+                            <a href="searched-apartments">
+                                Cerca la tua struttura ideale
+                            </a>
                         </div>
                     </div>
 
@@ -297,9 +291,24 @@ export default {
                 <swiper :slidesPerView="4" :spaceBetween="20" :centeredSlides="false" :autoplay="{
                         delay: 2500,
                         disableOnInteraction: false,
-                    }" :navigation="false" :modules="modules" class="mySwiper p-4">
+                    }" :modules="modules" class="mySwiper p-4"
+                        :breakpoints="{
+                            390: {
+                                slidesPerView: 1
+                            },
+                            640: {
+                                slidesPerView: 2
+                            },
+                            768: {
+                                slidesPerView: 3
+                            },
+                            1024: {
+                                slidesPerView: 4
+                            }
+                        }">
                     <swiper-slide v-for="item in sponsoredApartments">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
+                            class="text-decoration-none h-100">
                             <div class="mySponsored">
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
@@ -323,12 +332,13 @@ export default {
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3 pt-5">
                 <div class="col" v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
+                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                        class="text-decoration-none h-100">
                         <div class="myCard">
                             <div class="cardCover">
                                 <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
                             </div>
-                            <div class="cardInfo">
+                            <div class="cardInfo consigliati">
                                 <h5>{{ index.title }}</h5>
                                 <div>{{ index.address }}</div>
                                 <div>{{ index.price }} €/notte <i class="fa-regular fa-moon"></i></div>
@@ -342,17 +352,12 @@ export default {
 </template>
   
 <style lang="scss" scoped>
-.searchBox {
-    border-radius: 5px;
-    margin-top: 2rem;
-    width: 40%;
-}
-
 
 .jumbotron {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('./public/super-jumbo-2.jpg');
+    background-position: center;
     height: 450px;
 
     .mainTitle {
@@ -368,27 +373,35 @@ export default {
         font-size: 1.1rem;
     }
 
-    .searchBar {
-        line-height: 2rem;
-        border-style: none;
-        outline: none;
-        background-color: var(--bg-color);
-        outline-style: none;
-        box-shadow: none;
-        border-color: transparent;
+    .searchBox {
+       background-color: var(--link-color);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 5px;
+       width: 30%;
+       height: 80%;
+       margin-top: 20px;
+
+        a {
+            text-decoration: none;
+            color: var(--bg-color);
+            font-weight: bold;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: var(--bg-color);
+                border-radius: 5px;
+                color: var(--link-color);
+                transition: all 0.2s ease-in;
+            }
+        }
     }
 
-    .scrollbar {
-        height: 200px;
-        overflow-y: auto;
-        width: 93%;
-    }
-
-    .scrollbar::-webkit-scrollbar {
-        display: none;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
 
     .iconSearch {
         background-color: var(--link-color);
@@ -402,7 +415,7 @@ export default {
 
         &:hover {
             background-color: var(--bg-color);
-            
+
             i {
                 color: var(--link-color);
             }
@@ -482,6 +495,7 @@ export default {
     }
 }
 
+
 .myCard {
     box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
     color: var(--link-color);
@@ -500,7 +514,7 @@ export default {
     }
 
     .cardInfo {
-        padding-top: 10px;
+        padding: 10px;
     }
 
     &:hover {
