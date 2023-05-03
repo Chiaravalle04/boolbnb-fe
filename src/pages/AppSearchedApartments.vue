@@ -19,7 +19,7 @@ export default {
             longitude: null,
             services: [],
             types: [],
-            distanceNumber: 20,
+            distanceNumber: 10,
             filterApartments: [],
             apartmentsDistance: [],
             allServices: [],
@@ -231,11 +231,11 @@ export default {
 
                         <label for="number">KM dal centro</label><br>
                                 
-                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="40"
+                        <input id="range" v-model.number="distanceNumber" @input="distanceToCenter" min="1" max="20"
                             name="number-value" type="range">
         
                         <input type="number" v-model.number="distanceNumber" @input="distanceToCenter" min="1"
-                            max="40" name="number-value" id="number" class="input-km">
+                            max="20" name="number-value" id="number" class="input-km">
 
                     </div>
 
@@ -329,10 +329,10 @@ export default {
                                     <img :src="'http://127.0.0.1:8000/storage/' + index.cover" alt="">
                                 </div>
                                 <div class="card_info">
-                                    <h5>{{ index.title }}</h5>
+                                    <h5><b>{{ index.title }}</b></h5>
                                     <h6>{{ index.address }}</h6>
-                                    <h6>{{ index.price }} €/notte</h6>
-                                    <h6>{{ index.distance }} km dal centro</h6>
+                                    <h6><b>{{ index.price }}</b> €/notte</h6>
+                                    <h6><b>{{ index.distance }}</b> km dal centro</h6>
                                 </div>
                             </div>
                         </router-link>
@@ -354,17 +354,17 @@ main {
 aside {
     width: 35%;
     padding: 20px;
-    // height: calc(100vh - 70px);
-    height: 100vh;
+    height: calc(100vh + 60px);
+    // height: 100vh;
     position: sticky;
     top: 70px;
-    // background-color: red;
     box-shadow: 17px 0px 17px -5px rgba(0,0,0,0.42);
     .container_search_bar {
         input {
             width: 100%;
             height: 40px;
             border-radius: 10px;
+            border: 1px solid var(--link-color);
             padding: 0 15px;
             &:focus {
                 outline: none;
@@ -381,6 +381,7 @@ aside {
             text-align: center;
             label {
                 font-size: 15px;
+                color: var(--link-color);
             }
             #range {
                 -webkit-appearance: none;
@@ -388,7 +389,7 @@ aside {
                 height: 8px;
                 margin-top: 15px;
                 border-radius: 25px;
-                background: var(--link-color);
+                background: var(--description-color);
                 outline: none;
                 opacity: 0.7;
                 -webkit-transition: .2s;
@@ -402,7 +403,7 @@ aside {
                     width: 20px;
                     height: 20px;
                     border-radius: 50%; 
-                    background: var(--link-color);
+                    background: var(--description-color);
                     cursor: pointer;
                 }
                 &::-moz-range-thumb {
@@ -421,6 +422,8 @@ aside {
                 border-radius: 15px;
                 border: none;
                 text-align: center;
+                background-color: var(--description-color);
+                color: var(--bg-color);
                 &:focus {
                     outline: none;
                 }
@@ -431,6 +434,7 @@ aside {
             text-align: center;
             label {
                 font-size: 15px;
+                color: var(--link-color);
             }
             #price {
                 display: block;
@@ -440,8 +444,13 @@ aside {
                 border-radius: 15px;
                 border: none;
                 padding-left: 15px;
+                background-color: var(--description-color);
+                color: var(--bg-color);
                 &:focus {
                     outline: none;
+                }
+                &::placeholder {
+                    color: #fff;
                 }
             }
         }
@@ -473,6 +482,7 @@ aside {
             text-align: center;
             label {
                 font-size: 15px;
+                color: var(--link-color);
             }
             input {
                 display: block;
@@ -482,23 +492,30 @@ aside {
                 border-radius: 15px;
                 border: none;
                 padding-left: 15px;
+                background-color: var(--description-color);
+                color: var(--bg-color);
                 &:focus {
                     outline: none;
+                }
+                &::placeholder {
+                    color: #fff;
                 }
             }
         }
     }
     .services_container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 20px;
-        label {
-            margin-right: 5px;
-            margin-bottom: 5px;
+        .container_input {
+            width: 50%;
+            label {
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
         }
     }
-
     .filter_apartment_btn {
         display: flex;
         justify-content: center;
@@ -509,8 +526,8 @@ aside {
             height: 40px;
             border: none;
             border-radius: 10px;
-            background-color: blue;
-            color: #fff;
+            background-color: var(--description-color);
+            color: var(--bg-color);
         }
     }
     
@@ -525,12 +542,12 @@ aside {
     flex-wrap: wrap;
     .container_details_card {
         width: calc(100% / 3 - 10px);
-        height: 350px;
+        height: 360px;
         margin: 5px;
         box-shadow: 0px 7px 15px -1px rgba(0,0,0,0.4);
         border-radius: 10px;
         overflow: hidden;
-        background-color: gray;
+        background-color: var(--bg-color);
         transition: all 0.3s ease-in;
         &:hover {
             scale: 1.035;
@@ -548,7 +565,7 @@ aside {
             width: 100%;
             height: 100%;
             // box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
-            color: black !important;
+            color: var(--title-color) !important;
             border-radius: 10px;
             overflow: hidden;
             .card_cover {
@@ -566,5 +583,27 @@ aside {
             }
         }
     }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-check:checked + .btn-outline-primary,
+.btn-outline-primary.active,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+    color: var(--bg-color) !important;
+    background-color: var(--description-color) !important;
+    border-color: var(--description-color) !important;
+}
+
+.btn-outline-primary {
+    color: var(--description-color) !important;
+    border-color: var(--description-color) !important;
+    background-color: #fff !important;
 }
 </style>
