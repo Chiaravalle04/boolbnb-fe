@@ -1,18 +1,18 @@
 <script>
 export default {
-  name: "AppHeader",
+    name: "AppHeader",
 
-  components: {
+    components: {
 
-  },
+    },
 
-  data() {
+    data() {
 
-    return {
+        return {
 
-    }
+        }
 
-  },
+    },
 };
 </script>
 
@@ -55,18 +55,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 .my-header {
     background-color: var(--bg-color);
     height: 70px;
 
     .logo {
         font-family: 'Mr Dafoe', cursive;
-        font-size: 2.5rem;
+        font-size: 3rem;
 
         a {
-          text-decoration: none;
-          color: var(--link-color);
+            text-decoration: none;
+            color: var(--link-color);
         }
     }
 
@@ -79,7 +78,7 @@ export default {
             padding: 1rem;
             text-transform: uppercase;
 
-              a {
+            a {
                 text-decoration: none;
                 color: var(--link-color);
                 display: inline-block;
@@ -93,18 +92,17 @@ export default {
     }
 
     .register {
-          color: var(--bg-color);
-          background-color: var(--link-color);
-          padding: 5px;
-          text-transform: uppercase;
-          margin-left: .5rem;
-          border-radius: 5px;
+        color: var(--bg-color);
+        background-color: var(--link-color);
+        padding: 5px;
+        text-transform: uppercase;
+        margin-left: .5rem;
+        border-radius: 5px;
 
-          &:hover {
-              transform: scale(1.1);
-              transition: 0.2s;
-          }
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.2s;
+        }
     }
 }
-
- </style>
+</style>
