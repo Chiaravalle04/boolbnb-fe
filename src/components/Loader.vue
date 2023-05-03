@@ -37,6 +37,6 @@ export default {
 }
 
 .myVideo{
-    filter: grayscale(46%) hue-rotate(30deg);
+    filter: grayscale(46%) hue-rotate(240deg);
 }
 </style>
