@@ -98,10 +98,11 @@ export default {
           padding: 5px;
           text-transform: uppercase;
           margin-left: .5rem;
+          border-radius: 5px;
 
           &:hover {
               transform: scale(1.1);
-              transition: 0.1s;
+              transition: 0.2s;
           }
     }
 }
