@@ -41,6 +41,12 @@
 }
 
 // APPFOOTER
+@media screen and (max-width: 1199px) {
+    footer .col-8{
+        display: none !important;
+    }
+}
+
 @media screen and (max-width: 768px) {
     footer{
         padding: 10px 0 !important;
