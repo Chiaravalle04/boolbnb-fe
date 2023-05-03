@@ -32,11 +32,14 @@
     .mainTitle{
         font-size: 2.3rem !important;
     }
+    .searchBox{
+        width: 40% !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .searchBox{
-        width: 100% !important;
+        width: 50% !important;
     }
 }
 
