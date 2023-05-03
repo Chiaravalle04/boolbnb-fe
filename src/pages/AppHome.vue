@@ -266,8 +266,8 @@ export default {
                 </div>
                 <div class="row h-50 d-flex align-items-center">
                     <div class="col h-25 d-flex justify-content-center">
-                        <div class="searchBox">
-                            <a href="searched-apartments">
+                        <div class="searchBox text-center">
+                            <a href="searched-apartments text-center">
                                 Cerca la tua struttura ideale
                             </a>
                         </div>
