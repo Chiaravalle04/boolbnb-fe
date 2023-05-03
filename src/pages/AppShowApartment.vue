@@ -194,15 +194,15 @@ export default {
 
                     <div class="input-invio-mex">
                         <h4 class="mb-4 mt-2 fs-3">Invia un messaggio all'host</h4>
-                        <label for="name" class="fs-5"><strong>Nome*</strong></label><br>
+                        <label for="name" class="fs-5"><strong class="nm">Nome*</strong></label><br>
                         <input type="text" v-model="nameValue" id="name" name="name" placeholder="Inserisci il tuo nome.."
                             required :disabled="isDisabled"><br>
 
-                        <label for="email" class="fs-5"><strong>Email*</strong></label><br>
+                        <label for="email" class="fs-5"><strong class="em">Email*</strong></label><br>
                         <input type="email" v-model="emailValue" id="email" name="email"
                             placeholder="Inserisci la tua email.." required :disabled="isDisabled"><br>
 
-                        <label for="message" class="fs-5"><strong>Messaggio*</strong></label><br>
+                        <label for="message" class="fs-5"><strong class="mx">Messaggio*</strong></label><br>
 
                         <textarea class="form-control mb-2" id="message" rows="3" name="message" v-model="messageValue"
                             placeholder="Insert your message here..." :disabled="isDisabled"></textarea>
@@ -222,7 +222,7 @@ export default {
             </div>
             <hr class="hr-divisorio">
             <div class="mt-4 mb-4">
-                <h2 class="text-center mb-4">Dove ti troverai</h2>
+                <h4 class="text-center mb-4 fs-3">Dove ti troverai</h4>
                 <div class="mapview" id="map"></div>
             </div>
         </div>
@@ -242,6 +242,9 @@ $description-color: #81878C;
 $bg-color: #F2F2F2;
 */
 
+main {
+    background-color: #e7ecef;
+}
 
 // titolo + indirizzo 
 .title {
@@ -249,16 +252,16 @@ $bg-color: #F2F2F2;
     height: 90px;
     margin: 0 auto;
     padding-top: 10px;
-    color: #4F5559;
+    color: #020758;
 
     h2 {
         font-size: 25px;
-        color: #4F5559;
+        color: #020758;
 
     }
 
     i {
-        color: rgb(56, 53, 53);
+        color: #274c77;
     }
 
     p {
@@ -269,6 +272,12 @@ $bg-color: #F2F2F2;
 }
 
 // immagini
+
+.nm,
+.mx,
+.em {
+    color: #020758;
+}
 
 .images {
     width: 97%;
@@ -344,6 +353,7 @@ hr {
         .places {
             h3 {
                 font-size: 27px;
+                color: #274c77;
 
                 .type {
                     text-decoration: underline;
@@ -354,7 +364,8 @@ hr {
 
             span {
                 font-size: 19px;
-                color: #4F5559;
+                color: #020758;
+                font-weight: bold;
             }
 
             .price-moon {
@@ -370,25 +381,25 @@ hr {
 }
 
 .info {
-    color: #43484b;
+    color: #020758;
 }
 
 .description {
     width: 690px;
     margin-top: 20px;
     line-height: 30px;
-    color: #81878C;
+    color: #020758;
 
 }
 
 // messaggi
 .messages {
-    border: 4px solid rgb(171, 169, 169);
+    // border: 4px solid rgb(171, 169, 169);
     width: 50%;
     height: 550px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: #e4e3e3;
+    //background-color: #e4e3e3;
 
 
     .price {
@@ -415,13 +426,14 @@ hr {
 .input-invio-mex {
     padding: 22px;
     position: relative;
+    // background-color: #274c77;
 
     i:first-child {
         color: #A62626;
     }
 
     h4 {
-        color: #3c3e40;
+        color: #274c77;
     }
 
     .textInviato {
@@ -437,7 +449,7 @@ hr {
 
         span {
             margin-left: 90%;
-            color: red;
+            //color: red;
 
         }
 
@@ -470,22 +482,22 @@ hr {
     }
 
     button {
-        border: 1px solid gray;
         padding: 5px;
         border-radius: 6px;
         width: 100px;
         margin-left: 37%;
-        border: 3px solid gray;
-        background-color: rgb(205, 204, 204);
+        border: 3px solid #020758;
+        background-color: #e7ecef;
+        color: #274c77;
     }
 }
 
 .dark {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #02053b;
 
     input,
     textarea {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: #020433;
     }
 }
 
@@ -495,13 +507,17 @@ hr {
     margin-right: 8px;
 }
 
+h4 {
+    color: #020758;
+}
 
 .icons-services>.icons>i {
     margin-top: 12px;
+    color: #020758;
 
     span {
         margin-left: 20px;
-        color: #4F5559;
+        color: #274c77;
     }
 }
 
