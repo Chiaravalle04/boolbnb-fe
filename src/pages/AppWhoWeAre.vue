@@ -50,11 +50,11 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card h-100">
-                        <div class="img1"><img src="team_img_bg/Bg_1.png" alt=""></div>
+                        <div class="img1"><img src="team_img_bg/romeo.jpg" alt=""></div>
                         <div class="img2"><img src="team_img_bg/Ludo.jpg" alt=""></div>
                         <div class="card-body">
                             <h4 class="card-title text-center">Ludovico Longhini</h4>
-                            <p class="card-text text-center">Fan dei framework, ha obbligato Nicolas ad usare le classi di Bootstrap. Anche lui mago di Formula 1 o almeno è quello che crede. Molto dolce e carino...ah no, quello è il suo gatto. Chiaro no?</p>
+                            <p class="card-text text-center">Fan dei framework, tanto da obbligare Nicolas ad usare Bootstrap. Pro Player nei più importanti FPS online e anche lui fenomeno sulla SF-23, o almeno è quello che crede. Molto dolce e carino...ah no, quello è il suo gatto. Chiaro no?</p>
                         </div>
                         <div class="card-footer">
                             <div class="socials">
@@ -129,6 +129,7 @@
             border-top-right-radius: 15px;
             border-top-left-radius: 15px;
             width: 100%;
+            object-fit: cover;
         }
         
 
