@@ -354,7 +354,7 @@ main {
 aside {
     width: 35%;
     padding: 20px;
-    // height: calc(100vh - 70px);
+    height: calc(100vh + 60px);
     // height: 100vh;
     position: sticky;
     top: 70px;
