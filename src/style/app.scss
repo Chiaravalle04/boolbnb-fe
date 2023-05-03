@@ -14,3 +14,24 @@ main, footer, .links, .userLog {
   --description-color: #274c77;
   --bg-color: #e7ecef;
 }
+
+// Scroll bar
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: var(--bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: var(--link-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: var(--title-color);
+}
