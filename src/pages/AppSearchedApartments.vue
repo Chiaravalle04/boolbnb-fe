@@ -241,7 +241,7 @@ export default {
 
                     <div class="price">
 
-                        <label for="price">Prezzo</label>
+                        <label for="price">Prezzo massimo</label>
                         <input type="number" id="price" v-model.number="price" min="0" placeholder="€" class="input_number">
 
                     </div>
