@@ -108,7 +108,7 @@
 
 <style lang="scss" scoped>
     main {
-        height: calc(100vh - 140px);
+        min-height: calc(100vh - 140px);
     }
     
     .container {
