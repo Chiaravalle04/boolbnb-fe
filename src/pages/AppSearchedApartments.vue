@@ -354,7 +354,7 @@ main {
 aside {
     width: 35%;
     padding: 20px;
-    height: calc(100vh - 70px);
+    // height: calc(100vh - 70px);
     // height: 100vh;
     position: sticky;
     top: 70px;
@@ -505,15 +505,17 @@ aside {
     }
     .services_container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 20px;
-        label {
-            margin-right: 5px;
-            margin-bottom: 5px;
+        .container_input {
+            width: 50%;
+            label {
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
         }
     }
-
     .filter_apartment_btn {
         display: flex;
         justify-content: center;
