@@ -66,7 +66,7 @@ export default {
 
         a {
           text-decoration: none;
-          color: var(--link);
+          color: var(--link-color);
         }
     }
 
@@ -93,7 +93,9 @@ export default {
     }
 
     .register {
-          color: var(--link-color);
+          color: var(--bg-color);
+          background-color: var(--link-color);
+          padding: 5px;
           text-transform: uppercase;
           margin-left: .5rem;
 
