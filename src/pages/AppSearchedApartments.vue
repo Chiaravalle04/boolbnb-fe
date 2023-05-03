@@ -19,7 +19,7 @@ export default {
             longitude: null,
             services: [],
             types: [],
-            distanceNumber: 10,
+            distanceNumber: 20,
             filterApartments: [],
             apartmentsDistance: [],
             allServices: [],
@@ -321,6 +321,11 @@ export default {
 
             <div class="container_card">
 
+                <div class="text_search_apartmet" v-if="apartmentsDistance.length == 0">
+                    <h3>Cerca la tua struttura ideale</h3>
+                    <img src="../../public/img_search_page.png" alt="">
+                </div>
+
                 <div v-for="index in apartmentsDistance"  class="container_details_card">
                     <div v-if="index.distance <= distanceNumber">
                         <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }">
@@ -540,6 +545,20 @@ aside {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    .text_search_apartmet {
+        width: 100%;
+        height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            color: var(--title-color);
+        }
+        img {
+            width: 30%;
+        }
+    }
     .container_details_card {
         width: calc(100% / 3 - 10px);
         height: 360px;
