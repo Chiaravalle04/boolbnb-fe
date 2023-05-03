@@ -268,7 +268,9 @@ export default {
                     <div class="col h-25 d-flex justify-content-center">
                         <div class="searchBox">
                             <div class="input-group">
-                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search" class="form-control searchBar" placeholder="Inserisci una destinazione" id="address" name="address">
+                                <input v-model="address" @input="saveCoordinate" @keyup="searchAutocomplete" type="search"
+                                    class="form-control searchBar" placeholder="Inserisci una destinazione" id="address"
+                                    name="address">
                                 <a href="searched-apartments" class="iconSearch">
                                     <button class="btn my-btn" type="button">
                                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -299,7 +301,8 @@ export default {
                         disableOnInteraction: false,
                     }" :navigation="false" :modules="modules" class="mySwiper p-4">
                     <swiper-slide v-for="item in sponsoredApartments">
-                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }" class="text-decoration-none h-100">
+                        <router-link :to="{ name: 'app-show-apartments', params: { slug: item.slug } }"
+                            class="text-decoration-none h-100">
                             <div class="mySponsored">
                                 <div class="cardCover">
                                     <img :src="'http://127.0.0.1:8000/storage/' + item.cover" class="w-100 h-100" alt="">
@@ -323,12 +326,13 @@ export default {
             </h1>
             <div class="row row row-cols-2 row-cols-lg-4 g-2 g-lg-3 pt-5">
                 <div class="col" v-for="index in filtredApartment">
-                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }" class="text-decoration-none h-100">
+                    <router-link :to="{ name: 'app-show-apartments', params: { slug: index.slug } }"
+                        class="text-decoration-none h-100">
                         <div class="myCard">
                             <div class="cardCover">
                                 <img :src="'http://127.0.0.1:8000/storage/' + index.cover" class="w-100 h-100" alt="">
                             </div>
-                            <div class="cardInfo">
+                            <div class="cardInfo consigliati">
                                 <h5>{{ index.title }}</h5>
                                 <div>{{ index.address }}</div>
                                 <div>{{ index.price }} €/notte <i class="fa-regular fa-moon"></i></div>
@@ -402,7 +406,7 @@ export default {
 
         &:hover {
             background-color: var(--bg-color);
-            
+
             i {
                 color: var(--link-color);
             }
@@ -427,7 +431,8 @@ export default {
 
 }
 
-.main-title-1, .main-title-2 {
+.main-title-1,
+.main-title-2 {
     color: var(--link-color);
     text-align: center;
     font-weight: bold;
@@ -482,6 +487,7 @@ export default {
     }
 }
 
+
 .myCard {
     box-shadow: 1px 3px 15px -4px rgba(0, 0, 0, 0.15);
     color: var(--link-color);
@@ -500,7 +506,7 @@ export default {
     }
 
     .cardInfo {
-        padding-top: 10px;
+        padding: 10px;
     }
 
     &:hover {
