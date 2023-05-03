@@ -19,12 +19,12 @@ export default {
 <template>
     <footer>
         <div class="container d-flex align-items-center h-100">
-            <div class="row w-100">
-                <div class="col-10">
+            <div class="row justify-content-between w-100">
+                <div class="col-2 text-center">
+                    &copy; 2023 Boolbnb, inc.
+                </div>
+                <div class="col-8">
                     <ul class="d-flex p-0 m-0">
-                        <li>
-                            &copy; 2023 Boolbnb, inc.
-                        </li>
                         <li>
                             <i class="fa-solid fa-angle-right px-3"></i>
                             <a href="https://www.linkedin.com/in/federicofois/" target="_blank">Federico Fois</a>
@@ -51,7 +51,7 @@ export default {
 
                     </ul>
                 </div>
-                <div class="col-2">
+                <div class="col-2 text-center">
                     <ul class="d-flex p-0 m-0 justify-content-end">
                         <li>
                             <i class="fa-solid fa-globe px-1"></i>

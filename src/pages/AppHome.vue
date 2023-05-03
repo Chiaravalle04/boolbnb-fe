@@ -354,6 +354,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('./public/super-jumbo-2.jpg');
+    background-position: center;
     height: 450px;
 
     .mainTitle {
